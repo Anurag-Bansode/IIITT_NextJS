@@ -9,6 +9,7 @@ import MailIcon from "@mui/icons-material/Mail";
 import CallIcon from "@mui/icons-material/Call";
 import Temperature from "./temperature";
 import nextConfig from "../../next.config";
+import ScrollToTop from "./footer/ScrollToTop";
 
 const Footer: React.FC = () => {
     return (
@@ -87,6 +88,7 @@ const Footer: React.FC = () => {
             Dev-IIITT
           </a>
         </div>
+        <ScrollToTop/>
       </footer>
     </div>
     );

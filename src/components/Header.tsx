@@ -5,13 +5,13 @@ const Header: React.FC = () => {
   return (
     <div className="head-banner hidden-sm hidden-xs hidden-md">
       <center>
-        <div className="w-[50%] max-w-[600px] min-w-[200px]">
+        <div className="w-[80%] max-w-[600px] min-w-[200px]">
           <Image 
             src={`${nextConfig.env?.IMAGE}/logo-iiit-new.png`}
             alt="IIITT Logo"
-            width={600} // Set max width
-            height={150} // Fixed height
-            className="w-full h-auto" // Responsive width
+            width={1080} // Set max width
+            height={150} 
+            className="w-full h-auto" 
             priority
           />
         </div>
