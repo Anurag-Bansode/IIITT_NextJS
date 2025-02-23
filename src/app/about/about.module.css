@@ -1,0 +1,128 @@
+/* General Styling */
+.pageContainer {
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+  .parent {
+    width: 100%;
+    padding-left: 0;
+  }
+  
+  .title {
+    color: #2e8b57;
+    padding-bottom: 1.5rem;
+    margin-top: 40px;
+    text-align: center;
+  }
+  
+  /* Main Card */
+  .mainCard {
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    overflow: visible;
+  }
+  
+  /* Text Styling */
+  .description {
+    color: #555;
+    text-align: left;
+    line-height: 2;
+    max-width: 90%;
+    text-align: justify;
+  }
+  
+  .partners {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .partners a {
+    margin-right: 10px;
+    font-weight: bold;
+    color: #0073e6;
+  }
+  
+  .partners a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Mission & Vision */
+  #mission-vision {
+    padding-left: 0;
+  }
+  
+  .sectionTitle {
+    color: #2e8b57;
+  }
+  
+  .text {
+    color: #333;
+    font-size: 1.1rem;
+    line-height: 1.5;
+  }
+  
+  /* Logo Styling */
+  .logoContainer {
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  .logoContainer img {
+    max-width: 200px;
+    height: auto;
+  }
+  
+  /* Responsive Styling */
+  @media only screen and (min-width: 1000px) {
+    .mainCard {
+      max-width: 80%;
+      margin: auto;
+    }
+  
+    .logoContainer img {
+      width: 35% !important;
+    }
+  
+    .parent {
+      padding-left: 35px;
+    }
+  }
+  
+  @media only screen and (max-width: 999px) {
+    .logoContainer img {
+      width: 70% !important;
+    }
+  
+    .parent {
+      padding-left: 5px;
+    }
+  
+    .MuiTypography-h2 {
+      font-size: 3.35rem !important;
+    }
+  }
+  
+  /* GST Certificate */
+  .certificate {
+    margin-top: 20px;
+  }
+  
+  .certificate a {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #0073e6;
+    text-decoration: none;
+  }
+  
+  .certificate a:hover {
+    text-decoration: underline;
+  }
+  

@@ -13,7 +13,7 @@ import {
 import Image from "next/image";
 import nextConfig from "../../../next.config";
 import ArticleIcon from "@mui/icons-material/Article";
-import "./style.css";
+import "./about.module.css";
 
 const About = () => {
   useEffect(() => {
@@ -51,33 +51,43 @@ const About = () => {
             variant="subtitle1"
             sx={{ color: "#555", textAlign: "left", lineHeight: 2 }}
           >
-            Indian Institute of Information Technology Tiruchirappalli (IIITT),
-            also known as IIIT Trichy,is an Institute of National Importance and
-            one among the 21 IIITs proposed under the non-profit Public-Private
-            Partnership (PPP) Model by MHRD. IIIT Tiruchirappalli is an academic
-            and research institute fully funded by Government of India
-            Government of Tamil Nadu,and Industry Partnersin the ratio of
-            50:35:15.
+            <Box fontWeight="bold">
+              Indian Institute of Information Technology Tiruchirappalli
+              (IIITT), also known as IIIT Trichy,is an Institute of National
+              Importance and one among the 21 IIITs proposed under the
+              non-profit Public-Private Partnership (PPP) Model by MHRD. IIIT
+              Tiruchirappalli is an academic and research institute fully funded
+              by Government of India Government of Tamil Nadu, and{" "}
+              <Box fontWeight="bold">Industry Partners</Box> in the ratio of
+              50:35:15
+            </Box>
+            .
+            <br />
             <Box>Industry Partners include:</Box>
             <Link href="https://www.tcs.com/" target="_blank">
               Tata Consultancy Services (TCS)
             </Link>
+            ,
             <Link href="https://www.cognizant.com/" target="_blank">
               {" "}
               Cognizant Technology Solutions (CTS)
             </Link>
+            ,
             <Link href="https://www.infosys.com/" target="_blank">
               {" "}
               Infosys
             </Link>
+            ,
             <Link href="https://www.ramco.com/" target="_blank">
               {" "}
               Ramco Systems
             </Link>
+            ,
             <Link href="https://elcot.in" target="_blank">
               {" "}
               ELCOT
             </Link>
+            ,
             <Link href="https://www.navitaslifesciences.com/" target="_blank">
               {" "}
               Navitas (TAKE Solutions)
@@ -86,7 +96,7 @@ const About = () => {
           <br />
           <Divider />
           <br />
-          <Grid item xs={12} sm={8}>
+          <div className="missionVisionContainer">
             <Card sx={{ height: "100%", boxShadow: "none" }}>
               <CardContent>
                 <Typography variant="h5" sx={{ color: "#2e8b57" }}>
@@ -115,14 +125,15 @@ const About = () => {
                 </Typography>
               </CardContent>
             </Card>
-          </Grid>
+          </div>
           <br />
           <div className="logoContainer">
             <Image
               src={`${nextConfig.env?.IMAGE}/iiitt-logo.png`}
               alt="IIIT Trichy Logo"
-              width={150}
-              height={150}
+              layout="intrinsic"
+              width={200}
+              height={200}
             />
           </div>
           <Typography
