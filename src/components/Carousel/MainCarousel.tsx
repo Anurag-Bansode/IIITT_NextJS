@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // Import carousel styles
 import "./MainCarousel.css"
+import nextConfig from "../../../next.config";
 interface ImageData {
   path: string;
   name: string;
@@ -18,7 +19,7 @@ const MainCarousel: React.FC<CarouselProps> = ({ images }) => {
       {images.map((image, index) => (
         <div key={index}>
           <Image
-            src={`/images/${image.path}`} // Image should be inside the "public/images" folder
+            src={`${nextConfig.env?.IMAGE}/${image.path}`} // Image should be inside the "public/images" folder
             alt={image.name}
             width={1080}
             height={600}

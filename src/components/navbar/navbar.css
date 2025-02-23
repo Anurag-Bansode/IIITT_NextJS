@@ -24,14 +24,6 @@
   justify-content: space-between;
   padding: 0 16px;
 }
-/*Navigation Panel*/
-.navPanel {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
 
 
 .leftNav {
@@ -132,14 +124,6 @@
   width: 250px;
 }
 
-.MuiButton-root,
-.MuiTypography-root,
-.MuiIconButton-root svg,
-.MuiDrawer-paper,
-.MuiListItemText-root,
-.MuiListItemIcon-root svg {
-  color: white !important;
-}
 
 @media screen and (max-width: 768px) {
   .navbar {

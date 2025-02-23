@@ -1,8 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, MouseEvent } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import {
   Menu,
   MenuItem,
@@ -23,17 +22,31 @@ import EventNoteIcon from "@mui/icons-material/EventNote";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import Image from "next/image";
 import { styled } from "@mui/material/styles";
-import "./navbar.css";
 import nextConfig from "../../../next.config";
 
-const StyledHomeIcon = styled(HomeRoundedIcon)(({ theme }) => ({
+// Define types for navbar items
+interface SubMenuItem {
+  text: string;
+  link: string;
+}
+
+interface NavItem {
+  text: string;
+  submenu?: SubMenuItem[];
+}
+
+const StyledHomeIcon = styled(HomeRoundedIcon)({
   color: "white",
   paddingLeft: "10px",
-}));
+});
+
+const StyledButton = styled(Button)({
+  color: "white", 
+});
 
 const Navbar = () => {
-  const [navItems, setNavItems] = useState([]);
-  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [navItems, setNavItems] = useState<NavItem[]>([]);
+  const [drawerOpen, setDrawerOpen] = useState<boolean>(false);
 
   useEffect(() => {
     let isMounted = true;
@@ -48,7 +61,9 @@ const Navbar = () => {
     };
 
     fetchNavItems();
-    return () => { isMounted = false; };
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   return (
@@ -56,34 +71,48 @@ const Navbar = () => {
       {/* Mobile Navbar */}
       <div id="mobile_navbar" className="MuiAppBar-root MuiToolbar-regular">
         <IconButton color="inherit" aria-label="menu" onClick={() => setDrawerOpen(true)}>
-          <MenuIcon />
+          <MenuIcon sx={{ color: "white" }} />
         </IconButton>
         <div id="quick_nav" style={{ display: "flex", gap: "10px" }}>
-          <Link href="/#announcements_marquee"><NotificationsIcon /></Link>
-          <Link href="/#news_event_notice"><EventNoteIcon /></Link>
-          <Link href="/#twitter_timeline"><TwitterIcon /></Link>
+          <Link href="/#announcements_marquee">
+            <NotificationsIcon sx={{ color: "white" }} />
+          </Link>
+          <Link href="/#news_event_notice">
+            <EventNoteIcon sx={{ color: "white" }} />
+          </Link>
+          <Link href="/#twitter_timeline">
+            <TwitterIcon sx={{ color: "white" }} />
+          </Link>
         </div>
       </div>
-      
+
       {/* Desktop Navbar */}
       <div id="desktop_menu" className="MuiAppBar-root MuiToolbar-regular">
-        <Link href="/" id="home_button"><StyledHomeIcon /></Link>
-        <div className="navPanel" style={{ display: "flex", gap: "20px" }}>
+        <div style={{ display: "flex", gap: "20px" , minHeight:"64px" }}>
+        <Link href="/" id="home_button">
+          <StyledHomeIcon />
+        </Link>
           {navItems.map((menuItem, index) => (
             <DropdownMenu key={index} menu={menuItem} />
           ))}
         </div>
       </div>
-      
+
       {/* Sidebar Drawer */}
       <Drawer anchor="left" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
         <List>
           <ListItem>
             <ListItemIcon>
-              <Image src={`${nextConfig.env?.IMAGE}/iiitt-logo.png`} alt="IIITT Logo" priority width={40} height={80}/>
+              <Image
+                src={`${nextConfig.env?.IMAGE}/iiitt-logo.png`}
+                alt="IIITT Logo"
+                priority
+                width={40}
+                height={80}
+              />
             </ListItemIcon>
             <ListItemText>
-              <Typography variant="h6">IIITT</Typography>
+              <Typography variant="h6" sx={{ color: "Black" }}>IIITT</Typography>
             </ListItemText>
           </ListItem>
         </List>
@@ -98,16 +127,27 @@ const Navbar = () => {
   );
 };
 
-const DropdownMenu = ({ menu }) => {
-  const [anchorEl, setAnchorEl] = useState(null);
-  
+// Dropdown Menu Component with TypeScript
+const DropdownMenu: React.FC<{ menu: NavItem }> = ({ menu }) => {
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+
+  const handleOpen = (event: MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
   return (
     <div>
-      <Button onClick={(event) => setAnchorEl(event.currentTarget)}>{menu.text}</Button>
-      <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={() => setAnchorEl(null)}>
+      <StyledButton onClick={handleOpen}>{menu.text}</StyledButton>
+      <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleClose}>
         {menu.submenu?.map((item, index) => (
-          <MenuItem key={index} onClick={() => setAnchorEl(null)}>
-            <Link href={item.link}>{item.text}</Link>
+          <MenuItem key={index} onClick={handleClose}>
+            <Link href={item.link} style={{ color: "Black", textDecoration: "none" }}>
+              {item.text}
+            </Link>
           </MenuItem>
         ))}
       </Menu>
