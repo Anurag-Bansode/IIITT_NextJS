@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import Time from "./time";
 import SchoolTwoToneIcon from "@mui/icons-material/SchoolTwoTone";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import nextConfig from "../../next.config";
+import nextConfig from "../../../next.config";
 const Temperature = () => {
   const apiKey = `https://api.openweathermap.org/data/2.5/weather?q=tiruchirapalli,india&units=metric&appid=${nextConfig.env.OPEN_API_WEATHER}`;
   const [weatherDescription, setweatherDescription] = useState("");

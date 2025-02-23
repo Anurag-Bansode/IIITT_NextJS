@@ -1,15 +1,15 @@
 import React from "react";
 import Image from "next/image";
 import Icon from "@mui/icons-material/FavoriteBorder"
-import "../../public/css/style.css";
+import "../../../public/css/style.css"
 import TwitterIcon from "@mui/icons-material/Twitter";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import MailIcon from "@mui/icons-material/Mail";
 import CallIcon from "@mui/icons-material/Call";
 import Temperature from "./temperature";
-import nextConfig from "../../next.config";
-import ScrollToTop from "./footer/ScrollToTop";
+import nextConfig from "../../../next.config";
+import ScrollToTop from "./ScrollToTop";
 
 const Footer: React.FC = () => {
     return (
