@@ -2,7 +2,6 @@
 
 import { useEffect } from "react";
 import Paper from "@mui/material/Paper";
-
 const TwitterTimeline = () => {
   useEffect(() => {
     if (typeof window !== "undefined") {

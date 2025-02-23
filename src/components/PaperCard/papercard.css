@@ -44,7 +44,7 @@
     padding-left: 10px;
   }
   .Achievements{
-    list-style: url(../../images/achivements.svg);
+    list-style: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/svgs/solid/trophy.svg");
     list-style-position: inside;
     padding-left: 10px;
     border-top: 1px solid rgba(15,70,100,.12);
