@@ -1,29 +1,40 @@
 {
   "data": [
     {
-      "name": "Dr.V. Irai Anbu, I.A.S.",
-      "designation": "Chief Secretary to Govt. of Tamil Nadu & Chairperson,  Board of Governors, IIIT Tiruchirappalli",
+      "s_no": 1,
+      "name": "Shri. Anil Kumble",
+      "designation": "Former Chairman (Cricket Committee), ICC",
       "role": "Chairperson"
     },
     {
-      "name": "Dr. N. V. S. N. Sarma",
-      "designation": "Director,IIIT Tiruchirappalli",
+      "s_no": 2,
+      "name": "Shri. Anil Kumar",
+      "designation": "Director (Finance), Ministry of Education, New Delhi",
       "role": "Member"
     },
     {
-      "name": "Smt. Darshana M Dabral, I.A.S",
-      "designation": "Joint Secretary Finance Department MHRD, GOI",
+      "s_no": 3,
+      "name": "Shri. A. Karthik I.A.S",
+      "designation": "Principal Secretary, Higher Education Department, Government of Tamil Nadu, Secretariat, Chennai – 600 009",
       "role": "Member"
     },
     {
-      "name": "Shri. D. Karthikeyan I.A.S",
-      "designation": "Principal Secretary to Government, Higher Education Department, Tamil Nadu",
+      "s_no": 4,
+      "name": "Shri. Ravi Kula Chandran",
+      "designation": "Chief Financial Officer, Ramco Systems, Chennai, Tamil Nadu",
       "role": "Member"
     },
     {
-      "name": "Shri. Lakshminarayanan",
-      "designation": "Senior General Manager, Finance, Tata Consultancy Service",
-      "role": "Member"
+      "s_no": 5,
+      "name": "Prof. Usha Natesan",
+      "designation": "Director In-charge, IIIT Tiruchirappalli, Sethurapatti, Tiruchirappalli-12",
+      "role": "Director"
+    },
+    {
+      "s_no": 6,
+      "name": "Prof. G. Seetharaman",
+      "designation": "Registrar (i/c), IIIT, Tiruchirappalli",
+      "role": "Ex-officio Member"
     }
   ]
 }

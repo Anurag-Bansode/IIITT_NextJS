@@ -14,35 +14,36 @@ import {
 import FeedIcon from "@mui/icons-material/Feed";
 import styles from "../senate/senate.module.css";
 
-interface BoardMember {
+interface BWCMember {
   name: string;
   designation: string;
   role: string;
 }
 
-interface SenateMeeting {
+interface BWCMeeting {
   title: string;
   description: string;
   url: string;
 }
 
-export default function bog() {
-  const [senate, setSenate] = useState<BoardMember[] | null>(null);
-  const [senateMeeting, setSenateMeeting] = useState<SenateMeeting[] | null>(
+export default function bwc() {
+  const [senate, setSenate] = useState<BWCMember[] | null>(null);
+  const [senateMeeting, setSenateMeeting] = useState<BWCMeeting[] | null>(
     null
   );
 
   const fetchSenateData = useCallback(async () => {
     try {
-      const senateResponse = await fetch("/json/bog.json");
+      const senateResponse = await fetch("/json/bwc.json");
       const senateJson = await senateResponse.json();
       setSenate(senateJson.data);
 
-      const meetingResponse = await fetch("/json/bogMeeting.json");
+      const meetingResponse = await fetch("/json/bwcMeeting.json");
       const meetingJson: Record<string, { description: string; url: string }> =
         await meetingResponse.json();
 
-      const meetingsArray: SenateMeeting[] = Object.entries(meetingJson).map(
+
+      const meetingsArray: BWCMeeting[] = Object.entries(meetingJson).map(
         ([title, details]) => ({
           title,
           description: details.description,
@@ -57,7 +58,7 @@ export default function bog() {
   }, []);
 
   useEffect(() => {
-    document.title = "Senate";
+    document.title = "Finance Committee | IIITT";
     fetchSenateData();
 
     return () => {
@@ -68,12 +69,11 @@ export default function bog() {
   return (
     <div className={styles.pageContainer}>
       <Typography variant="h2" className={styles.themeText}>
-      Board of Governors (BoG) 
+        Building and Works Committee
       </Typography>
 
-      {/* Senate Members Table */}  
       <Typography variant="h3" className={styles.title}>
-        Members of Board of Governors (BoG) 
+        Members of B&WC
       </Typography>
       {senate && (
         <TableContainer component={Paper} className={styles.table}>
@@ -106,7 +106,7 @@ export default function bog() {
 
       {/* Senate Meeting Minutes (Aligned with Table) */}
       <Typography variant="h3" className={styles.title} sx={{ mt: 4 }}>
-      BoG Meeting
+        B&WC Meeting Minutes
       </Typography>
       {senateMeeting && (
         <TableContainer component={Paper} className={styles.table}>
