@@ -42,6 +42,7 @@ export default function bog() {
       const meetingJson: Record<string, { description: string; url: string }> =
         await meetingResponse.json();
 
+      // Convert JSON object to an array of SenateMeeting
       const meetingsArray: SenateMeeting[] = Object.entries(meetingJson).map(
         ([title, details]) => ({
           title,
@@ -106,7 +107,7 @@ export default function bog() {
 
       {/* Senate Meeting Minutes (Aligned with Table) */}
       <Typography variant="h3" className={styles.title} sx={{ mt: 4 }}>
-      BoG Meeting
+        Senate Minutes
       </Typography>
       {senateMeeting && (
         <TableContainer component={Paper} className={styles.table}>

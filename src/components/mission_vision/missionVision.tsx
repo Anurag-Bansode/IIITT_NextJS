@@ -35,12 +35,26 @@ const MissionVision = () => {
           <Typography color="textSecondary" id="mission">
             • To impart Information Technology education to students and future leaders.
             <br />
-            <br />
             • To establish Centers of Excellence in Information Technology.
-            <br />
             <br />
             • To engage in cutting-edge technology research to meet the current needs and future challenges of India and the world at large.
           </Typography>
+          <br/>
+          <Typography variant="h5" component="h1" sx={{ color: "#2e8b57",mt:2 }}>
+            Explore
+          </Typography>
+          <Divider/>
+
+          <Link href="https://iiitt.ac.in/video_tour" passHref legacyBehavior>
+          <Typography color="textSecondary" id="mission" component="a" target="_blank" rel="noopener noreferrer">
+          Virtual Tour of IIITT 
+          </Typography>
+          </Link>
+          <Link  href="https://www.youtube.com/watch?v=KCrvIJOxigY" passHref legacyBehavior>
+          <Typography color="textSecondary" id="vision" sx={{ mt: 1}}  component="a" target="_blank" rel="noopener noreferrer">
+          Video Virtual Tour of IIITT
+          </Typography>
+          </Link>
         </CardContent>
         <CardActions id="learn_more">
           <Link href="/about" passHref>
