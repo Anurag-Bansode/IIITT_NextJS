@@ -37,8 +37,20 @@
           "link": "/rti"
         },
         {
+          "text": "PIO",
+          "link": "/public-information-officer"
+        },
+        {
+          "text": "ICC",
+          "link": "/internal-committee"
+        },
+        {
           "text": "Industry Partners",
           "link": "/partners"
+        },
+        {
+          "text": "Administrative Forms",
+          "link": "/administrative-forms"
         }
       ]
     },
