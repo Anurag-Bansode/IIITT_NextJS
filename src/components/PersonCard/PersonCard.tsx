@@ -50,7 +50,7 @@ const PersonCard: React.FC<PersonCardProps> = ({
 
         <div className={styles.circleImg}>
           <Image
-            src={`${nextConfig.env?.IMAGE}/faculty/${src}`}
+            src={`${nextConfig.env?.IMAGE}${src}`}
             alt={name}
             width={115}
             height={115}
@@ -61,41 +61,52 @@ const PersonCard: React.FC<PersonCardProps> = ({
       </div>
 
       <div className={styles.bottom}>
-        {researchArea && <p className={styles.researchArea}><strong>Research:</strong> {researchArea}</p>}
+{researchArea && researchArea.trim() && (
+  <p className={styles.researchArea}>
+    <strong>Research:</strong> {researchArea}
+  </p>
+)}
 
-        {Incharge && <p className={styles.incharge}><strong>Incharge:</strong> {Incharge}</p>}
+{Incharge && Incharge.trim() && (
+  <p className={styles.incharge}>
+    <strong>Incharge:</strong> {Incharge}
+  </p>
+)}
 
-            
-        <div className={styles.infoDiv}>
-          <SchoolIcon className={styles.infoIcon} />
-            {Institute}
-           
-        </div>
+{Institute && (
+  <div className={styles.infoDiv}>
+    <SchoolIcon className={styles.infoIcon} />
+    {Institute}
+  </div>
+)}
 
-        <div className={styles.infoDiv}>
-          <MailIcon className={styles.infoIcon} />
-          <a href={`mailto:${emailID}`} className={styles.info}>
-            {emailID}
-          </a>
-        </div>
+{emailID && emailID.trim() && (
+  <div className={styles.infoDiv}>
+    <MailIcon className={styles.infoIcon} />
+    <a href={`mailto:${emailID}`} className={styles.info}>
+      {emailID}
+    </a>
+  </div>
+)}
 
-        {phone && (
-          <div className={styles.infoDiv}>
-            <LocalPhoneIcon className={styles.infoIcon} />
-            <a href={`tel:${phone}`} className={styles.phone}>
-              {phone}
-            </a>
-          </div>
-        )}
+{phone && phone.trim() && (
+  <div className={styles.infoDiv}>
+    <LocalPhoneIcon className={styles.infoIcon} />
+    <a href={`tel:${phone}`} className={styles.phone}>
+      {phone}
+    </a>
+  </div>
+)}
 
-        {VidhwanLink && VidhwanLink.trim() !== "" && (
-          <div className={styles.infoDiv}>
-            <OpenInNewIcon className={styles.infoIcon} />
-            <a href={VidhwanLink} target="_blank" rel="noopener noreferrer" className={styles.info}>
-              Vidwan Profile
-            </a>
-          </div>
-        )}
+{VidhwanLink && VidhwanLink.trim() && (
+  <div className={styles.infoDiv}>
+    <OpenInNewIcon className={styles.infoIcon} />
+    <a href={VidhwanLink} target="_blank" rel="noopener noreferrer" className={styles.info}>
+      Vidwan Profile
+    </a>
+  </div>
+)}
+
       </div>
     </div>
   );

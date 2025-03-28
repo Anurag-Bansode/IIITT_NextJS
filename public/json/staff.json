@@ -1,48 +1,33 @@
 {
-    "registrar": [
-      {
-        "head" : "Deputy Registrar",
-        "name": "Shri. Biju Mathew",
-        "designation": "Deputy Registrar",
-        "emailID": "dr@iiitt.ac.in",
-        "src": "bijumathew.jpg",
-        "phone":"9401144440"
-      }
-    ],
     "officestaff": [
       {
+        "id": {
+          "dept": "officestaff",
+          "deptID": "1"
+        },
         "name": "Mrs. M. Saraswathy",
         "designation": "Administrative Assistant",
-        "emailID": "--",
-        "src": "staff_1.jpg",
+        "src": "/admin/saraswathy.jpg",
         "phone":""
       },
       {
+        "id": {
+          "dept": "officestaff",
+          "deptID": "2"
+        },
         "name": "Mr. R. Kannan",
         "designation": "Administrative Assistant",
-        "emailID": "--",
-        "src": "staff_2.jpg",
+        "src":"/admin/kannan.jpg",
         "phone":""
       },
       {
-        "name": "Mr. S. Christu Raj",
-        "designation": "Administrative Assistant",
-        "emailID": "--",
-        "src": "staff_3.jpg",
-        "phone":""
-      },
-      {
-        "name": "Mr. M. Balamurugan",
-        "designation": "Site Engineer",
-        "emailID": "--",
-        "src": "staff_4.jpg",
-        "phone":""
-      },
-      {
+        "id": {
+          "dept": "officestaff",
+          "deptID": "2"
+        },
         "name": "Mr. V. Logeswaran",
         "designation": "Multi-Tasking Staff",
-        "emailID": "--",
-        "src": "staff_5.jpg",
+        "src": "/admin/lokesh.jpg",
         "phone":""
       }
     ]

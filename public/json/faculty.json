@@ -9,7 +9,7 @@
       "designation": "Associate Professor",
       "researchArea": "Computer Networks, Combinatorial Optimization Techniques, Data Analytics",
       "emailID": "dhanalakshmir@iiitt.ac.in",
-      "src": "Dhanalakshmi_cropped.jpg",
+      "src": "/faculty/Dhanalakshmi_cropped.jpg",
       "Incharge": "",
       "Institute": " Ph.D. (Jawaharlal Nehru Technological University Hyderabad)",
       "VidhwanLink": "https://vidwan.inflibnet.ac.in/profile/101692"
@@ -23,7 +23,7 @@
       "designation": "Assistant Professor",
       "researchArea": "Information Security, Group Key Management, Secure Group Communication, Artificial Intelligence, Data Science, Remote Sensing & Geographic Information System(GIS), Digital Agriculture, Cognitive Radio Networks ",
       "emailID": "renugadevin@iiitt.ac.in",
-      "src": "Renuga.jpg",
+      "src": "/faculty/Renuga.jpg",
       "Incharge": "Exam Cell, Alumni Association",
       "Institute": " Ph.D. CSE (NIT Tiruchirappalli)",
       "VidhwanLink": "https://vidwan.inflibnet.ac.in/profile/194473"
@@ -40,7 +40,7 @@
       "VidhwanLink": "https://vidwan.inflibnet.ac.in/profile/194480",
       "researchArea": "Image Processing, Deep Learning and Machine  Learning, Video Processing, ",
       "emailID": "devasenag@iiitt.ac.in",
-      "src": "Devasena.jpg"
+      "src": "/faculty/Devasena.jpg"
     },
     {
       "id": {
@@ -51,7 +51,7 @@
       "designation": "Assistant Professor",
       "researchArea": "Medical Image Processing, Neuroimage Processing, Image Processing, Algorithms",
       "emailID": "anoopjt@iiitt.ac.in",
-      "src": "AnoopJacobThomas.jpg",
+      "src": "/faculty/AnoopJacobThomas.jpg",
       "Incharge": "Training and Placement, AISHE portal, NSP portal, Digilocker",
       "Institute": "Ph.D. CSE (IIT Ropar)",
       "VidhwanLink": "https://vidwan.inflibnet.ac.in/profile/194478"
@@ -65,7 +65,7 @@
       "designation": "Assistant Professor",
       "researchArea": "  Computer vision, Deep Learning, Autonomous Driving, Augmented reality/Virtual Reality, Federated Learning, Full stack development.",
       "emailID": "sugirthat@iiitt.ac.in",
-      "src": "Sugirtha.jpg",
+      "src": "/faculty/Sugirtha.jpg",
       "Incharge": "Girls Hostel Warden, Institute Mess",
       "Institute": "Ph.D. CSE (NIT Tiruchirappalli)",
       "VidhwanLink": ""
@@ -79,7 +79,7 @@
       "designation": "Assistant Professor",
       "researchArea": "  AI, ML & DL, Recommendation System, Fuzzy Logic, Decision Support System, NLP, Precision Agriculture",
       "emailID": "ambikam@iiitt.ac.in",
-      "src": "AmbikaM.jpg",
+      "src": "/faculty/AmbikaM.jpg",
       "Incharge": "Admission (UG & PG),Gem & CPP, Insurance, Purchase, 6th Convocation,Aikyam Magazine",
       "Institute": "Ph.D. (Anna University Chennai)",
       "VidhwanLink": "https://vidwan.inflibnet.ac.in/profile/588225"
@@ -93,7 +93,7 @@
       "designation": "Assistant Professor",
       "researchArea": "Hardware Security, Information Security, Blockchain Technology, IoT Edge Computing, Computer Architecture",
       "emailID": "kokilaj@iiitt.ac.in",
-      "src": "KokilaJ.jpg",
+      "src": "/faculty/KokilaJ.jpg",
       "Incharge": "Admission (UG & PG),Gem & CPP, Insurance, Purchase, 6th Convocation,Aikyam Magazine",
       "Institute": "Ph.D. CSE (NIT Tiruchirappalli) under Visvesvaraya Phd Scheme",
       "VidhwanLink": "https://vidwan.inflibnet.ac.in/profile/212555"
@@ -109,7 +109,7 @@
       "designation": "Professor",
       "researchArea": "ASIC & FPGA Based Design",
       "emailID": "gsraman@iiitt.ac.in",
-      "src": "Seetharaman.jpg",
+      "src": "/faculty/Seetharaman.jpg",
       "Incharge": "Registrar, Admission (UG & PG)-Chairman",
       "Institute": "Ph.D. CSE (NIT Tiruchirappalli) ",
       "VidhwanLink": "https://vidwan.inflibnet.ac.in/profile/194472"
@@ -123,7 +123,7 @@
       "designation": "Assistant Professor",
       "researchArea": " RF and Microwave Engineering, Optical Communication",
       "emailID": "krishnamurthyr@iiitt.ac.in",
-      "src": "Krishnamurthy.jpg",
+      "src": "/faculty/Krishnamurthy.jpg",
       "Incharge": "Alhad and Atrang",
       "Institute": "Ph.D. ECE ( IISc. Bangalore) ",
       "VidhwanLink": "https://vidwan.inflibnet.ac.in/profile/562856"
@@ -137,7 +137,7 @@
       "designation": "Assistant Professor",
       "researchArea": " RF and Microwave Engineering, Optical Communication",
       "emailID": "ravib@iiitt.ac.in",
-      "src": "raviB_2024.jpeg",
+      "src": "/faculty/raviB_2024.jpeg",
       "Incharge": "Wireless Networks, Machine learning for Wireless communications, 5G/6G Intelligent Networks, Communication Networks, Vehicular Communications, Software Defined Networks.",
       "Institute": "Ph.D. ECE (IIT Dhanbad)",
       "VidhwanLink": "https://vidwan.inflibnet.ac.in/profile/562773"
@@ -151,7 +151,7 @@
       "designation": "Assistant Professor",
       "researchArea": " VLSI; Phase change memory devices; Device simulations; Novel devices; Radiation–tolerant, non–volatile emerging memory devices",
       "emailID": "sureshd@iiitt.ac.in",
-      "src": "SureshD.jpg",
+      "src": "/faculty/SureshD.jpg",
       "Incharge": "Sports & Gym (Out Door), NSS, Curricular and Extra-Curricular Activities",
       "Institute": "Ph.D. ECE (IIT Indore),   Post-doc. (IIT Madras)",
       "VidhwanLink": ""
@@ -165,7 +165,7 @@
       "designation": "Assistant Professor",
       "researchArea": "Antenna design and Measurements: Microstrip Antennas, Monopole Antennas, Reconfigurable Antennas, MIMO Antennas, WBAN Antennas; Microwave components and circuits.",
       "emailID": "sureshd@iiitt.ac.in",
-      "src": "PadmathilagamS.jpg",
+      "src": "/faculty/PadmathilagamS.jpg",
       "Incharge": "Institute Library",
       "Institute": "Ph.D. ECE (CEG Campus, Anna University Chennai.)",
       "VidhwanLink": "https://vidwan.inflibnet.ac.in/profile/589595"
@@ -179,7 +179,7 @@
       "designation": "Assistant Professor",
       "researchArea": " Antennas, Antenna Arrays, Metamaterials, Frequency Selective Surfaces, Shared Apertures, Microwave Components",
       "emailID": "harishadhithyam@iiitt.ac.in",
-      "src": "HarishAdhithyaM.JPG",
+      "src": "/faculty/HarishAdhithyaM.JPG",
       "Incharge": "NIRF Member, Campus Maintenance, Clubs - IoT and Robotics, Computer Networking and Security, Fine Arts, C, Yoga, Literary and Debating, Photography",
       "Institute": "Ph.D. ECE (NIT Tiruchirappalli)",
       "VidhwanLink": "https://vidwan.inflibnet.ac.in/profile/588971"
@@ -195,7 +195,7 @@
       "designation": "Assistant Professor , Head of the Department",
       "researchArea": " Additive Manufacturing, Modelling and Simulation, Smart Materials, Shape Memory Alloys, Energy Storage Materials and Device, Battery- materials and performance.",
       "emailID": "velmuruganc@iiitt.ac.in",
-      "src": "VELMURUGANC.jpg",
+      "src": "/faculty/VELMURUGANC.jpg",
       "Incharge": "BWC, BoG Member, Assistant Registrar Accounts, Outsourcing Agency",
       "Institute": "Ph.D. MEC. Eng. (NIT Tiruchirappalli)",
       "VidhwanLink": "https://vidwan.inflibnet.ac.in/profile/194479"
@@ -211,7 +211,7 @@
       "designation": "Assistant Professor",
       "researchArea": "Computational Fluid Dynamics",
       "emailID": "jagadeeshwarp@iiitt.ac.in",
-      "src": "JagdishP.jpg",
+      "src": "/faculty/JagdishP.jpg",
       "Incharge": " Liaison Officer of OBC, ARC, ICC Member",
       "Institute": "Ph.D. (NIT Warangal )",
       "VidhwanLink": "https://iiitt.irins.org/profile/194477"
@@ -227,7 +227,7 @@
       "designation": "Assistant Professor , Head of the Department",
       "researchArea": "Photonics and Optoelectronic Devices",
       "emailID": "kamakshi@iiitt.ac.in",
-      "src": "Kamakshi1.jpeg",
+      "src": "/faculty/Kamakshi1.jpeg",
       "Incharge": "Academic and Research",
       "Institute": "Ph.D. (IIT Roorkee) Post-doc. (University of Minho Portugal)",
       "VidhwanLink": "https://vidwan.inflibnet.ac.in/profile/194482"
@@ -243,7 +243,7 @@
       "designation": "Assistant Professor",
       "researchArea": "Applied Linguistics, English Language Teaching",
       "emailID": "sindhuv@iiitt.ac.in",
-      "src": "Sindhu.jpg",
+      "src": "/faculty/Sindhu.jpg",
       "Incharge": "Assistant Registrar, Aikyam - Multi-lingual Student Magazine, Annual Report – Preparation & Printing, Ministry Reply",
       "Institute": "Ph.D. (CEG Campus, Anna University Chennai.)",
       "VidhwanLink": "https://vidwan.inflibnet.ac.in/profile/194483"
