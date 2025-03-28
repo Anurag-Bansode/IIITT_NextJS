@@ -1,8 +1,7 @@
 "use client"; 
 
 import { useEffect, useState } from "react";
-import { Card, CardContent, Divider, Link } from "@mui/material";
-import Loader from "@/components/sub_component_loader/sub_component_loader";
+import { Card, CardContent, CircularProgress, Divider, Link } from "@mui/material";
 import "./marquee.css";
 
 interface Announcement {
@@ -43,7 +42,7 @@ const Marquee = ({ src = "announcements.json" }: { src?: string }) => {
               ))}
             </ul>
           ) : (
-            <Loader />
+            <CircularProgress />
           )}
         </div>
       </CardContent>

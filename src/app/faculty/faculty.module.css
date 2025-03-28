@@ -1,0 +1,63 @@
+.grp {
+    color: #2e8b57;
+  }
+  .pageContainer {
+    padding: 2rem;
+  }
+  
+  .loading,
+  .error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-size: 1.5rem;
+    color: red;
+  }
+  
+  .facultyContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  .groupTitle {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #2e8b57;
+    margin-bottom: 1rem;
+  }
+  
+  /* CSS Grid for Faculty Cards */
+  .gridContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 1.5rem; /* Space between cards */
+    width: 100%;
+    max-width: 1200px;
+    justify-content: center;
+  }
+  
+  .gridItem {
+    display: flex;
+    justify-content: center;
+  }
+  
+  /* Faculty Rule Book */
+  .boldText {
+    font-weight: bold;
+  }
+  
+  .downloadLink {
+    color: #2e8b57;
+    font-size: 1.2rem;
+    text-decoration: none;
+  }
+  
+  .downloadLink:hover {
+    text-decoration: underline;
+    color: #256f46;
+  }
+  

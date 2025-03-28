@@ -10,7 +10,7 @@ interface Item {
 
 interface OutlinedCardProps {
   title: string;
-  items: Item[];
+  items: Item[]|undefined;
   linkToOlder: string;
 }
 
@@ -47,7 +47,7 @@ const OutlinedCard: React.FC<OutlinedCardProps> = ({ title, items, linkToOlder }
 
 interface PaperCardProps {
   title: string;
-  items: Item[];
+  items: Item[]|undefined;
   linkToOlder: string;
 }
 
