@@ -10,25 +10,38 @@ import {
   Typography,
   Paper,
   Button,
+  CircularProgress,
 } from "@mui/material";
 import DownloadIcon from "@mui/icons-material/Download";
 import styles from "../senate/senate.module.css";
+import nextConfig from "../../../next.config";
 
 interface FormData {
   title: string;
   link: string;
 }
 
+const FILE_BASE_URL = process.env.NEXT_PUBLIC_FILE_BASE_URL || "";
+
 export default function AdministrativeForms() {
   const [forms, setForms] = useState<FormData[] | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
 
   const fetchFormsData = useCallback(async () => {
     try {
       const response = await fetch("/json/administrativeForms.json");
       const data = await response.json();
+
+      if (!Array.isArray(data)) {
+        throw new Error("Invalid JSON format. Expected an array.");
+      }
+
       setForms(data);
     } catch (error) {
       console.error("Error fetching form data:", error);
+      setForms([]);
+    } finally {
+      setLoading(false);
     }
   }, []);
 
@@ -46,7 +59,9 @@ export default function AdministrativeForms() {
         Administrative Forms
       </Typography>
 
-      {forms && (
+      {loading ? (
+        <CircularProgress />
+      ) : forms && forms.length > 0 ? (
         <TableContainer component={Paper} className={styles.table}>
           <Table>
             <TableHead>
@@ -57,26 +72,33 @@ export default function AdministrativeForms() {
               </TableRow>
             </TableHead>
             <TableBody>
-              {forms.map((form, index) => (
-                <TableRow key={index} className={styles.tableRow}>
-                  <TableCell className={styles.tableCell}>{index + 1}</TableCell>
-                  <TableCell className={styles.tableCell}>{form.title}</TableCell>
-                  <TableCell className={styles.tableCell}>
-                    <Button
-                      variant="contained"
-                      color="primary"
-                      startIcon={<DownloadIcon />}
-                      href={form.link}
-                      download
-                    >
-                      Download
-                    </Button>
-                  </TableCell>
-                </TableRow>
-              ))}
+              {forms.map((form, index) => {
+                const fileUrl = `${nextConfig.env?.DOCUMENT}/${form.link}`;
+                return (
+                  <TableRow key={index} className={styles.tableRow}>
+                    <TableCell className={styles.tableCell}>{index + 1}</TableCell>
+                    <TableCell className={styles.tableCell}>{form.title}</TableCell>
+                    <TableCell className={styles.tableCell}>
+                      <Button
+                        variant="contained"
+                        color="primary"
+                        startIcon={<DownloadIcon />}
+                        href={fileUrl}
+                        download
+                      >
+                        Download
+                      </Button>
+                    </TableCell>
+                  </TableRow>
+                );
+              })}
             </TableBody>
           </Table>
         </TableContainer>
+      ) : (
+        <Typography variant="body1" color="error">
+          No forms available.
+        </Typography>
       )}
     </div>
   );
