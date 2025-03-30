@@ -48,7 +48,7 @@ const Faculty = () => {
   }, []);
 
   return (
-    <div className={styles.pageContainer}>
+    <div >
       <Head>
         <title>Faculty</title>
       </Head>

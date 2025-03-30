@@ -159,7 +159,8 @@ const Home: React.FC = () => {
 
           {/* Twitter Timeline Section */}
           <Paper elevation={3} className="twittertimeline" id="twitter_timeline">
-            <TwitterTimeline/>
+            
+            Twitter Data 
           </Paper>
         </div>
       </div>

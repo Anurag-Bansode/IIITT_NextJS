@@ -38,7 +38,7 @@ const TwitterTimeline = () => {
   }, []);
 
   return (
-    <Paper elevation={3} className="twittertimeline" id="twitter_timeline" style={{ minHeight: "680px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+    <Paper elevation={3} className="twittertimeline" id="twitter_timeline" style={{ width:"auto", minHeight: "680px", display: "flex", alignItems: "center", justifyContent: "center" }}>
       {loading ? (
         <CircularProgress />
       ) : (

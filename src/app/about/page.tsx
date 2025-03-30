@@ -26,7 +26,7 @@ const About = () => {
   const bull = <span>•</span>;
 
   return (
-    <div className="pageContainer">
+    <div>
       <div className="parent">
         <Typography
           variant="h2"

@@ -54,7 +54,7 @@ export default function AdministrativeForms() {
   }, [fetchFormsData]);
 
   return (
-    <div className={styles.pageContainer}>
+    <div>
       <Typography variant="h2" className={styles.themeText}>
         Administrative Forms
       </Typography>
