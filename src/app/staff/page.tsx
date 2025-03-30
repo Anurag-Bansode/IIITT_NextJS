@@ -28,7 +28,7 @@ const Faculty = () => {
   useEffect(() => {
     const fetchFacultyData = async () => {
       try {
-        const response = await fetch("/json/staff.json");
+        const response = await fetch("/json/faculty/staff.json");
         if (!response.ok) throw new Error("Failed to fetch staff data");
 
         const data = await response.json();

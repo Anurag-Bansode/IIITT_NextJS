@@ -26,7 +26,7 @@ export default function partners() {
   useEffect(() => {
     const fetchPartners = async () => {
       try {
-        const response = await fetch("/json/industryPartners.json");
+        const response = await fetch("/json/genearal/industry_partners.json");
         const data = await response.json();
         setPartners(data.partners);
       } catch (error) {

@@ -9,7 +9,7 @@ interface Announcement {
   link: string;
 }
 
-const Marquee = ({ src = "announcements.json" }: { src?: string }) => {
+const Marquee = ({ src = "/general/announcements.json" }: { src?: string }) => {
   const [announcements, setAnnouncements] = useState<Announcement[] | undefined>();
 
   useEffect(() => {

@@ -23,8 +23,8 @@ export const useCommitteeData = (committee: string) => {
     setLoading(true);
     try {
       const [membersResponse, meetingsResponse] = await Promise.allSettled([
-        fetch(`/json/${committee}.json`),
-        fetch(`/json/${committee}Meeting.json`),
+        fetch(`/json/committee/members/${committee}.json`),
+        fetch(`/json/committee/meetings/${committee}_meeting.json`),
       ]);
 
       if (membersResponse.status === "fulfilled") {

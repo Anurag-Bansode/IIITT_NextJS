@@ -52,7 +52,7 @@ const Navbar = () => {
     let isMounted = true;
     const fetchNavItems = async () => {
       try {
-        const res = await fetch("/json/navbar_data.json");
+        const res = await fetch("/json/navigation/navbar_data.json");
         const data = await res.json();
         if (isMounted) setNavItems(data.data);
       } catch (error) {

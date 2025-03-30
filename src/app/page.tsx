@@ -15,7 +15,7 @@ import {
   CircularProgress,
 } from "@mui/material";
 import TwitterTimeline from "@/components/PaperCard/twitterTimeline";
-import carouselData from "../../public/json/homeCarousel.json"
+import * as carouselData from "../../public/json/carousel/home_carousel.json"
 
 interface Item {
   title: string;
