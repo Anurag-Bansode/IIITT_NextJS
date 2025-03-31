@@ -6,32 +6,57 @@ import TableComponent from "./tablecomponent";
 import styles from "./committee.module.css";
 
 export default function CommitteePage({ committee }: { committee: string }) {
-  const { members, meetings, loading, isMeetingJsonAvailable } = useCommitteeData(committee);
+  const { members, meetings, loading, isMeetingJsonAvailable } =
+    useCommitteeData(committee);
 
   const columnMapping: Record<string, string[]> = {
     senate: ["Name", "Designation", "Senate"],
     bog: ["Name", "Designation", "Role"],
     bwc: ["Name", "Designation", "Role"],
-    pio:["Name","Designation","Role"],
-    fc:["Name","Designation","Role"]
+    pio: ["Name", "Designation", "Role"],
+    fc: ["Name", "Designation", "Role"],
+    admission: ["Name", "Role"],
   };
+  const committeeName = committee.toLowerCase();
+  const formattedCommitteeName = committee.toUpperCase().replace("_", " ");
 
   return (
     <div className={styles.pageContainer}>
-      <Typography variant="h2" className={styles.themeText}>
-        {committee.toUpperCase().replace("_", " ")}
-      </Typography>
-
-      <TableComponent title={`Members of ${committee.toUpperCase()}`} members={members || []} columns={columnMapping[committee]} loading={loading} />
-
+      {committeeName !== "admission" && (
+        <Typography variant="h2" className={styles.themeText}>
+          {formattedCommitteeName}
+        </Typography>
+      )}
+      {members?.length ? (
+        <TableComponent
+          title={`Members of ${formattedCommitteeName}`}
+          members={members}
+          columns={columnMapping[committee] || ["Name", "Role"]}
+          loading={loading}
+          aria-label={`Table displaying members of ${formattedCommitteeName}`}
+        />
+      ) : (
+        <Typography variant="body1" className={styles.noDataText}>
+          No members available.
+        </Typography>
+      )}
       {isMeetingJsonAvailable && (
         <>
           {loading ? (
             <Skeleton variant="rectangular" width="100%" height={100} />
+          ) : meetings?.length ? (
+            <TableComponent
+              title={`${formattedCommitteeName} Minutes`}
+              members={meetings}
+              columns={["Title", "Description"]}
+              loading={loading}
+              isMeetingTable
+              aria-label={`Table displaying minutes of ${formattedCommitteeName}`}
+            />
           ) : (
-            meetings && (
-              <TableComponent title={`${committee.toUpperCase()} Minutes `} members={meetings} columns={["Title", "Description"]} loading={loading} isMeetingTable />
-            )
+            <Typography variant="body1" className={styles.noDataText}>
+              No meeting records available.
+            </Typography>
           )}
         </>
       )}

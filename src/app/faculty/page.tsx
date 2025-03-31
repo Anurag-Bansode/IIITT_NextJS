@@ -30,7 +30,7 @@ const Faculty = () => {
   useEffect(() => {
     const fetchFacultyData = async () => {
       try {
-        const response = await fetch("/json/faculty.json");
+        const response = await fetch("/json/faculty/faculty.json");
         if (!response.ok) throw new Error("Failed to fetch faculty data");
 
         const data = await response.json();
