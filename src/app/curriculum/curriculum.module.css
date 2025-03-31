@@ -1,0 +1,43 @@
+.container {
+  padding: 1rem 1rem;
+}
+
+.themeText {
+  color: #2e8b57;
+}
+
+.sectionPadding {
+  padding: 1rem 0;
+}
+
+.list {
+  list-style-position: inside;
+  padding-left: 1rem;
+}
+
+.list li {
+  font-size: 1.2em;
+}
+
+.tableRow:nth-of-type(even) {
+  background-color: rgba(0, 0, 0, 0.10);
+}
+
+.link {
+  text-decoration: none;
+  display: inline-block;
+  padding-top: 1rem;
+  font-weight: 500;
+  width: auto;
+}
+
+.link:hover {
+  text-decoration: underline;
+  color: blueviolet;
+}
+
+.download {
+  margin-right: 0.3rem;
+  position: relative;
+  top: 0.3rem;
+}

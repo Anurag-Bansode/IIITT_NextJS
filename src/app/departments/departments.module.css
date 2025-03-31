@@ -1,5 +1,10 @@
+.container{
+  padding: 1rem 1rem !important;
+}
+
 .themeText {
   color: #2e8b57;
+  text-align: center;
   font-size: 2.5rem !important;
   font-weight: 700;
 }
