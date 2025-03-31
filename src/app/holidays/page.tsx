@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { Typography, Box, Grid } from "@mui/material";
+import { Typography, Box} from "@mui/material";
+import Grid from "@mui/material/Grid2"
 import EventIcon from "@mui/icons-material/Event";
 import styles from "./holiday.module.css";
 import nextConfig from "../../../next.config";
@@ -42,8 +43,8 @@ const Holidays: React.FC = () => {
   return (
     <div className="page-container">
       <Grid container className={styles.container}>
-        <Grid xs={1} />
-        <Grid xs={10}>
+        <Grid size={1} />
+        <Grid size={10}>
           <Typography
             variant="h2"
             component="h2"
@@ -70,7 +71,7 @@ const Holidays: React.FC = () => {
               </section>
             ))}
         </Grid>
-        <Grid xs={1} />
+        <Grid size={1} />
       </Grid>
     </div>
   );
