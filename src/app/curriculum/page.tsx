@@ -1,16 +1,23 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { Typography, Box, Table, TableRow } from "@mui/material";
+import { Typography, Box, Table, TableRow, TableCell, TableBody, TableHead } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import styles from "./curriculum.module.css";
-import TableCell from "@mui/material";
-interface Department {
-  name: string;
-  description: string;
+import CloudDownloadIcon from "@mui/icons-material/CloudDownload";
+import nextConfig from "../../../next.config";
+
+interface CurriculumData {
+  curriculum: {
+    [department: string]: {
+      [program: string]: {
+        [year: string]: string;
+      };
+    };
+  };
 }
 
 const Curriculum: React.FC = () => {
-  const [depts, setDepts] = useState<Department[] | null>(null);
+  const [curriculumData, setCurriculumData] = useState<CurriculumData | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
@@ -20,28 +27,20 @@ const Curriculum: React.FC = () => {
     };
   }, []);
 
-  const cse15 = "Curriculum_IIITTUGCSE15.pdf";
-  const cse16 = "CSE_Syllabus_16.pdf";
-  const ece15 = "Curriculum_IIITTUGECE15.pdf";
-  const ece16 = "Syllabus_ECE_16.pdf";
-  const cse20 = "UG_CSE_2020.pdf";
-  const ece20 = "UG_ECE_2020.pdf";
-  const mcse21 = "CSE_M.Tech_Syllabus_2021-Revised.pdf";
-  const mece21 = "ECE_M.Tech_Syllabus_2021-Revised.pdf";
   useEffect(() => {
-    fetch("/json/general/departments.json")
+    fetch("/json/general/curriculum.json")
       .then((response) => {
         if (!response.ok) {
-          throw new Error("Failed to fetch departments data");
+          throw new Error("Failed to fetch curriculum data");
         }
         return response.json();
       })
       .then((data) => {
-        setDepts(data.data);
+        setCurriculumData(data);
         setLoading(false);
       })
       .catch((error) => {
-        console.error("Error fetching department data:", error);
+        console.error("Error fetching curriculum data:", error);
         setLoading(false);
       });
   }, []);
@@ -50,18 +49,10 @@ const Curriculum: React.FC = () => {
     <div className="page-container">
       <Grid container className={styles.container}>
         <Grid  size={1} />
-        <Grid  size={10}>
-          <Typography
-            variant="h2"
-            component="h2"
-            gutterBottom
-            className={styles.themeText}
-          >
-            <Box component="span" fontWeight={380}>
-              Curriculum
-            </Box>
+        <Grid size={10}>
+          <Typography variant="h2" gutterBottom className={styles.themeText}>
+            <Box fontWeight={380}>Curriculum</Box>
           </Typography>
-
           <section className={styles.sectionPadding}>
             <Typography variant="h5" gutterBottom>
               The&nbsp;
@@ -131,17 +122,51 @@ const Curriculum: React.FC = () => {
                 Syllabus
               </Box>
             </Typography>
-            
-          </section>
-          <section className={styles.sectionPadding}>
-            <Typography variant="h5" className={styles.themeText} gutterBottom>
-              <Box component="span" fontWeight="fontWeightBold">
-                PG curriculum
-              </Box>
-            </Typography>
-            
-          </section>
+                  </section>
+          {loading ? (
+            <Typography>Loading curriculum data...</Typography>
+          ) : !curriculumData ? (
+            <Typography color="error">Failed to load curriculum data. Please try again later.</Typography>
+          ) : (
+            Object.entries(curriculumData.curriculum).map(([department, programs]) => (
+              <section key={department} className={styles.sectionPadding}>
+                <Typography variant="h5" className={styles.themeText} gutterBottom>
+                  <Box fontWeight="fontWeightBold">{department}</Box>
+                </Typography>
+
+                {Object.entries(programs).map(([program, syllabus]) => (
+                  <div key={program} style={{ overflowX: "auto", marginBottom: "20px" }}>
+                    <Typography variant="h6" className={styles.subHeading} gutterBottom>
+                      {program}
+                    </Typography>
+                    <Table className={styles.table}>
+                      <TableHead>
+                        <TableRow>
+                          <TableCell>Year</TableCell>
+                          <TableCell>Syllabus</TableCell>
+                        </TableRow>
+                      </TableHead>
+                      <TableBody>
+                        {Object.entries(syllabus).map(([year, filePath]) => (
+                          <TableRow key={year} className={styles.tableRow}>
+                            <TableCell>{year}</TableCell>
+                            <TableCell>
+                              <a href={`${nextConfig.env?.DOCUMENT}/${filePath}`} download className={styles.link}>
+                                <CloudDownloadIcon className={styles.download} style={{ marginRight: "5px", verticalAlign: "middle" }} />
+                                Download
+                              </a>
+                            </TableCell>
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                  </div>
+                ))}
+              </section>
+            ))
+          )}
         </Grid>
+        <Grid size={1} />
       </Grid>
     </div>
   );
