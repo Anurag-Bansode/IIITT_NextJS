@@ -4,12 +4,6 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid2";
 import { Typography } from "@mui/material";
 import Divider from "@mui/material/Divider";
-import SchoolIcon from "@mui/icons-material/School";
-import LaptopMacIcon from "@mui/icons-material/LaptopMac";
-import MemoryIcon from "@mui/icons-material/Memory";
-import ScienceIcon from "@mui/icons-material/Science";
-import PsychologyIcon from "@mui/icons-material/Psychology";
-import EngineeringIcon from "@mui/icons-material/Engineering";
 import styles from "./programs.module.css";
 
 const Programs: React.FC = () => {

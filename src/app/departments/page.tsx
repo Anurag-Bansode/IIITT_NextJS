@@ -1,8 +1,8 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { Typography, Box, CircularProgress } from "@mui/material";
-import "./departments.module.css";
-
+import { Typography, Box } from "@mui/material";
+import Grid from "@mui/material/Grid2";
+import styles from "./departments.module.css";
 interface Department {
   name: string;
   description: string;
@@ -20,7 +20,7 @@ const Departments: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    fetch("/json/departments.json")
+    fetch("/json/general/departments.json")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch departments data");
@@ -38,33 +38,46 @@ const Departments: React.FC = () => {
   }, []);
 
   return (
-      <div className="content-container">
-        <Typography variant="h2" className="themeText" gutterBottom>
-          <Box component="span" fontWeight={380}>
-            Departments
-          </Box>
-        </Typography>
-
-        {loading ? (
-          <div className="loading-container">
-            <CircularProgress />
-          </div>
-        ) : (
-          depts &&
-          depts.map((dept, index) => (
-            <section key={index} className="sectionPadding">
-              <Typography variant="h5" className="themeText" gutterBottom>
-                <Box component="span" fontWeight="fontWeightBold">
-                  {dept.name}
-                </Box>
-              </Typography>
-              <Box component="span" className="dept_desc">
-                {dept.description}
-              </Box>
-            </section>
-          ))
-        )}
-      </div>
+    <div className="page-container">
+      <Grid container className={styles.container}>
+        <Grid size={1} />
+        <Grid size={10}>
+          <Typography
+            variant="h2"
+            component="h2"
+            gutterBottom
+            className={styles.themeText}
+          >
+            <Box component="span" fontWeight={380}>
+              Departments
+            </Box>
+          </Typography>
+          {depts &&
+            depts.map((dept) => {
+              return (
+                <section className={styles.sectionPadding}>
+                  <Typography
+                    variant="h5"
+                    className={styles.themeText}
+                    gutterBottom
+                  >
+                    <Box component="span" fontWeight="fontWeightBold">
+                      {dept.name}
+                    </Box>
+                  </Typography>
+                  <Box
+                    component="span"
+                    fontSize="1.2em"
+                    className={styles.dept_desc}
+                  >
+                    {dept.description}
+                  </Box>
+                </section>
+              );
+            })}
+        </Grid>
+      </Grid>
+    </div>
   );
 };
 
