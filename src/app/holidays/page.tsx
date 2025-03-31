@@ -1,22 +1,22 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { Typography, Box} from "@mui/material";
-import Grid from "@mui/material/Grid2"
-import EventIcon from "@mui/icons-material/Event";
+import { Typography, Box } from "@mui/material";
+import Grid from "@mui/material/Grid2";
 import styles from "./holiday.module.css";
 import nextConfig from "../../../next.config";
+import EventIcon from "@mui/icons-material/Event";
 
-interface CalendarItem {
+interface Calendar {
   title: string;
   url: string;
 }
 
 const Holidays: React.FC = () => {
-  const [calendar, setCalendar] = useState<CalendarItem[] | null>(null);
+  const [calendar, setCalendar] = useState<Calendar[] | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    document.title = "Holidays";
+    document.title = "Holiday";
     return () => {
       document.title = "IIIT Trichy";
     };
@@ -41,7 +41,7 @@ const Holidays: React.FC = () => {
   }, []);
 
   return (
-    <div className="page-container">
+    <div className={styles.pageContainer}>
       <Grid container className={styles.container}>
         <Grid size={1} />
         <Grid size={10}>
@@ -52,24 +52,30 @@ const Holidays: React.FC = () => {
             className={styles.themeText}
           >
             <Box component="span" fontWeight={380}>
-              Academic Calendar
+              Holidays
             </Box>
           </Typography>
-          {calendar &&
-            calendar.map((item, id) => (
-              <section key={id} className={styles.sectionPadding}>
-                <Box display="flex" alignItems="center">
-                  <EventIcon className={styles.icon} />
+
+          <div className={styles.timeline}>
+            {calendar &&
+              calendar.map((item, id) => (
+                <div key={id} className={styles.timelineSection}>
+                  <div className={styles.timelineIcon}>
+                    <EventIcon />
+                  </div>
+                  <Typography variant="h5" className={styles.themeText}>
+                    {item.title}
+                  </Typography>
                   <a
                     href={`${nextConfig.env?.DOCUMENT}/${item.url}`}
                     download={`${item.title}`}
                     className={styles.link}
                   >
-                    {item.title}
+                    Download {item.title}
                   </a>
-                </Box>
-              </section>
-            ))}
+                </div>
+              ))}
+          </div>
         </Grid>
         <Grid size={1} />
       </Grid>

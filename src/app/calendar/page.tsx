@@ -1,20 +1,22 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { Typography, Box, Table, TableRow } from "@mui/material";
-import Grid from "@mui/material/Grid2";
-import styles from "./calender.module.css";
+import { Typography, Box } from "@mui/material";
+import Grid from "@mui/material/Grid2"
+import styles from "./calendar.module.css";
 import nextConfig from "../../../next.config";
 import EventIcon from "@mui/icons-material/Event";
-interface calendar {
+
+interface Calendar {
   title: string;
-  data: calendardata[];
+  data: CalendarData[];
 }
-interface calendardata {
+interface CalendarData {
   title: string;
   url: string;
 }
-const Curriculum: React.FC = () => {
-  const [calendar, setDepts] = useState<calendar[] | null>(null);
+
+const calendar: React.FC = () => {
+  const [calendar, setCalendar] = useState<Calendar[] | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
@@ -28,60 +30,49 @@ const Curriculum: React.FC = () => {
     fetch("/json/general/calendar.json")
       .then((response) => {
         if (!response.ok) {
-          throw new Error("Failed to fetch departments data");
+          throw new Error("Failed to fetch calendar data");
         }
         return response.json();
       })
       .then((data) => {
-        setDepts(data.data);
+        setCalendar(data.data);
         setLoading(false);
       })
       .catch((error) => {
-        console.error("Error fetching department data:", error);
+        console.error("Error fetching calendar data:", error);
         setLoading(false);
       });
   }, []);
 
   return (
-    <div className="page-container">
+    <div className={styles.pageContainer}>
       <Grid container className={styles.container}>
         <Grid size={1} />
         <Grid size={10}>
-          <Typography
-            variant="h2"
-            component="h2"
-            gutterBottom
-            className={styles.themeText}
-          >
-            <Box component="span" fontWeight={380}>
-              Academic Calendar
-            </Box>
+          <Typography variant="h2" component="h2" gutterBottom className={styles.themeText}>
+            <Box component="span" fontWeight={380}>Academic Calendar</Box>
           </Typography>
-          {calendar &&
-            calendar.map((d, id) => {
-              return (
-                <section key={id} className={styles.sectionPadding}>
+
+          <div className={styles.timeline}>
+            {calendar &&
+              calendar.map((d, id) => (
+                <div key={id} className={styles.timelineSection}>
+                   <div className={styles.timelineIcon}><EventIcon /></div>
                   <Typography variant="h5" className={styles.themeText}>
-                    <Box component="span" fontWeight="fontWeightBold">
-                      {d.title}
-                    </Box>
+                    {d.title}
                   </Typography>
                   {d.data.map((dd, idx) => (
-                    <Box key={idx} display="flex" alignItems="center">
-                      <EventIcon className="download" />
-                      <a
-                        href={`${nextConfig.env?.DOCUMENT}/${dd.url}`}
-                        download={`${dd.title}`}
-                        className={styles.link}
-                      >
-                        {dd.title}
-                      </a>
-                    </Box>
+                    <div key={idx} className={styles.timelineItem}>
+                      <div className={styles.timelineContent}>
+                        <a href={`${nextConfig.env?.DOCUMENT}/${dd.url}`} download={`${dd.title}`} className={styles.link}>
+                          {dd.title}
+                        </a>
+                      </div>
+                    </div>
                   ))}
-                  {id !== calendar.length - 1 && <hr />}
-                </section>
-              );
-            })}
+                </div>
+              ))}
+          </div>
         </Grid>
         <Grid size={1} />
       </Grid>
@@ -89,4 +80,4 @@ const Curriculum: React.FC = () => {
   );
 };
 
-export default Curriculum;
+export default calendar
