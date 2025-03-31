@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { Typography, Box } from "@mui/material";
 import Grid from "@mui/material/Grid2";
-import styles from "./undergraduate.module.css";
+import styles from "../undergraduate/undergraduate.module.css";
 import LinkIcon from "@mui/icons-material/Link";
 import nextConfig from "../../../next.config";
 
@@ -11,26 +11,26 @@ interface StudentLink {
   link: string;
 }
 
-interface UndergraduateData {
+interface PostGraduateData {
   [category: string]: StudentLink[];
 }
 
-const Undergraduate: React.FC = () => {
-  const [data, setData] = useState<UndergraduateData | null>(null);
+const PostGraduate: React.FC = () => {
+  const [data, setData] = useState<PostGraduateData | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    document.title = "Undergraduate";
+    document.title = "Postgraduate";
     return () => {
       document.title = "IIIT Trichy";
     };
   }, []);
 
   useEffect(() => {
-    fetch("/json/students/undergraduate.json")
+    fetch("/json/students/postgraduate.json")
       .then((response) => {
         if (!response.ok) {
-          throw new Error("Failed to fetch Undergraduate data");
+          throw new Error("Failed to fetch PostGraduate data");
         }
         return response.json();
       })
@@ -39,7 +39,7 @@ const Undergraduate: React.FC = () => {
         setLoading(false);
       })
       .catch((error) => {
-        console.error("Error fetching Undergraduate data:", error);
+        console.error("Error fetching PostGraduate data:", error);
         setLoading(false);
       });
   }, []);
@@ -56,7 +56,7 @@ const Undergraduate: React.FC = () => {
             className={styles.themeText}
           >
             <Box component="span" fontWeight={380}>
-              Undergraduate
+              Postgraduate
             </Box>
           </Typography>
 
@@ -89,7 +89,7 @@ const Undergraduate: React.FC = () => {
                           style={{ marginRight: "5px", color: "#007bff" }}
                         />
                         <a
-                         href={`${nextConfig.env?.DOCUMENT}${linkItem.link}`}
+                          href={`${nextConfig.env?.DOCUMENT}${linkItem.link}`}
                           target="_blank"
                           rel="noopener noreferrer"
                         >
@@ -108,4 +108,4 @@ const Undergraduate: React.FC = () => {
   );
 };
 
-export default Undergraduate;
+export default PostGraduate;
