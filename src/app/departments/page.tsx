@@ -53,9 +53,13 @@ const Departments: React.FC = () => {
             </Box>
           </Typography>
           {depts &&
-            depts.map((dept) => {
-              return (
-                <section className={styles.sectionPadding}>
+            depts.map((dept, index) => (
+              <Grid size={12} key={index}>
+                <div
+                  className={styles.card}
+                  style={{ marginTop:"3px", animationDelay: `${index * 0.2}s` }}
+                  //onClick={() => router.push(dept.url)}  Redirect on click
+                >
                   <Typography
                     variant="h5"
                     className={styles.themeText}
@@ -65,17 +69,14 @@ const Departments: React.FC = () => {
                       {dept.name}
                     </Box>
                   </Typography>
-                  <Box
-                    component="span"
-                    fontSize="1.2em"
-                    className={styles.dept_desc}
-                  >
+                  <Box component="p" className={styles.deptDesc}>
                     {dept.description}
                   </Box>
-                </section>
-              );
-            })}
+                </div>
+              </Grid>
+            ))}
         </Grid>
+        <Grid size={1} />
       </Grid>
     </div>
   );
