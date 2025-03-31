@@ -1,6 +1,13 @@
+"use client";
+
 import React from "react";
+import { Card, CardContent, CardActions, Button, Typography } from "@mui/material";
 import Link from "next/link";
-import { Card, CardActions, CardContent, Button, Typography, Paper } from "@mui/material";
+import DescriptionIcon from "@mui/icons-material/Description";
+import EventNoteIcon from "@mui/icons-material/EventNote";
+import NotificationsIcon from "@mui/icons-material/Notifications";
+import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
+import "./PaperCard.css";
 
 interface Item {
   title: string;
@@ -8,27 +15,52 @@ interface Item {
   date?: string;
 }
 
-interface OutlinedCardProps {
+interface PaperCardProps {
   title: string;
-  items: Item[]|undefined;
+  items: Item[];
   linkToOlder: string;
 }
 
-const OutlinedCard: React.FC<OutlinedCardProps> = ({ title, items, linkToOlder }) => {
+const PaperCard: React.FC<PaperCardProps> = ({ title, items, linkToOlder }) => {
   return (
-    <Card sx={{ minWidth: 237, padding: 2 }} id="simplecard">
+    <div className="w-full p-4 bg-white rounded-lg shadow-md">
+      <OutlinedCard title={title} items={items} linkToOlder={linkToOlder} />
+    </div>
+  );
+};
+
+const getIcon = (title: string) => {
+  switch (title.toLowerCase()) {
+    case "news":
+      return <DescriptionIcon className="mr-2 text-blue-500" />;
+    case "events":
+      return <EventNoteIcon className="mr-2 text-green-500" />;
+    case "notices":
+      return <NotificationsIcon className="mr-2 text-red-500" />;
+    case "achievements":
+      return <EmojiEventsIcon className="mr-2 text-yellow-500" />;
+    default:
+      return null;
+  }
+};
+
+const OutlinedCard: React.FC<PaperCardProps> = ({ title, items, linkToOlder }) => {
+  return (
+    <Card variant="outlined" className="w-full" id="simplecard" style={{ width: "100%" }}>
       <CardContent>
-        <Typography variant="h6" className="newshead mb-3">
-          {title}
+        <Typography variant="h6" className="newshead flex items-center">
+          {getIcon(title)} {title}
         </Typography>
-        <ul className="space-y-4">
-          {items?.map((item, index) => (
-            <li key={index}>
-              <Link href={item.link} className="text-blue-600 hover:underline">
-                {item.title}
+        <ul className={title}>
+          {items.map((item, index) => (
+            <li key={index} className="mb-4">
+              <Link href={item.link} passHref>
+                <Typography color="primary" component="a" className="hover:underline">
+                  {item.title}
+                </Typography>
               </Link>
               {item.date && (
-                <Typography variant="caption" color="textSecondary" className="block text-gray-500">
+                <Typography variant="caption" color="textSecondary" display="block">
                   Posted: {item.date}
                 </Typography>
               )}
@@ -37,26 +69,12 @@ const OutlinedCard: React.FC<OutlinedCardProps> = ({ title, items, linkToOlder }
         </ul>
       </CardContent>
       <CardActions>
-        <Link href={linkToOlder}>
-          <Button size="small">View older</Button>
+        <Link href={linkToOlder} passHref>
+          <Button variant="outlined" color="primary">View Older</Button>
         </Link>
       </CardActions>
     </Card>
   );
 };
 
-interface PaperCardProps {
-  title: string;
-  items: Item[]|undefined;
-  linkToOlder: string;
-}
-
-const PaperCard: React.FC<PaperCardProps> = ({ title, items, linkToOlder }) => {
-  return (
-    <Paper sx={{ padding: 2, marginBottom: 2, width: "100%" }}>
-      <OutlinedCard title={title} items={items} linkToOlder={linkToOlder} />
-    </Paper>
-  );
-};
-
-export default PaperCard;
+export { PaperCard, OutlinedCard };

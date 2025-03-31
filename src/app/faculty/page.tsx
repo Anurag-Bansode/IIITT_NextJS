@@ -5,7 +5,7 @@ import Head from "next/head";
 import PersonCard from "@/components/PersonCard/PersonCard";
 import { Typography } from "@mui/material";
 import Link from "next/link";
-import styles from "./faculty.module.css"; // Custom CSS module
+import styles from "./faculty.module.css"; 
 
 interface FacultyMember {
   name: string;

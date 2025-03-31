@@ -1,21 +1,21 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import PaperCard from "@/components/PaperCard/PaperCard";
+import {PaperCard} from "@/components/PaperCard/PaperCard";
 import MainCarousel from "@/components/Carousel/MainCarousel";
 import MissionVision from "@/components/mission_vision/missionVision";
 import Marquee from "@/components/marquee/marquee";
-import "./globals.css"
+import "./globals.css";
 import {
   Paper,
   Tabs,
   Tab,
-  Box,
   Typography,
   CircularProgress,
 } from "@mui/material";
 import TwitterTimeline from "@/components/PaperCard/twitterTimeline";
-import * as carouselData from "../../public/json/carousel/home_carousel.json"
+import * as carouselData from "../../public/json/carousel/home_carousel.json";
+
 
 interface Item {
   title: string;
@@ -24,77 +24,60 @@ interface Item {
   isNew?: boolean;
 }
 
-// Tab Panel Component
-const TabPanel: React.FC<{ children: React.ReactNode; value: number; index: number }> = ({
-  children,
-  value,
-  index,
-}) => {
-  return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
-    >
-      {value === index && <Box>{children}</Box>}
-    </div>
-  );
-};
-
 const Home: React.FC = () => {
   const [value, setValue] = useState<number>(0);
-  const [noticeData, setNoticeData] = useState<Item[] | null>(null);
-  const [eventsData, setEventsData] = useState<Item[] | null>(null);
-  const [newsData, setNewsData] = useState<Item[] | null>(null);
-  const [achievementsData, setAchievementsData] = useState<Item[] | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [data, setData] = useState({
+    notice: [] as Item[],
+    events: [] as Item[],
+    news: [] as Item[],
+    achievements: [] as Item[],
+    loading: true,
+  });
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const [achRes, newsRes, eventsRes, noticeRes] = await Promise.all([
-          fetch("/json/achievements.json").then((res) => res.json()),
-          fetch("/json/news.json").then((res) => res.json()),
-          fetch("/json/events.json").then((res) => res.json()),
-          fetch("/json/notices.json").then((res) => res.json()),
+          fetch("/json/general/achievements.json").then((res) => res.json()),
+          fetch("/json/general/news.json").then((res) => res.json()),
+          fetch("/json/events/events.json").then((res) => res.json()),
+          fetch("/json/general/notices.json").then((res) => res.json()),
         ]);
 
-        setAchievementsData(achRes.data);
-        setNewsData(sortData(newsRes.data));
-        setEventsData(sortData(eventsRes.data));
-        setNoticeData(sortData(noticeRes.data));
+        setData({
+          achievements: achRes.data,
+          news: sortData(newsRes.data),
+          events: sortData(eventsRes.data),
+          notice: sortData(noticeRes.data),
+          loading: false,
+        });
       } catch (error) {
         console.error("Error loading JSON data:", error);
-      } finally {
-        setLoading(false);
+        setData((prev) => ({ ...prev, loading: false }));
       }
     };
-
     fetchData();
   }, []);
 
-  const sortData = (data: Item[]): Item[] => {
+  const sortData = (data?: Item[]) => {
     if (!data) return [];
-    const older = data.filter((x) => !x.isNew).sort((a, b) => new Date(b.date!).getTime() - new Date(a.date!).getTime());
-    const newer = data.filter((x) => x.isNew).sort((a, b) => new Date(b.date!).getTime() - new Date(a.date!).getTime());
-    return [...newer, ...older];
+    return [...data].sort((a, b) => new Date(b.date || "").getTime() - new Date(a.date || "").getTime());
   };
 
   const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
 
-  const a11yProps = (index: number) => ({
-    id: `simple-tab-${index}`,
-    "aria-controls": `simple-tabpanel-${index}`,
-  });
+  const tabs = [
+    { label: "News", data: data.news, link: "/news" },
+    { label: "Events", data: data.events, link: "/events" },
+    { label: "Notices", data: data.notice, link: "/notices" },
+  ];
 
   return (
     <div className="page-container">
       <div className="container">
-        {/* Main Sections */}
-        <div className="customeflex">
+        <div className="customflex">
           <div className="mission">
             <MissionVision />
           </div>
@@ -106,61 +89,32 @@ const Home: React.FC = () => {
           </div>
         </div>
 
-        {/* Tabs Section */}
         <div className="row">
-          <Paper elevation={3} className="tabbedPane" id="news_event_notice">
+          <Paper elevation={1} className="tabbedPane" id="news_event_notice">
             <Tabs value={value} onChange={handleChange} aria-label="news events notices">
-              <Tab label="News" {...a11yProps(0)} className="tab" />
-              <Tab label="Events" {...a11yProps(1)} className="tab" />
-              <Tab label="Notices" {...a11yProps(2)} className="tab" />
+              {tabs.map((tab, index) => (
+                <Tab key={index} label={tab.label} id={`simple-tab-${index}`} aria-controls={`simple-tabpanel-${index}`} />
+              ))}
+              
             </Tabs>
-
-            <TabPanel value={value} index={0}>
-              {loading ? (
-                <CircularProgress />
-              ) : newsData ? (
-                <PaperCard title="News" items={newsData.slice(0, 5)} linkToOlder="/news" />
-              ) : (
-                <Typography>No News available.</Typography>
-              )}
-            </TabPanel>
-
-            <TabPanel value={value} index={1}>
-              {loading ? (
-                <CircularProgress />
-              ) : eventsData ? (
-                <PaperCard title="Events" items={eventsData.slice(0, 5)} linkToOlder="/events" />
-              ) : (
-                <Typography>No Events available.</Typography>
-              )}
-            </TabPanel>
-
-            <TabPanel value={value} index={2}>
-              {loading ? (
-                <CircularProgress />
-              ) : noticeData ? (
-                <PaperCard title="Notices" items={noticeData.slice(0, 5)} linkToOlder="/general" />
-              ) : (
-                <Typography>No Notices available.</Typography>
-              )}
-            </TabPanel>
+            <PaperCard title="news" items={data.news} linkToOlder="/news"></PaperCard>
+              <PaperCard title="events" items={data.events} linkToOlder="/events"></PaperCard>
+              <PaperCard title="notice" items={data.notice} linkToOlder="/notice"></PaperCard>
+            
           </Paper>
 
-          {/* Achievements Section */}
-          <Paper elevation={3} className="achievements">
-            {loading ? (
+          <Paper elevation={2} className="achievements">
+            {data.loading ? (
               <CircularProgress />
-            ) : achievementsData ? (
-              <PaperCard title="Achievements" items={achievementsData.slice(0, 5)} linkToOlder="/achievements" />
+            ) : data.achievements.length > 0 ? (
+              <PaperCard title="Achievements" items={data.achievements.slice(0, 5)} linkToOlder="/achievements" />
             ) : (
               <Typography>No Achievements available.</Typography>
             )}
           </Paper>
 
-          {/* Twitter Timeline Section */}
-          <Paper elevation={3} className="twittertimeline" id="twitter_timeline">
-            
-            Twitter Data 
+          <Paper elevation={2} className="twittertimeline" id="twitter_timeline">
+            <TwitterTimeline username="iiittrichy" />
           </Paper>
         </div>
       </div>

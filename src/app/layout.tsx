@@ -14,7 +14,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <Header />
       <div className="page-container">
       <Navbar/>
-      <main className="flex-grow p-4">{children}</main>
+      <main>{children}</main>
       <Footer />
       </div>
       </body>

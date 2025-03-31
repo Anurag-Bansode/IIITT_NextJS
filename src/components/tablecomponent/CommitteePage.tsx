@@ -12,7 +12,8 @@ export default function CommitteePage({ committee }: { committee: string }) {
     senate: ["Name", "Designation", "Senate"],
     bog: ["Name", "Designation", "Role"],
     bwc: ["Name", "Designation", "Role"],
-    pio:["Name","Designation","Role"]
+    pio:["Name","Designation","Role"],
+    fc:["Name","Designation","Role"]
   };
 
   return (

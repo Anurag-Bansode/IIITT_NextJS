@@ -14,41 +14,64 @@ declare global {
   }
 }
 
-const TwitterTimeline = () => {
+interface TwitterTimelineProps {
+  username: string;
+  theme?: "light" | "dark"; // Allow theme customization
+}
+
+const TwitterTimeline: React.FC<TwitterTimelineProps> = ({ username, theme = "light" }) => {
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      if (!window.twttr) {
-        const script = document.createElement("script");
-        script.src = "https://platform.twitter.com/widgets.js";
-        script.async = true;
-        script.onload = () => {
-          if (window.twttr) {
-            window.twttr.widgets.load();
-            setLoading(false); // Twitter widget has loaded
-          }
-        };
-        document.body.appendChild(script);
-      } else {
-        window.twttr.widgets.load();
-        setLoading(false);
-      }
+    if (typeof window !== "undefined" && !window.twttr) {
+      const script = document.createElement("script");
+      script.src = "https://platform.twitter.com/widgets.js";
+      script.async = true;
+      script.onload = () => {
+        if (window.twttr) {
+          window.twttr.widgets.load();
+          setLoading(false);
+        } else {
+          setError(true);
+        }
+      };
+      script.onerror = () => setError(true);
+      document.body.appendChild(script);
+    } else if (window.twttr) {
+      window.twttr.widgets.load();
+      setLoading(false);
     }
-  }, []);
+  }, [username]);
 
   return (
-    <Paper elevation={3} className="twittertimeline" id="twitter_timeline" style={{ width:"auto", minHeight: "680px", display: "flex", alignItems: "center", justifyContent: "center" }}>
-      {loading ? (
+    <Paper
+      elevation={3}
+      className="w-full twittertimeline"
+      id="twitter_timeline"
+      style={{
+        width: "100%",
+        minHeight: "680px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        overflow: "hidden",
+      }}
+    >
+      {error ? (
+        <p>Failed to load tweets. Try refreshing the page.</p>
+      ) : loading ? (
         <CircularProgress />
       ) : (
         <a
           className="twitter-timeline"
-          data-width="576"
+          data-width="100%"
           data-height="680"
-          href="https://twitter.com/iiittrichy"
+          data-theme={theme}
+          data-tweet-limit="5"
+          href={`https://twitter.com/${username}`}
         >
-          Tweets by IIIT Trichy
+          Tweets by @{username}
         </a>
       )}
     </Paper>

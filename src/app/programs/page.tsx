@@ -1,15 +1,18 @@
 "use client";
 import React, { useEffect } from "react";
-import { Typography, Box, Divider } from "@mui/material";
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid2";
+import { Typography } from "@mui/material";
+import Divider from "@mui/material/Divider";
 import SchoolIcon from "@mui/icons-material/School";
 import LaptopMacIcon from "@mui/icons-material/LaptopMac";
 import MemoryIcon from "@mui/icons-material/Memory";
 import ScienceIcon from "@mui/icons-material/Science";
 import PsychologyIcon from "@mui/icons-material/Psychology";
 import EngineeringIcon from "@mui/icons-material/Engineering";
-import "./programs.module.css";
+import styles from "./programs.module.css";
 
-const AdmissionFeeStructure: React.FC = () => {
+const Programs: React.FC = () => {
   useEffect(() => {
     document.title = "Programs";
     return () => {
@@ -18,126 +21,228 @@ const AdmissionFeeStructure: React.FC = () => {
   }, []);
 
   return (
-      <div className="grid-container">
-        <Typography variant="h2" className="themeText heading" gutterBottom>
-          <Box component="span">Programs</Box>
+    <Grid container className={styles.container}>
+      <Grid size={1} />
+      <Grid size={10}>
+        <Typography
+          variant="h2"
+          component="h2"
+          gutterBottom
+          className={styles.themeText}
+        >
+          <Box component="span" fontWeight={380}>
+            Programs
+          </Box>
         </Typography>
 
-        {/* Undergraduate Program */}
-        <section className="section">
-          <Typography variant="h4" className="subheading" gutterBottom>
-            <SchoolIcon className="icon" /> Undergraduate Program
+        <section className={styles.sectionPadding}>
+          <Typography variant="h5" className={styles.themeText} gutterBottom>
+            <Box component="span" fontWeight="fontWeightBold">
+              Undergraduate Program
+            </Box>
           </Typography>
-          <Typography className="text">
-            The admission to Undergraduate Programs is done through{" "}
-            <strong>JEE Mains</strong>. The JEE-Mains qualified candidates are
-            admitted through <strong>CSAB</strong> and{" "}
-            <strong>JoSAA</strong> following the reservation policy of the
+          <Box component="span" fontSize="1.2rem">
+            The admission to Undergraduate Programs is done through JEE Mains.
+            The JEE-Mains qualified candidates are admitted to UG program
+            through Centralized Seat Allocation Board (CSAB) and Joint Seat
+            Allocation Authority (JoSAA) following the reservation policy of
             Government of India.
+          </Box>
+          <Typography className={styles.sectionPadding}>
+            <Box component="span" fontSize="1.2rem">
+              IIIT Tiruchirappalli offers the following two&nbsp;
+              <Box component="span" fontWeight="fontWeightBold">
+                Undergraduate Programs
+              </Box>
+              :
+            </Box>
           </Typography>
-          <Typography className="text">
-            IIIT Tiruchirappalli offers the following{" "}
-            <strong>Undergraduate Programs:</strong>
-          </Typography>
-          <ul className="list">
+          <ul className={styles.list}>
             <li>
-              <LaptopMacIcon className="list-icon" />
-              Computer Science and Engineering (B.Tech - 4 Years)
+              <Box
+                component="span"
+                fontSize="1.2rem"
+                fontWeight="fontWeightBold"
+              >
+                Computer Science and Engineering (4 years, Bachelor of
+                Technology)
+              </Box>
             </li>
             <li>
-              <MemoryIcon className="list-icon" />
-              Electronics and Communication Engineering (B.Tech - 4 Years)
+              <Box
+                component="span"
+                fontSize="1.2rem"
+                fontWeight="fontWeightBold"
+              >
+                Electronics and Communication Engineering (4 years, Bachelor of
+                Technology)
+              </Box>
+            </li>
+          </ul>
+          <br></br>
+        </section>
+        <Divider />
+        <section className={styles.sectionPadding}>
+          <Typography variant="h5" className={styles.themeText} gutterBottom>
+            <Box component="span" fontWeight="fontWeightBold">
+              Postgraduate Program
+            </Box>
+          </Typography>
+
+          <Typography className={styles.sectionPadding}>
+            <Box component="span" fontSize="1.2rem">
+              IIIT Tiruchirappalli offers the following two&nbsp;
+              <Box component="span" fontWeight="fontWeightBold">
+                Postgraduate Programs
+              </Box>
+              :
+            </Box>
+          </Typography>
+          <ul className={styles.list}>
+            <li>
+              <Box
+                component="span"
+                fontSize="1.2rem"
+                fontWeight="fontWeightBold"
+              >
+                Computer Science and Engineering (2 years, Masters of
+                Technology)
+              </Box>
+            </li>
+            <li>
+              <Box
+                component="span"
+                fontSize="1.2rem"
+                fontWeight="fontWeightBold"
+              >
+                VLSI Systems (2 years, Masters of Technology)
+              </Box>
             </li>
           </ul>
         </section>
-
-        <Divider className="divider" />
-
-        {/* Postgraduate Program */}
-        <section className="section">
-          <Typography variant="h4" className="subheading" gutterBottom>
-            <SchoolIcon className="icon" /> Postgraduate Program
+        <br></br>
+        <Divider />
+        <section>
+          <Typography variant="h5" className={styles.themeText} gutterBottom>
+            <Box component="span" fontWeight="fontWeightBold">
+              Doctoral Program
+            </Box>
           </Typography>
-          <Typography className="text">
-            IIIT Tiruchirappalli offers the following{" "}
-            <strong>Postgraduate Programs:</strong>
-          </Typography>
-          <ul className="list">
-            <li>
-              <LaptopMacIcon className="list-icon" />
-              Computer Science and Engineering (M.Tech - 2 Years)
-            </li>
-            <li>
-              <MemoryIcon className="list-icon" />
-              Computer Science (M.Sc - 2 Years)
-            </li>
-            <li>
-              <MemoryIcon className="list-icon" />
-              VLSI Systems (M.Tech - 2 Years)
-            </li>
-            <li>
-              <MemoryIcon className="list-icon" />
-              Electronics with VLSI Design (M.Sc - 2 Years)
-            </li>
-          </ul>
-        </section>
 
-        <Divider className="divider" />
+          <Typography className={styles.sectionPadding}>
+            <Box component="span" fontSize="1.2rem">
+              IIIT Tiruchirappalli offers the &nbsp;
+              <Box component="span" fontWeight="fontWeightBold">
+                Ph.D programs
+              </Box>
+              &nbsp; in the following Departments.
+            </Box>
+          </Typography>
 
-        {/* Doctoral Program */}
-        <section className="section">
-          <Typography variant="h4" className="subheading" gutterBottom>
-            <SchoolIcon className="icon" /> Doctoral Program
-          </Typography>
-          <Typography className="text">
-            IIIT Tiruchirappalli offers <strong>Ph.D Programs</strong> in the
-            following Departments:
-          </Typography>
-          <ul className="list">
+          <ul className={styles.list}>
             <li>
-              <EngineeringIcon className="list-icon" />
-              <strong>Computer Science and Engineering</strong>
-              <p>Data Analytics, Machine Learning, Deep Learning, IoT</p>
-              <p>Cloud Computing, Medical Image Processing and allied areas</p>
+              <Box
+                component="span"
+                fontSize="1.2rem"
+                fontWeight="fontWeightBold"
+              >
+                Computer Science and Engineering
+              </Box>
+              <Typography>
+                Data Analytics, Machine Learning, Deep Learning, IoT, Cloud
+                Computing, Medical Image Processing
+              </Typography>
             </li>
             <li>
-              <MemoryIcon className="list-icon" />
-              <strong>Electronics and Communication Engineering</strong>
-              <p>VLSI Design, Wireless Communication</p>
-              <p>Micro & Nano Electronics, Compact Modeling & Simulation and allied areas</p>
+              <Box
+                component="span"
+                fontSize="1.2rem"
+                fontWeight="fontWeightBold"
+              >
+                Electronics and Communication Engineering
+              </Box>
+              <Typography>
+                VLSI Design, Wireless Communication, Micro & Nano Electronics,
+                Compact Modeling & Simulation
+              </Typography>
             </li>
             <li>
-              <EngineeringIcon className="list-icon" />
-              <strong>Mechanical Engineering</strong>
-              <p>Additive Manufacturing, Powder Metallurgy, Smart Materials</p>
-              <p>Energy storage materials</p>
+              <Box
+                component="span"
+                fontSize="1.2rem"
+                fontWeight="fontWeightBold"
+              >
+                Mechanical Engineering
+              </Box>
+              <Typography>
+                Additive Manufacturing, Powder Metallurgy, Smart Materials,
+                Energy storage materials
+              </Typography>
             </li>
             <li>
-              <ScienceIcon className="list-icon" />
-              <strong>Science and Humanities</strong>
-              <ul className="nested-list">
+              <Box
+                component="span"
+                fontSize="1.2rem"
+                fontWeight="fontWeightBold"
+              >
+                Science and Humanities
+              </Box>
+              <ul className={styles.list}>
                 <li>
-                  <PsychologyIcon className="list-icon" />
-                  <strong>Physics:</strong> Optoelectronic Materials & Devices, Fiber optics, Plasmonics, Semiconductor heterostructures
+                  <Box
+                    component="span"
+                    fontSize="1.2rem"
+                    fontWeight="fontWeightBold"
+                  >
+                    Physics
+                  </Box>
+                  <Typography>
+                    Optoelectronic Materials & Devices, Fiber optics,
+                    Plasmonics, Semiconductor heterostructures
+                  </Typography>
                 </li>
                 <li>
-                  <PsychologyIcon className="list-icon" />
-                  <strong>Mathematics:</strong> Fluid Dynamics
+                  <Box
+                    component="span"
+                    fontSize="1.2rem"
+                    fontWeight="fontWeightBold"
+                  >
+                    Mathematics
+                  </Box>
+                  <Typography>Fluid Dynamics</Typography>
                 </li>
                 <li>
-                  <PsychologyIcon className="list-icon" />
-                  <strong>Economics:</strong> Health Economics, Health Technology Assessment, Global issues in health and development
+                  <Box
+                    component="span"
+                    fontSize="1.2rem"
+                    fontWeight="fontWeightBold"
+                  >
+                    Economics
+                  </Box>
+                  <Typography>
+                    Health Economics, Health Technology Assessment, Global
+                    issues in health and development
+                  </Typography>
                 </li>
                 <li>
-                  <PsychologyIcon className="list-icon" />
-                  <strong>English:</strong> Applied Linguistics, Indian Writing in English
+                  <Box
+                    component="span"
+                    fontSize="1.2rem"
+                    fontWeight="fontWeightBold"
+                  >
+                    English
+                  </Box>
+                  <Typography>
+                    Applied Linguistics, Indian Writing in English
+                  </Typography>
                 </li>
               </ul>
             </li>
           </ul>
         </section>
-      </div>
+      </Grid>
+    </Grid>
   );
 };
 
-export default AdmissionFeeStructure;
+export default Programs;

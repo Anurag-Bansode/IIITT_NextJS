@@ -7,7 +7,6 @@ import { Card, Typography, CardContent } from "@mui/material";
 import ContactMailIcon from "@mui/icons-material/ContactMail";
 import styles from "./Registrar.module.css";
 import nextConfig from "../../../next.config";
-
 export default function Registrar() {
   useEffect(() => {
     document.title = "Administration";

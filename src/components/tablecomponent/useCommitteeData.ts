@@ -33,7 +33,9 @@ export const useCommitteeData = (committee: string) => {
       }
 
       if (meetingsResponse.status === "fulfilled") {
+        debugger;
         const meetingsJson = await meetingsResponse.value.json();
+
         setMeetings(
           Object.entries(meetingsJson).map(([title, details]) => ({
             title,

@@ -13,6 +13,7 @@ import {
 import Image from "next/image";
 import nextConfig from "../../../next.config";
 import ArticleIcon from "@mui/icons-material/Article";
+import "../globals.css"
 import "./about.module.css";
 
 const About = () => {
@@ -26,7 +27,7 @@ const About = () => {
   const bull = <span>•</span>;
 
   return (
-    <div>
+    <div className="pageContainer">
       <div className="parent">
         <Typography
           variant="h2"
@@ -136,10 +137,7 @@ const About = () => {
               height={200}
             />
           </div>
-          <Typography
-            variant="subtitle1"
-            sx={{ color: "#555", textAlign: "left", lineHeight: 2 }}
-          >
+          <Typography>
             The focus is to address the challenges faced by the Indian IT
             industry and the growth of the domestic IT market. The Ministry of
             Human Resource Development (MHRD), Government of India, has

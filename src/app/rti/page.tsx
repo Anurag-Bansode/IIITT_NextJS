@@ -35,7 +35,7 @@ export default function rti() {
   useEffect(() => {
     const fetchRTIData = async () => {
       try {
-        const response = await fetch("/json/rti.json");
+        const response = await fetch("/json/committee/members/rti.json");
         const data = await response.json();
         setRti(data.data);
       } catch (error) {

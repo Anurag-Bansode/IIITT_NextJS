@@ -13,15 +13,14 @@ import {
   CircularProgress,
 } from "@mui/material";
 import DownloadIcon from "@mui/icons-material/Download";
-import styles from "../senate/senate.module.css";
+import styles from "./forms.module.css";
 import nextConfig from "../../../next.config";
-
 interface FormData {
   title: string;
   link: string;
 }
 
-const FILE_BASE_URL = process.env.NEXT_PUBLIC_FILE_BASE_URL || "";
+
 
 export default function AdministrativeForms() {
   const [forms, setForms] = useState<FormData[] | null>(null);
@@ -29,7 +28,7 @@ export default function AdministrativeForms() {
 
   const fetchFormsData = useCallback(async () => {
     try {
-      const response = await fetch("/json/administrativeForms.json");
+      const response = await fetch("/json/general/administrativeForms.json");
       const data = await response.json();
 
       if (!Array.isArray(data)) {
