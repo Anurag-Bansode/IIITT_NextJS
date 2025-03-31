@@ -40,7 +40,8 @@ export default function CommitteePage({ committee }: { committee: string }) {
           No members available.
         </Typography>
       )}
-      {isMeetingJsonAvailable && (
+      
+      {isMeetingJsonAvailable && committeeName!=="admission" && (
         <>
           {loading ? (
             <Skeleton variant="rectangular" width="100%" height={100} />
