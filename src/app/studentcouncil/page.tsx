@@ -4,8 +4,6 @@ import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import PersonCard from "@/components/PersonCard/PersonCard";
 import { Typography } from "@mui/material";
-import Grid from "@mui/material/Grid2";
-import Link from "next/link";
 import styles from "../faculty/faculty.module.css";
 
 interface studentdata {
@@ -47,7 +45,7 @@ const StudentCouncil = () => {
   return (
     <div>
       <Head>
-        <title>Faculty</title>
+        <title>Student Council</title>
       </Head>
       {loading ? (
         <div className={styles.loading}>Loading...</div>

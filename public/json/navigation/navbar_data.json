@@ -145,6 +145,10 @@
         {
           "text": "Student Council",
           "link": "/studentcouncil"
+        },
+        {
+          "text": "Code of Conduct",
+          "link": "/codeofconduct"
         }
       ]
     },
@@ -159,10 +163,22 @@
         {
           "text": "Clubs",
           "link": "/clubs"
+        }        ,
+        {
+          "text": "Hostel",
+          "link": "/hostel"
+        },
+        {
+          "text": "Facilities And Services",
+          "link": "/facilities"
+        }
+        ,
+        {
+          "text": "Aikyam Magazine",
+          "link": "/aikyam"
         }
       ]
     },
-    
     {
       "text": "Scholarship",
       "icon": "call",
@@ -171,6 +187,17 @@
         {
           "text": "Scholarship",
           "link": "/scholarship"
+        }
+      ]
+    },
+    {
+      "text": "C2S Project",
+      "icon": "call",
+      "name": "C2S Project",
+      "submenu": [
+        {
+          "text": "C2S Project",
+          "link": "/c2s"
         }
       ]
     },

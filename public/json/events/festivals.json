@@ -7,7 +7,7 @@
         {
           "name": "SWACHHATA HI SEVA 2018 Report",
           "url": "IIITT_SHS'2018_REPORT.pdf",
-          "download": true
+          "download": false
         }
       ],
       "images": []
@@ -75,12 +75,12 @@
       "links": [
         {
           "name": "Visit Atrang Website",
-          "url": "https://atrang.org",
+          "url": "https:atrang.org",
           "download": false
         },
         {
           "name": "Visit Atrang Facebook page",
-          "url": "https://facebook.com/atrang.iiitt",
+          "url": "https:facebook.comatrang.iiitt",
           "download": false
         }
       ],
