@@ -1,66 +1,54 @@
 {
     "": [
         {
-            "name": "Sai Auchitya Bussa",
-            "designation": "President",
-            "emailId": "saiab18e@iiitt.ac.in",
-            "src": "president.jpeg"
-        },
-        {
-            "name": "Navneet Rai",
-            "designation": "Vice President",
-            "emailId": "navneetr19c@iiitt.ac.in",
-            "src": "vicepresident.jpeg"
+            "name": "Ravindra Bhinchar",
+            "designation": " Vice President",
+            "emailId": "221241@iiitt.ac.in",
+            "src": "/studentsCouncil/vicepresident.jpg"
         }
     ],
     "Technical": [
         {
-            "name": "S Lavanya",
+            "name": "Lakshendra Sejwani",
             "designation": "Technical Secretary",
-            "emailId": "slavanya18e@iiitt.ac.in",
-            "src": "technical.jpeg"
-        },
-        {
-            "name": "Mayank Sonkar",
-            "designation": "Vice Technical Secretary",
-            "emailId": "mayanks19e@iiitt.ac.in",
-            "src": "technicalvice.jpeg"
+            "emailId": "221229@iiitt.ac.in",
+            "src": "/studentsCouncil/technical.png"
         }
     ],
     "Cultural": [
         {
-            "name": "Venkat Keshav Cherukuri",
+            "name": "Atharva More",
             "designation": "Cultural Secretary",
-            "emailId": "cherukurivk18e@iiitt.ac.in",
-            "src": "cultural.jpeg"
+            "emailId": "211105@iiitt.ac.in",
+            "src": "/studentsCouncil/cultural.jpg"
         },
         {
-            "name": "Chintala Sravani",
-            "designation": "Vice Cultural Secretary",
-            "emailId": "chintalas19c@iiitt.ac.in",
-            "src": "culturalvice.jpeg"
+            "name": "Asrij Sriramoju",
+            "designation": "Cultural Vice Secretary",
+            "emailId": "221156@iiitt.ac.in",
+            "src": "/studentsCouncil/culturalvice.jpg"
         }
     ],
     "Sports": [
         {
-            "name": "S Purushotham Naik",
+            "name": "M Ram Charan",
             "designation": "Sports Secretary",
-            "emailId": "sugalipn18e@iiitt.ac.in",
-            "src": "sports.jpeg"
+            "emailId": "211119@iiitt.ac.in",
+            "src": "/studentsCouncil/sports.jpg"
         },
         {
-            "name": "Siddharth Sahu",
+            "name": "Venh Arya",
             "designation": "Sports Vice Secretary",
-            "emailId": "siddharths19e@iiitt.ac.in",
-            "src": "sportsvice.jpeg"
+            "emailId": "221165@iiitt.ac.in",
+            "src": "/studentsCouncil/Sports_VS_2025.png"
         }
     ],
-    "Joint secretary": [
+    "Post Graduate secretary": [
         {
-            "name": "Suman Raj",
-            "designation": "Vice Sports Secretary",
-            "emailId": "201231@iiitt.ac.in",
-            "src": "jointsec.jpeg"
+            "name": "Vighnesh M S",
+            "designation": "PG Secretary",
+            "emailId": "232104@iiitt.ac.in",
+            "src": "/studentsCouncil/pgsec.jpg"
         }
     ]
 }
