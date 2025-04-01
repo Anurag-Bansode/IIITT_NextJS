@@ -8,7 +8,6 @@ import styles from "./PersonCard.module.css"; // Import CSS Module
 import nextConfig from "../../../next.config";
 import SchoolIcon from "@mui/icons-material/School";
 
-
 interface PersonCardProps {
   name: string;
   emailID: string;
@@ -61,52 +60,56 @@ const PersonCard: React.FC<PersonCardProps> = ({
       </div>
 
       <div className={styles.bottom}>
-{researchArea && researchArea.trim() && (
-  <p className={styles.researchArea}>
-    <strong>Research:</strong> {researchArea}
-  </p>
-)}
+        {researchArea && researchArea.trim() && (
+          <p className={styles.researchArea}>
+            <strong>Research:</strong> {researchArea}
+          </p>
+        )}
 
-{Incharge && Incharge.trim() && (
-  <p className={styles.incharge}>
-    <strong>Incharge:</strong> {Incharge}
-  </p>
-)}
+        {Incharge && Incharge.trim() && (
+          <p className={styles.incharge}>
+            <strong>Incharge:</strong> {Incharge}
+          </p>
+        )}
 
-{Institute && (
-  <div className={styles.infoDiv}>
-    <SchoolIcon className={styles.infoIcon} />
-    {Institute}
-  </div>
-)}
+        {Institute && (
+          <div className={styles.infoDiv}>
+            <SchoolIcon className={styles.infoIcon} />
+            {Institute}
+          </div>
+        )}
 
-{emailID && emailID.trim() && (
-  <div className={styles.infoDiv}>
-    <MailIcon className={styles.infoIcon} />
-    <a href={`mailto:${emailID}`} className={styles.info}>
-      {emailID}
-    </a>
-  </div>
-)}
+        {emailID && emailID.trim() && (
+          <div className={styles.infoDiv}>
+            <MailIcon className={styles.infoIcon} />
+            <a href={`mailto:${emailID}`} className={styles.info}>
+              {emailID}
+            </a>
+          </div>
+        )}
 
-{phone && phone.trim() && (
-  <div className={styles.infoDiv}>
-    <LocalPhoneIcon className={styles.infoIcon} />
-    <a href={`tel:${phone}`} className={styles.phone}>
-      {phone}
-    </a>
-  </div>
-)}
+        {phone && phone.trim() && (
+          <div className={styles.infoDiv}>
+            <LocalPhoneIcon className={styles.infoIcon} />
+            <a href={`tel:${phone}`} className={styles.phone}>
+              {phone}
+            </a>
+          </div>
+        )}
 
-{VidhwanLink && VidhwanLink.trim() && (
-  <div className={styles.infoDiv}>
-    <OpenInNewIcon className={styles.infoIcon} />
-    <a href={VidhwanLink} target="_blank" rel="noopener noreferrer" className={styles.info}>
-      Vidwan Profile
-    </a>
-  </div>
-)}
-
+        {VidhwanLink && VidhwanLink.trim() && (
+          <div className={styles.infoDiv}>
+            <OpenInNewIcon className={styles.infoIcon} />
+            <a
+              href={VidhwanLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.info}
+            >
+              Vidwan Profile
+            </a>
+          </div>
+        )}
       </div>
     </div>
   );

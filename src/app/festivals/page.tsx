@@ -8,7 +8,7 @@ import Image from "next/image";
 
 import CloudDownloadIcon from "@mui/icons-material/CloudDownload";
 import MainCarousel from "@/components/Carousel/MainCarousel";
-interface festivals {
+interface Festival {
   name: string;
   description: string;
   links: [
@@ -27,7 +27,7 @@ interface festivals {
 }
 
 const festivals: React.FC = () => {
-  const [festivals, setDepts] = useState<festivals[] | null>(null);
+  const [festivals, setFestivals] = useState<Festival[] | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
@@ -38,21 +38,22 @@ const festivals: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    fetch("/json/events/festivals.json")
-      .then((response) => {
+    const fetchFestivals = async () => {
+      try {
+        const response = await fetch("/json/events/festivals.json");
         if (!response.ok) {
-          throw new Error("Failed to fetch departments data");
+          throw new Error("Failed to fetch festivals data");
         }
-        return response.json();
-      })
-      .then((data) => {
-        setDepts(data.data);
+        const data = await response.json();
+        setFestivals(data.data);
+      } catch (error) {
+        console.error("Error fetching festival data:", error);
+      } finally {
         setLoading(false);
-      })
-      .catch((error) => {
-        console.error("Error fetching department data:", error);
-        setLoading(false);
-      });
+      }
+    };
+
+    fetchFestivals();
   }, []);
 
   return (
@@ -98,10 +99,15 @@ const festivals: React.FC = () => {
                     festival.links.map((link, index) => (
                       <Box component="p" className={styles.festival} key={index}>
                         <a
-                          href={`${nextConfig.env?.DOCUMENT}/${link.url}`}
-                          download={link.download}
-                          className={styles.link}
-                        >
+                        href={
+                          validURL(link.url)
+                            ? link.url
+                            : `${nextConfig.env?.IMAGE}/${link.url}`
+                        }
+                        className={styles.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                           <CloudDownloadIcon
                             className={styles.download}
                             style={{
@@ -125,3 +131,12 @@ const festivals: React.FC = () => {
 };
 
 export default festivals;
+
+export function validURL(str:string) {
+  var pattern = new RegExp('^(https?:\\/\\/)?' + // protocol
+      '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
+      '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
+      '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
+      '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
+      '(\\#[-a-z\\d_]*)?$', 'i'); // fragment locator
+  return !!pattern.test(str);}

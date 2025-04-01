@@ -4,61 +4,41 @@
       "name": "Web Devs Club",
       "motto": "Not spiders, but the best web developers are found here.",
       "facultyIncharge": "Dr. Anoop Jacob Thomas",
-      "header": [
-        "Year",
-        "Name"
-      ],
-      "students": [
+      "coordinator": [
         {
-          "year": "IV",
           "name": "Dinesh Vikram"
         },
         {
-          "year": "IV",
-          "name": "Nitish Kumar"
-        },
-        {
-          "year": "III",
           "name": "Mayank Sonkar"
         },
+        
         {
-          "year": "II",
-          "name": "Jagmohan Dixit"
-        },
-        {
-          "year": "II",
           "name": "Sarthak Kumar"
         }
-      ]
+      ],
+      "volunteer":[
+        {
+          "name": "Nitish Kumar"
+        },{
+          "name": "Jagmohan Dixit"
+        }]
     },
-      {
+    {
       "name": "Competitive Coding Club",
       "motto": "Competitive coding is a game. You practice and get better everyday.",
       "facultyIncharge": "Dr. G.Devasena",
-      "header": [
-        "Year",
-        "Name"
-      ],
-      "students": [
+      "coordinator": [
         {
-          "year": "IV",
-          "name": "Vishal Sharma"
+          "name": "Krishna Rai"
         },
         {
-          "year": "III",
-          "name": "Shubham Kumar Bhagat"
+          "name": "Gideon Daniel Giftson"
         },
         {
-          "year": "II",
-          "name": "Jagmohan Dixit"
+          "name": "Shashi Preetam"
         },
         {
-          "year": "II",
-          "name": "Sarthak Kumar"
-        },
-        {
-          "year": "II",
-          "name": "Sachin Tayal"
+          "name": "Utkarsh Pandey"
         }
       ]
     },
@@ -66,21 +46,14 @@
       "name": "Robotics Club",
       "motto": "Building robots is a daily task for them.",
       "facultyIncharge": "Dr. M.Senthil Sivakumar & Dr. R.KrishnaMurthy",
-      "header": [
-        "Year",
-        "Name"
-      ],
-      "students": [
+      "coordinator": [
         {
-          "year": "IV",
           "name": "N T S S Srinivas"
         },
         {
-          "year": "III",
           "name": "Krishna Nitinkumar Laddha"
         },
         {
-          "year": "II",
           "name": "Aman Chandra Kumar"
         }
       ]
@@ -89,21 +62,14 @@
       "name": "Circuits Club",
       "motto": "Yeah, these people play with current and signals!",
       "facultyIncharge": "Dr. G Seetharaman",
-      "header": [
-        "Year",
-        "Name"
-      ],
-      "students": [
+      "coordinator": [
         {
-          "year": "IV",
           "name": "Talasani Varun Reddy"
         },
         {
-          "year": "III",
           "name": "N Nagamallishwar"
         },
         {
-          "year": "II",
           "name": "Bhardwaj Routhu"
         }
       ]
@@ -112,21 +78,14 @@
       "name": "IOT Club",
       "motto": "You see that chair, soon it will be connected to the internet!",
       "facultyIncharge": "Dr. M.Senthil Sivakumar",
-      "header": [
-        "Year",
-        "Name"
-      ],
-      "students": [
+      "coordinator": [
         {
-          "year": "IV",
           "name": "Pulijala Sathwik"
         },
         {
-          "year": "III",
           "name": "Siddharth Sahu"
         },
         {
-          "year": "II",
           "name": "Vikash Bhabhu R"
         }
       ]
@@ -135,21 +94,14 @@
       "name": "Oculus (Photography Club)",
       "motto": "Lights. Camera. Shoot!",
       "facultyIncharge": "Dr. C.Velmurugan",
-      "header": [
-        "Year",
-        "Name"
-      ],
-      "students": [
+      "coordinator": [
         {
-          "year": "IV",
           "name": "Gorripoti Satya Saketh"
         },
         {
-          "year": "III",
           "name": "P Aditya Venkatesh"
         },
         {
-          "year": "II",
           "name": "Kamal Raj N"
         }
       ]
@@ -158,21 +110,14 @@
       "name": "Literary and Debating Club",
       "motto": "Et tu, Brute?",
       "facultyIncharge": "Dr. V. Sindhu",
-      "header": [
-        "Year",
-        "Name"
-      ],
-      "students": [
+      "coordinator": [
         {
-          "year": "IV",
           "name": "Nishit Mangal"
         },
         {
-          "year": "III",
           "name": "Shubham Kumar Bhagat"
         },
         {
-          "year": "II",
           "name": "Simmi Raj"
         }
       ]
@@ -181,45 +126,32 @@
       "name": "Aesthetic Club (Finearts/Music/Dance)",
       "motto": "The most loving and caring people can easily be found here.",
       "facultyIncharge": "Dr. N.Renugadevi & Dr. R. Krishnamurthy",
-      "header": [
-        "Year",
-        "Name"
-      ],
-      "students": [
+      "coordinator": [
         {
-          "year": "IV",
           "name": "Cherukuri Venkat Keshav"
         },
         {
-          "year": "III",
           "name": "Chintala Sravani"
         },
         {
-          "year": "II",
           "name": "V Chathurika"
         },
         {
-          "year": "IV",
           "name": "Sai Auchitya B"
         },
         {
-          "year": "II",
           "name": "B Sathvika"
         },
         {
-          "year": "II",
           "name": "V Chathurika"
         },
         {
-          "year": "IV",
           "name": "Piyush Malu"
         },
         {
-          "year": "III",
           "name": "Syed Khaja Mouniddin"
         },
         {
-          "year": "II",
           "name": "Sarthak Kumar"
         }
       ]
@@ -228,17 +160,11 @@
       "name": "Science Club",
       "motto": "A place for Interesting and Scientific stuff.",
       "facultyIncharge": "Dr. Jagadeeshwarar Pashikanti",
-      "header": [
-        "Year",
-        "Name"
-      ],
-      "students": [
+      "coordinator": [
         {
-          "year":"II",
           "name": "Mukesh Kumar"
         },
         {
-          "year":"II",
           "name": "Thivya Sekhar P M"
         }
       ]
@@ -247,25 +173,17 @@
       "name": "EBSB(Ek Bharat Shresta Bharat) Club",
       "motto": "Volunteers for a United India",
       "facultyIncharge": "Dr. Rinshu Dwivedi",
-      "header": [
-        "Year",
-        "Name"
-      ],
-      "students": [
+      "coordinator": [
         {
-          "year": "IV",
           "name": "Nunna Lakshmi Saranya"
         },
         {
-          "year": "III",
           "name": "Dip Kumar Patel"
         },
         {
-          "year": "II",
           "name": "Rishank Goyal"
         },
         {
-          "year": "II",
           "name": "Tejasvi Rayidi"
         }
       ]
@@ -279,41 +197,30 @@
         "Volunteers/Captains",
         "Name of the game"
       ],
-      "students": [
+      "coordinator": [
         {
-          "year": "IV",
           "name": "Konala Sam Ashray"
         },
         {
-          "year": "III",
           "name": "Anish Akode"
         },
         {
-          "year": "II",
           "name": "R Bharadwaj"
         }
       ]
     },
-
     {
       "name": "Yoga Club",
       "motto": "Yoga",
       "facultyIncharge": "Dr. N Renugadevi",
-      "header": [
-        "Year",
-        "Name"
-      ],
-      "students": [
+      "coordinator": [
         {
-          "year": "IV",
           "name": "Vikas Kumar Verma"
         },
         {
-          "year": "III",
           "name": "Vemuri Bhavna"
         },
         {
-          "year": "II",
           "name": "Suman Raj"
         }
       ]
@@ -322,17 +229,11 @@
       "name": "Media Club",
       "motto": "Media & Social Media Posts",
       "facultyIncharge": "Dr. K Kamakshi & Dr. Anoop Jacob thomas",
-      "header": [
-        "Year",
-        "Name"
-      ],
-      "students": [
+      "coordinator": [
         {
-          "year": "IV",
           "name": "Uday Chandra"
         },
         {
-          "year": "II",
           "name": "Pranav Tiwari"
         }
       ]
