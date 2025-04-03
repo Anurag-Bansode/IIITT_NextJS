@@ -31,7 +31,7 @@ export default function CommitteePage({ committee }: { committee: string }) {
         <TableComponent
           title={`Members of ${formattedCommitteeName}`}
           members={members}
-          columns={columnMapping[committee] || ["Name", "Role"]}
+          columns={columnMapping[committee]}
           loading={loading}
           aria-label={`Table displaying members of ${formattedCommitteeName}`}
         />

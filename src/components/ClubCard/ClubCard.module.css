@@ -5,7 +5,7 @@
   align-items: center;
   padding: 1rem;
   width: 280px;
-  background-color: white; /**/
+  background-color: white;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   outline: solid 2px #a1d99b;
@@ -35,7 +35,7 @@
 }
 
 .clubName {
-  color: #333333 ; 
+  color: #333333;
   font-size: 1.5rem;
   font-weight: bold;
   margin-top: 50px;

@@ -12,7 +12,7 @@ interface PersonCardProps {
   name: string;
   emailID: string;
   src: string;
-  src_type: "faculty" | "student" | "staff";
+  src_type: "faculty" | "student" | "staff"|"Warden";
   designation: string;
   researchArea?: string;
   phone?: string;
@@ -21,6 +21,7 @@ interface PersonCardProps {
   Incharge?: string;
   VidhwanLink?: string;
   Institute?: string;
+  Room?:string;
 }
 
 const PersonCard: React.FC<PersonCardProps> = ({
@@ -36,6 +37,7 @@ const PersonCard: React.FC<PersonCardProps> = ({
   Incharge,
   VidhwanLink,
   Institute,
+  Room,
 }) => {
   return (
     <div className={styles.card}>
@@ -60,6 +62,17 @@ const PersonCard: React.FC<PersonCardProps> = ({
       </div>
 
       <div className={styles.bottom}>
+      {Room && Room.trim() &&src_type==="Warden" && (
+          <p className={styles.researchArea}>
+           <strong>Room No: </strong>{Room}
+          </p>
+        )}
+      {dept && dept.trim() &&src_type==="Warden" && (
+          <p className={styles.researchArea}>
+           {dept}
+          </p>
+        )}
+
         {researchArea && researchArea.trim() && (
           <p className={styles.researchArea}>
             <strong>Research:</strong> {researchArea}

@@ -25,7 +25,7 @@ const TableComponent = ({
   title: string;
   members: any[];
   columns: string[];
-  loading: boolean;
+  loading?: boolean;
   isMeetingTable?: boolean;
 }) => (
   <>
