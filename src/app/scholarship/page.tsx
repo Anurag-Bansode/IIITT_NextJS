@@ -1,0 +1,89 @@
+"use client"
+import { useEffect, useState, useCallback } from "react";
+import styles from "./scholarship.module.css"
+import { Typography, Box } from "@mui/material";
+import Grid from "@mui/material/Grid2"
+import { Divider } from "@mui/material";
+import { CircularProgress } from "@mui/material";
+import TableComponent from "@/components/tablecomponent/tablecomponent";
+
+interface FormData {
+    title: string;
+    link: string;
+}
+export default function scholarship() {
+    const [forms, setForms] = useState<FormData[] | null>(null);
+    const [fromloading, setLoading] = useState<boolean>(true);
+    const fetchData = useCallback(async () => {
+        setLoading(true);
+        try {
+            const [formresponse] = await Promise.allSettled([
+                fetch("/json/general/scholarship.json"),
+            ]);
+            if (formresponse.status === "fulfilled") {
+                const meetingsJson = await formresponse.value.json();
+                setForms(meetingsJson);
+            }
+        } catch (error) {
+            console.error("Error fetching form data:", error);
+            setForms([]);
+        } finally {
+            setLoading(false);
+        }
+    }, []);
+    useEffect(() => {
+        document.title = "Scholarship | IIITT";
+        fetchData();
+        return () => {
+            document.title = "IIIT Trichy";
+        };
+    }, [fetchData]);
+    return (
+        <Grid container className={styles.container}>
+            <Grid size={1} />
+            <Grid size={10}>
+                <Typography
+                    variant="h2"
+                    component="h2"
+                    gutterBottom
+                    className={styles.themeText}
+                >
+                    <Box component="span" fontWeight={380}>
+                        Scholarship
+                    </Box>
+                </Typography>
+
+                <section className={styles.sectionPadding}>
+                    <Typography variant="h4" className={styles.themeText} gutterBottom>
+                        <Box component="span" fontWeight="fontWeightBold">
+                            NSP
+                        </Box>
+                    </Typography>
+                    <Box component="span" fontSize="1.2rem" >
+                        National Scholarship Portal is open for Fresh and Renewal
+                        Applications.
+                        <a href="https://scholarships.gov.in/">
+                            <Typography variant="h6">NSP portal</Typography>
+                        </a>
+                    </Box>
+                </section>
+                <Divider />
+                {fromloading ? (
+                    <CircularProgress />
+                ) : forms && forms.length > 0 ? (
+                    <TableComponent
+                        title=""
+                        loading={fromloading}
+                        columns={[]}
+                        isMeetingTable={true}
+                        members={forms}
+                    ></TableComponent>
+                ) : (
+                    <Typography variant="body1" color="error">
+                        No forms available.
+                    </Typography>
+                )}
+            </Grid>
+        </Grid>
+    );
+}
