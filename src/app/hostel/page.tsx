@@ -1,18 +1,15 @@
-"use client";
-import React, { useEffect, useState, useCallback } from "react";
-import { Typography, CircularProgress } from "@mui/material";
+"use client";;
+import { CircularProgress, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid2";
-import DownloadIcon from "@mui/icons-material/Download";
-import styles from "./hostel.module.css";
+import { useCallback, useEffect, useState } from "react";
 import nextConfig from "../../../next.config";
+import styles from "./hostel.module.css";
 
+import PersonCard from "@/components/PersonCard/PersonCard";
+import TableComponent from "@/components/tablecomponent/tablecomponent";
 import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-import Button from "@mui/material/Button";
-import TableComponent from "@/components/tablecomponent/tablecomponent";
-import PersonCard from "@/components/PersonCard/PersonCard";
 
 interface hosteldata {
   title: string;
@@ -80,10 +77,12 @@ export default function Hostel() {
   return (
     <div>
       <Grid size={1} />
+      <div className={styles.title}><Typography variant="h2">Residence Hall</Typography></div>
+
       <div className={styles.cardContainer}>
 
         {hostelinfo?.map((hInfo, index) => (
-          <Grid key={index} size={3}>
+          <Grid key={index} size={10}>
             <Card >
               <CardMedia
                 sx={{ minHeight: 350 }}
@@ -98,9 +97,8 @@ export default function Hostel() {
                 <Typography variant="body2" sx={{ color: "text.secondary" }}>
                   {hInfo.desc}
                 </Typography>
-                Chief Warden
+                <Typography sx={{ mx: 'auto', my: 'auto' }} variant="h6"> Chief Warden</Typography>
                 <PersonCard name={hInfo.Warden} src={hInfo.WardenImage} Room={hInfo.RoomNo} src_type="Warden" dept={hInfo.Department} emailID={hInfo.emailId} designation="">
-
                 </PersonCard>
               </CardContent>
             </Card>
@@ -109,17 +107,11 @@ export default function Hostel() {
 
       </div>
       <Grid size={1} />
-      <Typography
-        gutterBottom
-        variant="h1"
-        component="div"
-      > Mess</Typography>
+      <div className={styles.title}><Typography variant="h2">Mess Hall</Typography></div>
       <Grid size={1} />
       <div className={styles.cardContainer}>
-
-
         {mess?.map((hInfo, index) => (
-          <Grid key={index} size={12}>
+          <Grid key={index} size={10}>
             <Card className="cardContainer">
               <CardMedia
                 sx={{ height: 350 }}
