@@ -6,6 +6,7 @@ import Grid from "@mui/material/Grid2"
 import { Divider } from "@mui/material";
 import { CircularProgress } from "@mui/material";
 import TableComponent from "@/components/tablecomponent/tablecomponent";
+import nextConfig from "../../../next.config";
 
 interface FormData {
     title: string;
@@ -60,12 +61,24 @@ export default function scholarship() {
                         </Box>
                     </Typography>
                     <Box component="span" fontSize="1.2rem" >
-                        National Scholarship Portal is open for Fresh and Renewal
-                        Applications.
+                        National Scholarship Portal (NSP 2.0) is Inviting applications (Fresh and Renewal) under various schemes for the year 2024-25
                         <a href="https://scholarships.gov.in/">
                             <Typography variant="h6">NSP portal</Typography>
                         </a>
+                            <a href={`${nextConfig.env?.DOCUMENT}${"/scholarships/Circular_NSP_2024_25.pdf"}`}>
+                            <Typography variant="h6">Announcement for the NSP Scholarship 2024-2025</Typography>
+                        </a>
                     </Box>
+                    <ul>
+                            <li className={styles.linear}>
+                                For information (use the link : <a href="https://scholarships.gov.in/All-Scholarships">https://scholarships.gov.in/All-Scholarships</a>)
+                            </li>
+                            <br></br>
+                            <li className={styles.linear}>
+                                To apply on National Scholarship Portal (use the link : <a href="https://scholarships.gov.in/">https://scholarships.gov.in/</a> )
+                            </li>
+
+                        </ul>
                 </section>
                 <Divider />
                 {fromloading ? (
