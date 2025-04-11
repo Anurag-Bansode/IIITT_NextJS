@@ -33,7 +33,7 @@ export default function annualreports() {
         }
     }, []);
     useEffect(() => {
-        document.title = "Scholarship | IIITT";
+        document.title = "Annual Reports | IIITT";
         fetchData();
         return () => {
             document.title = "IIIT Trichy";

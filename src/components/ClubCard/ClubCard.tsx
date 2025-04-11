@@ -23,7 +23,10 @@ const ClubCard: React.FC<ClubCardProps> = ({ club }) => {
 
       <div className={styles.clubContent}>
         {selectedTab === "about us" ? (
+          <>
+          <div className={styles.clubIncharge}>Incharge: {club.facultyIncharge}</div>
           <div className={styles.clubMotto}>{club.motto}</div>
+          </>
         ) : (
           <ul className="clubCoordinator">
             {club.coordinator.map((student, idx) => (
