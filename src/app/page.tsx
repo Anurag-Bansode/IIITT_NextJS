@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import {PaperCard} from "@/components/PaperCard/PaperCard";
+import { useEffect, useState, useRef } from "react";
+import { PaperCard } from "@/components/PaperCard/PaperCard";
 import MainCarousel from "@/components/Carousel/MainCarousel";
 import MissionVision from "@/components/mission_vision/missionVision";
 import Marquee from "@/components/marquee/marquee";
@@ -12,10 +12,12 @@ import {
   Tab,
   Typography,
   CircularProgress,
+  Box,
+  Skeleton,
+  Chip,
 } from "@mui/material";
 import TwitterTimeline from "@/components/PaperCard/twitterTimeline";
 import * as carouselData from "../../public/json/carousel/home_carousel.json";
-
 
 interface Item {
   title: string;
@@ -33,6 +35,7 @@ const Home: React.FC = () => {
     achievements: [] as Item[],
     loading: true,
   });
+  const hasLoaded = useRef([true, false, false]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -61,10 +64,13 @@ const Home: React.FC = () => {
 
   const sortData = (data?: Item[]) => {
     if (!data) return [];
-    return [...data].sort((a, b) => new Date(b.date || "").getTime() - new Date(a.date || "").getTime());
+    return [...data].sort(
+      (a, b) => new Date(b.date || "").getTime() - new Date(a.date || "").getTime()
+    );
   };
 
   const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
+    hasLoaded.current[newValue] = true;
     setValue(newValue);
   };
 
@@ -93,21 +99,42 @@ const Home: React.FC = () => {
           <Paper elevation={1} className="tabbedPane" id="news_event_notice">
             <Tabs value={value} onChange={handleChange} aria-label="news events notices">
               {tabs.map((tab, index) => (
-                <Tab key={index} label={tab.label} id={`simple-tab-${index}`} aria-controls={`simple-tabpanel-${index}`} />
+                <Tab
+                  key={index}
+                  label={tab.label}
+                  id={`simple-tab-${index}`}
+                  aria-controls={`simple-tabpanel-${index}`}
+                  className="tab"
+                />
               ))}
-              
             </Tabs>
-            <PaperCard title="news" items={data.news.slice(0,5)} linkToOlder="/news"></PaperCard>
-              <PaperCard title="events" items={data.events.slice(0,5)} linkToOlder="/events"></PaperCard>
-              <PaperCard title="notice" items={data.notice.slice(0,5)} linkToOlder="/notice"></PaperCard>
-            
+
+            <Box role="tabpanel" hidden={value !== 0} id="tabpanel-0">
+              {hasLoaded.current[0] && value === 0 && (
+                <PaperCard title="News" items={data.news.slice(0, 6)} linkToOlder="/news" />
+              )}
+            </Box>
+            <Box role="tabpanel" hidden={value !== 1} id="tabpanel-1">
+              {hasLoaded.current[1] && value === 1 && (
+                <PaperCard title="Events" items={data.events.slice(0, 6)} linkToOlder="/events" />
+              )}
+            </Box>
+            <Box role="tabpanel" hidden={value !== 2} id="tabpanel-2">
+              {hasLoaded.current[2] && value === 2 && (
+                <PaperCard title="Notice" items={data.notice.slice(0, 6)} linkToOlder="/notices" />
+              )}
+            </Box>
           </Paper>
 
           <Paper elevation={2} className="achievements">
             {data.loading ? (
-              <CircularProgress />
+              <Skeleton variant="rectangular" height={200} />
             ) : data.achievements.length > 0 ? (
-              <PaperCard title="Achievements" items={data.achievements.slice(0, 5)} linkToOlder="/achievements" />
+              <PaperCard
+                title="Achievements"
+                items={data.achievements.slice(0, 5)}
+                linkToOlder="/achievements"
+              />
             ) : (
               <Typography>No Achievements available.</Typography>
             )}
