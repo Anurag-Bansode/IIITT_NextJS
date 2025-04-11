@@ -54,8 +54,8 @@ const OutlinedCard: React.FC<PaperCardProps> = ({ title, items, linkToOlder }) =
         <ul className={title}>
           {items.map((item, index) => (
             <li key={index} className="mb-4">
-              <Link href={item.link} passHref>
-                <Typography color="primary" component="a" className="hover:underline">
+              <Link href={item.link}>
+                <Typography color="primary" className="hover:underline cursor-pointer">
                   {item.title}
                 </Typography>
               </Link>
@@ -69,7 +69,7 @@ const OutlinedCard: React.FC<PaperCardProps> = ({ title, items, linkToOlder }) =
         </ul>
       </CardContent>
       <CardActions>
-        <Link href={linkToOlder} passHref>
+        <Link href={linkToOlder}>
           <Button variant="outlined" color="primary">View Older</Button>
         </Link>
       </CardActions>

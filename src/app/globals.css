@@ -1,119 +1,3 @@
-.customeflex {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-.tabbedPane {
-  flex: 1;
-  width: 100%;
-  min-height: 580px;
-  display: flex;
-  flex-direction: column;
-}
-
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: space-between;
-  width: 100%;
-}
-
-#info {
-  margin: auto;
-  margin-top: 40px;
-  justify-content: space-between !important;
-}
-
-#info > div {
-  width: 30% !important;
-}
-#info > div > div {
-  width: 100% !important;
-  height: 100% !important;
-}
-#info_mob > div > div {
-  width: 100% !important;
-  height: 100% !important;
-}
-
-@media only screen and (max-width: 800px) {
-  #info_mob > div {
-    width: 100% !important;
-  }
-  .mission{
-    height: unset !important;
-  }
-}
-.container {
-  margin-top: 20px;
-  padding: 1rem 5px;
-}
-.customflex {
-  display: grid;
-  grid-gap: 0.5rem;
-  grid-template-columns: 24% 48% 24%;
-  height: 570px;
-  justify-content: center;
-}
-
-.mission {
-  height: 570px;
-}
-.carousel {
-  max-height: 570px;
-  margin: auto 0;
-}
-.marquee {
-  height: 570px;
-}
-
-@media only screen and (min-width: 800px) {
-  .MuiPaper-elevation3 {
-    max-width: 28%;
-  }
-}
-@media only screen and (max-width: 800px) {
-  .customeflex {
-    grid-template-columns: 1fr;
-    height: 100%;
-  }
-  .carousel {
-    grid-row: 1;
-  }
-}
-
-.row {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-
-.tab {
-  min-width: 33% !important;
-}
-
-.twittertimeline,
-.tabbedPane,
-.achievements {
-  margin: 1.5rem 0.3rem;
-  width: 32%;
-  min-height: 680px;
-  height: 100%;
-}
-
-@media only screen and (max-width: 800px) {
-  .row {
-    display: flex;
-    flex-direction: column;
-  }
-  .twittertimeline,
-  .tabbedPane,
-  .achievements {
-    margin: 1.5rem 0;
-    width: 100%;
-  }
-}
 
 .pageContainer {
   width: 100%;
@@ -122,4 +6,105 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
+}
+
+.container {
+  margin-top: 20px;
+  padding: 1rem 5px;
+}
+
+.customflex {
+  display: grid;
+  grid-gap: 0.5rem;
+  grid-template-columns: 24% 48% 24%;
+  justify-content: center;
+  height: 570px;
+}
+
+.mission,
+.carousel,
+.marquee {
+  height: 570px;
+}
+
+.carousel {
+  max-height: 570px;
+  margin: auto 0;
+}
+
+#info {
+  margin: auto;
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#info > div {
+  width: 30%;
+}
+
+#info > div > div,
+#info_mob > div > div {
+  width: 100%;
+  height: 100%;
+}
+
+/* Tabs Section */
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.tab {
+  min-width: 33%;
+}
+
+.tabbedPane,
+.achievements,
+.twittertimeline {
+  justify-content: center;
+  margin: 1.5rem 0.3rem;
+  width: 32%;
+  min-height: 680px;
+  height: 100%;
+}
+
+
+@media only screen and (max-width: 800px) {
+  .customflex {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .carousel {
+    grid-row: 1;
+  }
+
+  .mission {
+    height: auto;
+  }
+
+  .row {
+    flex-direction: column;
+  }
+
+  .tabbedPane,
+  .achievements,
+  .twittertimeline {
+    margin: 1.5rem 0;
+    width: 100%;
+  }
+
+  #info_mob > div {
+    width: 100%;
+  }
+}
+
+/* Material-UI Specific Tweak */
+@media only screen and (min-width: 800px) {
+  .MuiPaper-elevation3 {
+    max-width: 28%;
+  }
 }
