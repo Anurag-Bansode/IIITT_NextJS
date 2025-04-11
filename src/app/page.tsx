@@ -97,9 +97,9 @@ const Home: React.FC = () => {
               ))}
               
             </Tabs>
-            <PaperCard title="news" items={data.news} linkToOlder="/news"></PaperCard>
-              <PaperCard title="events" items={data.events} linkToOlder="/events"></PaperCard>
-              <PaperCard title="notice" items={data.notice} linkToOlder="/notice"></PaperCard>
+            <PaperCard title="news" items={data.news.slice(0,5)} linkToOlder="/news"></PaperCard>
+              <PaperCard title="events" items={data.events.slice(0,5)} linkToOlder="/events"></PaperCard>
+              <PaperCard title="notice" items={data.notice.slice(0,5)} linkToOlder="/notice"></PaperCard>
             
           </Paper>
 

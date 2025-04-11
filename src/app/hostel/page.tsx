@@ -10,6 +10,7 @@ import TableComponent from "@/components/tablecomponent/tablecomponent";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
+import { Box } from "@mui/material";
 
 interface hosteldata {
   title: string;
@@ -83,7 +84,11 @@ export default function Hostel() {
 
         {hostelinfo?.map((hInfo, index) => (
           <Grid key={index} size={10}>
-            <Card >
+            <Card sx={{
+              borderRadius: "12px",
+              boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
+              overflow: "hidden"
+            }}>
               <CardMedia
                 sx={{ minHeight: 350 }}
                 image={`${nextConfig.env?.DOCUMENT}${hInfo.Hostelsrc}`}
@@ -106,13 +111,15 @@ export default function Hostel() {
         ))}
 
       </div>
+      <div className={styles.sectiondivider}></div>
+
       <Grid size={1} />
       <div className={styles.title}><Typography variant="h2">Mess Hall</Typography></div>
       <Grid size={1} />
       <div className={styles.cardContainer}>
         {mess?.map((hInfo, index) => (
           <Grid key={index} size={10}>
-            <Card className="cardContainer">
+            <Card className={styles.cardContainer}>
               <CardMedia
                 sx={{ height: 350 }}
                 image={`${nextConfig.env?.DOCUMENT}${hInfo.Hostelsrc}`}
@@ -126,26 +133,15 @@ export default function Hostel() {
                 <Typography variant="body2" sx={{ color: "text.secondary" }}>
                   {hInfo.desc}
                 </Typography>
-                {
-                  <Typography variant="body2" sx={{ color: "text.secondary" }}>
-                    Breakfast: {hInfo.MessTimings.Breakfast}
-                  </Typography>
-                }
-                {
-                  <Typography variant="body2" sx={{ color: "text.secondary" }}>
-                    Lunch: {hInfo.MessTimings.Lunch}
-                  </Typography>
-                }
-                {
-                  <Typography variant="body2" sx={{ color: "text.secondary" }}>
-                    Snack: {hInfo.MessTimings.Snacks}
-                  </Typography>
-                }
-                {
-                  <Typography variant="body2" sx={{ color: "text.secondary" }}>
-                    Dinner: {hInfo.MessTimings.Dinner}
-                  </Typography>
-                }
+                <div>
+                  <Box sx={{ display: "grid", gap: "10px" }}>
+                    {Object.entries(hInfo.MessTimings).map(([meal, time]) => (
+                      <Typography key={meal} variant="body2" sx={{ color: "text.secondary" }}>
+                        <b>{meal}:</b> {time}
+                      </Typography>
+                    ))}
+                  </Box>
+                </div>
                 <PersonCard name={hInfo.Warden} src={hInfo.WardenImage} Room={hInfo.RoomNo} src_type="Warden" dept={hInfo.Department} emailID={hInfo.emailId} designation="" />
               </CardContent>
             </Card>
@@ -153,6 +149,8 @@ export default function Hostel() {
         ))}
       </div>
       <Grid size={1} />
+      <div className={styles.sectiondivider}></div>
+
       {fromloading ? (
         <CircularProgress />
       ) : forms && forms.length > 0 ? (

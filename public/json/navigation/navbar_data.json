@@ -51,6 +51,10 @@
         {
           "text": "Administrative Forms",
           "link": "/administrative-forms"
+        },
+        {
+          "text": "Annual Reports And Accounts",
+          "link": "/annualreports"
         }
       ]
     },
@@ -114,7 +118,7 @@
       "submenu": [
         {
           "text": "General",
-          "link": "/general"
+          "link": "/notices"
         },
         {
           "text": "Tenders",
@@ -163,7 +167,7 @@
         {
           "text": "Clubs",
           "link": "/clubs"
-        }        ,
+        },
         {
           "text": "Hostel",
           "link": "/hostel"
@@ -171,8 +175,7 @@
         {
           "text": "Facilities And Services",
           "link": "/facilities"
-        }
-        ,
+        },
         {
           "text": "Aikyam Magazine",
           "link": "/aikyam"
@@ -183,12 +186,7 @@
       "text": "Scholarship",
       "icon": "call",
       "name": "scholarship",
-      "submenu": [
-        {
-          "text": "Scholarship",
-          "link": "/scholarship"
-        }
-      ]
+      "link": "/scholarship"
     },
     {
       "text": "C2S Project",
@@ -205,12 +203,7 @@
       "text": "Contact Us",
       "icon": "call",
       "name": "contactus",
-      "submenu": [
-        {
-          "text": "Contact Us",
-          "link": "/contactus"
-        }
-      ]
+      "link": "/contactus"
     },
     {
       "text": "Virtual Academy",

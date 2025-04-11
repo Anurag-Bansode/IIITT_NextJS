@@ -28,10 +28,12 @@ import nextConfig from "../../../next.config";
 interface SubMenuItem {
   text: string;
   link: string;
+  submenu?: SubMenuItem[];
 }
 
 interface NavItem {
   text: string;
+  link?: string;
   submenu?: SubMenuItem[];
 }
 
@@ -41,7 +43,7 @@ const StyledHomeIcon = styled(HomeRoundedIcon)({
 });
 
 const StyledButton = styled(Button)({
-  color: "white", 
+  color: "white",
 });
 
 const Navbar = () => {
@@ -52,7 +54,6 @@ const Navbar = () => {
     let isMounted = true;
     const fetchNavItems = async () => {
       try {
-        
         const res = await fetch("/json/navigation/navbar_data.json");
         const data = await res.json();
         if (isMounted) setNavItems(data.data);
@@ -89,10 +90,10 @@ const Navbar = () => {
 
       {/* Desktop Navbar */}
       <div id="desktop_menu" className="MuiAppBar-root MuiToolbar-regular">
-        <div style={{ display: "flex", gap: "20px" , minHeight:"64px" }}>
-        <Link href="/" id="home_button">
-          <StyledHomeIcon />
-        </Link>
+        <div style={{ display: "flex", gap: "20px", minHeight: "64px" }}>
+          <Link href="/" id="home_button">
+            <StyledHomeIcon />
+          </Link>
           {navItems.map((menuItem, index) => (
             <DropdownMenu key={index} menu={menuItem} />
           ))}
@@ -142,16 +143,67 @@ const DropdownMenu: React.FC<{ menu: NavItem }> = ({ menu }) => {
 
   return (
     <div>
-      <StyledButton onClick={handleOpen}>{menu.text}</StyledButton>
-      <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleClose}>
-        {menu.submenu?.map((item, index) => (
-          <MenuItem key={index} onClick={handleClose}>
-            <Link href={item.link} style={{ color: "Black", textDecoration: "none" }}>
-              {item.text}
-            </Link>
+      {menu.submenu ? (
+        <>
+          <StyledButton onClick={handleOpen}>{menu.text}</StyledButton>
+          <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleClose}>
+            {menu.submenu.map((item, index) => (
+              <NestedDropdown key={index} menuItem={item} onClose={handleClose} />
+            ))}
+          </Menu>
+        </>
+      ) : (
+        <Link href={menu.link || "#"} passHref>
+          <StyledButton>{menu.text}</StyledButton>
+        </Link>
+      )}
+    </div>
+  );
+};
+
+// Nested Dropdown for handling deeper submenus
+const NestedDropdown: React.FC<{ menuItem: SubMenuItem; onClose: () => void }> = ({ menuItem, onClose }) => {
+  const [subAnchorEl, setSubAnchorEl] = useState<null | HTMLElement>(null);
+
+  const handleSubOpen = (event: MouseEvent<HTMLLIElement>) => {
+    setSubAnchorEl(event.currentTarget);
+  };
+
+  const handleSubClose = () => {
+    setSubAnchorEl(null);
+    onClose();
+  };
+
+  return (
+    <div>
+      {menuItem.submenu ? (
+        <>
+          <MenuItem onMouseEnter={handleSubOpen} onMouseLeave={handleSubClose}>
+            {menuItem.text}
           </MenuItem>
-        ))}
-      </Menu>
+          <Menu
+            anchorEl={subAnchorEl}
+            open={Boolean(subAnchorEl)}
+            onClose={handleSubClose}
+            anchorOrigin={{ vertical: "top", horizontal: "right" }}
+            transformOrigin={{ vertical: "top", horizontal: "left" }}
+          >
+            {menuItem.submenu.map((subItem, index) => (
+              <MenuItem key={index} onClick={handleSubClose}>
+                <Link href={subItem.link} style={{ color: "Black", textDecoration: "none" }}>
+                  {subItem.text}
+                </Link>
+              </MenuItem>
+            ))}
+          </Menu>
+        </>
+      ) : (
+        <MenuItem onClick={onClose}>
+          <Link href={menuItem.link} style={{ color: "Black", textDecoration: "none" }}>
+            {menuItem.text}
+          </Link>
+        </MenuItem>
+      )}
     </div>
   );
 };
