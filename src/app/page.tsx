@@ -1,8 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Paper, Tabs, Tab, Typography, CircularProgress } from "@mui/material";
-
+import {
+  Paper,
+  Tabs,
+  Tab,
+  CircularProgress,
+  Box,
+  Typography,
+} from "@mui/material";
 import { PaperCard } from "@/components/PaperCard/PaperCard";
 import MainCarousel from "@/components/Carousel/MainCarousel";
 import MissionVision from "@/components/mission_vision/missionVision";
@@ -18,6 +24,28 @@ interface Item {
   date?: string;
   isNew?: boolean;
 }
+
+interface TabPanelProps {
+  children?: React.ReactNode;
+  index: number;
+  value: number;
+}
+
+const TabPanel: React.FC<TabPanelProps> = ({ children, value, index, ...other }) => (
+  <div
+    role="tabpanel"
+    hidden={value !== index}
+    id={`simple-tabpanel-${index}`}
+    aria-labelledby={`simple-tab-${index}`}
+    {...other}
+  >
+    {value === index && (
+      <Box p={2}>
+        <Typography component="div">{children}</Typography>
+      </Box>
+    )}
+  </div>
+);
 
 const Home: React.FC = () => {
   const [activeTab, setActiveTab] = useState(0);
@@ -62,52 +90,87 @@ const Home: React.FC = () => {
     setActiveTab(newValue);
   };
 
-  const tabs = [
-    { label: "News", data: data.news, link: "/news" },
-    { label: "Events", data: data.events, link: "/events" },
-    { label: "Notices", data: data.notice, link: "/notices" },
-  ];
+  const a11yProps = (index: number) => ({
+    id: `simple-tab-${index}`,
+    "aria-controls": `simple-tabpanel-${index}`,
+  });
 
   return (
     <div className="page-container">
       <div className="container">
-        <div className="customflex">
-          <div className="mission"><MissionVision /></div>
-          <div className="carousel"><MainCarousel images={carouselData.data} /></div>
-          <div className="marquee" id="announcements_marquee"><Marquee /></div>
+        <div className="customeflex">
+          <div className="mission">
+            <MissionVision />
+          </div>
+          <div className="carousel">
+            <MainCarousel images={carouselData.data} />
+          </div>
+          <div className="marquee" id="announcements_marquee">
+            <Marquee />
+          </div>
         </div>
 
         <div className="row">
-          <Paper elevation={1} className="tabbedPane" id="news_event_notice">
+          {/* Tabbed Section */}
+          <Paper elevation={3} className="tabbedPane" id="news_event_notice">
             <Tabs value={activeTab} onChange={handleTabChange} aria-label="news events notices">
-              {tabs.map((tab, index) => (
-                <Tab key={index} label={tab.label} id={`tab-${index}`} aria-controls={`tabpanel-${index}`} />
-              ))}
+              <Tab label="News" {...a11yProps(0)} className="tab" />
+              <Tab label="Events" {...a11yProps(1)} className="tab" />
+              <Tab label="Notices" {...a11yProps(2)} className="tab" />
             </Tabs>
-            <div className="tab-content">
-              <PaperCard
-                title={tabs[activeTab].label}
-                items={tabs[activeTab].data.slice(0, 5)}
-                linkToOlder={tabs[activeTab].link}
-              />
-            </div>
+
+            <TabPanel value={activeTab} index={0}>
+              {data.loading ? (
+                <CircularProgress />
+              ) : (
+                <PaperCard
+                  title="News"
+                  items={data.news.slice(0, 5)}
+                  linkToOlder="/news"
+                />
+              )}
+            </TabPanel>
+
+            <TabPanel value={activeTab} index={1}>
+              {data.loading ? (
+                <CircularProgress />
+              ) : (
+                <PaperCard
+                  title="Events"
+                  items={data.events.slice(0, 5)}
+                  linkToOlder="/events"
+                />
+              )}
+            </TabPanel>
+
+            <TabPanel value={activeTab} index={2}>
+              {data.loading ? (
+                <CircularProgress />
+              ) : (
+                <PaperCard
+                  title="Notices"
+                  items={data.notice.slice(0, 5)}
+                  linkToOlder="/notices"
+                />
+              )}
+            </TabPanel>
           </Paper>
 
-          <Paper elevation={2} className="achievements">
+          {/* Achievements Section */}
+          <Paper elevation={3} className="achievements">
             {data.loading ? (
               <CircularProgress />
-            ) : data.achievements.length > 0 ? (
+            ) : (
               <PaperCard
                 title="Achievements"
                 items={data.achievements.slice(0, 5)}
                 linkToOlder="/achievements"
               />
-            ) : (
-              <Typography>No Achievements available.</Typography>
             )}
           </Paper>
 
-          <Paper elevation={2} className="twittertimeline" id="twitter_timeline">
+          {/* Twitter Timeline Section */}
+          <Paper elevation={3} className="twittertimeline" id="twitter_timeline">
             <TwitterTimeline username="iiittrichy" />
           </Paper>
         </div>

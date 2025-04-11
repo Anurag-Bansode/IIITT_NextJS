@@ -1,79 +1,107 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Paper from "@mui/material/Paper";
-import CircularProgress from "@mui/material/CircularProgress";
-
-declare global {
-  interface Window {
-    twttr?: {
-      widgets: {
-        load: () => void;
-      };
-    };
-  }
-}
+import { Paper, Typography, CircularProgress, Box } from "@mui/material";
 
 interface TwitterTimelineProps {
   username: string;
-  theme?: "light" | "dark"; // Allow theme customization
+  theme?: "light" | "dark";
+  height?: number;
 }
 
-const TwitterTimeline: React.FC<TwitterTimelineProps> = ({ username, theme = "light" }) => {
+const TwitterTimeline: React.FC<TwitterTimelineProps> = ({
+  username,
+  theme = "light",
+  height = 600,
+}) => {
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
+  const [failed, setFailed] = useState(false);
 
   useEffect(() => {
-    if (typeof window !== "undefined" && !window.twttr) {
+    let timeoutId: NodeJS.Timeout;
+
+    const loadTwitterScript = () => {
+      if (document.querySelector('script[src="https://platform.twitter.com/widgets.js"]')) {
+        setLoading(false);
+        return;
+      }
+
       const script = document.createElement("script");
       script.src = "https://platform.twitter.com/widgets.js";
       script.async = true;
-      script.onload = () => {
-        if (window.twttr) {
-          window.twttr.widgets.load();
-          setLoading(false);
-        } else {
-          setError(true);
-        }
+      script.onload = () => setLoading(false);
+      script.onerror = () => {
+        setLoading(false);
+        setFailed(true);
       };
-      script.onerror = () => setError(true);
+
       document.body.appendChild(script);
-    } else if (window.twttr) {
-      window.twttr.widgets.load();
-      setLoading(false);
-    }
+
+      timeoutId = setTimeout(() => {
+        setLoading(false);
+        if (!document.querySelector(".twitter-timeline-rendered")) {
+          setFailed(true);
+        }
+      }, 10000);
+    };
+
+    loadTwitterScript();
+
+    return () => {
+      clearTimeout(timeoutId);
+    };
   }, [username]);
 
   return (
     <Paper
       elevation={3}
-      className="w-full twittertimeline"
-      id="twitter_timeline"
-      style={{
+      sx={{
+        p: 2,
         width: "100%",
-        minHeight: "680px",
+        maxWidth: 600,
         display: "flex",
+        flexDirection: "column",
         alignItems: "center",
-        justifyContent: "center",
-        overflow: "hidden",
+        boxSizing: "border-box",
+        boxShadow:"none"
       }}
     >
-      {error ? (
-        <p>Failed to load tweets. Try refreshing the page.</p>
-      ) : loading ? (
-        <CircularProgress />
-      ) : (
-        <a
-          className="twitter-timeline"
-          data-width="100%"
-          data-height="680"
-          data-theme={theme}
-          data-tweet-limit="5"
-          href={`https://twitter.com/${username}`}
-        >
-          Tweets by @{username}
-        </a>
+      <Typography variant="h6" gutterBottom>
+        Tweets by @{username}
+      </Typography>
+
+      {loading && (
+        <Box sx={{ display: "flex", justifyContent: "center", py: 4 }}>
+          <CircularProgress />
+        </Box>
       )}
+
+      <Box
+        sx={{
+          width: "100%",
+          minHeight: height,
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          overflow: "hidden",
+        }}
+      >
+        {failed ? (
+          <Typography color="error" textAlign="center">
+            Failed to load tweets. Please try again later.
+          </Typography>
+        ) : (
+          <a
+            className="twitter-timeline"
+            data-theme={theme}
+            data-height={height}
+            data-width="100%"
+            href={`https://twitter.com/${username}`}
+          >
+            Tweets by @{username}
+          </a>
+        )}
+      </Box>
     </Paper>
   );
 };

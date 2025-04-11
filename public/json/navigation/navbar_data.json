@@ -192,12 +192,13 @@
       "text": "C2S Project",
       "icon": "call",
       "name": "C2S Project",
-      "submenu": [
-        {
-          "text": "C2S Project",
-          "link": "/c2s"
-        }
-      ]
+      "link": "https://iiitt.ac.in/c2s"
+    },
+    {
+      "text": "placements",
+      "icon": "call",
+      "name": "placements",
+      "link": "    http://placement.iiitt.ac.in/"
     },
     {
       "text": "Contact Us",

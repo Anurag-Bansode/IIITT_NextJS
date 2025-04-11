@@ -7,7 +7,7 @@ import DescriptionIcon from "@mui/icons-material/Description";
 import EventNoteIcon from "@mui/icons-material/EventNote";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
-import "./PaperCard.css";
+import "./PaperCard.css"
 
 interface Item {
   title: string;
@@ -23,7 +23,7 @@ interface PaperCardProps {
 
 const PaperCard: React.FC<PaperCardProps> = ({ title, items, linkToOlder }) => {
   return (
-    <div className="w-full p-4 bg-white rounded-lg shadow-md">
+    <div className="root">
       <OutlinedCard title={title} items={items} linkToOlder={linkToOlder} />
     </div>
   );
@@ -46,32 +46,28 @@ const getIcon = (title: string) => {
 
 const OutlinedCard: React.FC<PaperCardProps> = ({ title, items, linkToOlder }) => {
   return (
-    <Card variant="outlined" className="w-full" id="simplecard" style={{ width: "100%" }}>
+    <Card className="outline-root" id="simplecard">
       <CardContent>
-        <Typography variant="h6" className="newshead flex items-center">
-          {getIcon(title)} {title}
-        </Typography>
+        <div className="newshead">{title}</div>
         <ul className={title}>
-          {items.map((item, index) => (
-            <li key={index} className="mb-4">
-              <Link href={item.link}>
-                <Typography color="primary" className="hover:underline cursor-pointer">
-                  {item.title}
-                </Typography>
-              </Link>
-              {item.date && (
-                <Typography variant="caption" color="textSecondary" display="block">
-                  Posted: {item.date}
-                </Typography>
-              )}
-            </li>
-          ))}
+          {items &&
+            items.map((item,index) => (
+              <li key={index} style={{ marginBottom: "15px" }}>
+                <Link href={item.link}>{item.title}</Link>
+                <br />
+                {item.date && <Typography
+                  variant="caption"
+                  color="textSecondary"
+                  gutterBottom
+                >
+                  Posted:{item.date}
+                </Typography>}
+              </li>
+            ))}
         </ul>
       </CardContent>
       <CardActions>
-        <Link href={linkToOlder}>
-          <Button variant="outlined" color="primary">View Older</Button>
-        </Link>
+        <Link href={linkToOlder}><Button size="small">View older</Button></Link>
       </CardActions>
     </Card>
   );
