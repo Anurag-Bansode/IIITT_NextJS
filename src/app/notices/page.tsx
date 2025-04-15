@@ -1,11 +1,12 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import Grid from "@mui/material/Grid";
+import Grid from "@mui/material/Grid2";
 import Box from "@mui/material/Box";
 import { Typography } from "@mui/material";
 import styles from "./notices.module.css";
 import nextConfig from "../../../next.config";
+import { validURL } from "../achievements/validator";
 
 interface Item {
   title: string;
@@ -18,9 +19,6 @@ interface Item {
 
 
 const Notices = () => {
-  const [noticesData, setNoticesData] = useState<Record<string, Item[]> | null>(
-    null
-  );
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [oldNotices, setOldNotices] = useState<Item[]>([]);
@@ -46,7 +44,7 @@ const Notices = () => {
 
         setNewNotices(latest);
         setOldNotices(old);
-        setNoticesData(data);
+
       } catch (error) {
         console.error("Error loading JSON data:", error);
         setError("Error loading notices data.");
@@ -61,8 +59,8 @@ const Notices = () => {
   return (
     <div className="page-container">
       <Grid container className={styles.container}>
-        <Grid item xs={1} />
-        <Grid item xs={10}>
+        <Grid size={1} />
+        <Grid size={10}>
           <Typography variant="h2" gutterBottom className={styles.themeText}>
             <Box component="span" fontWeight={380}>
               Notices
@@ -158,19 +156,10 @@ const Notices = () => {
             </>
           )}
         </Grid>
-        <Grid item xs={1} />
+        <Grid size={1} />
       </Grid>
     </div>
   );
 };
 
 export default Notices;
-export function validURL(str:string) {
-  var pattern = new RegExp('^(https?:\\/\\/)?' + // protocol
-      '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
-      '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
-      '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
-      '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
-      '(\\#[-a-z\\d_]*)?$', 'i'); // fragment locator
-  return !!pattern.test(str);
-}

@@ -75,7 +75,6 @@ const Faculty = () => {
                         designation={member.designation}
                         researchArea={member.researchArea}
                         dept={member.id.dept}
-                        deptID={member.id.deptID}
                         Incharge={member.Incharge}
                         VidhwanLink={member.VidhwanLink}
                         Institute={member.Institute}

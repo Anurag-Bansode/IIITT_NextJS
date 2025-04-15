@@ -1,6 +1,30 @@
-"use client"; // Time updates on user system only 
+"use client";
 
 import { useState, useEffect } from "react";
+
+const daysArray = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
+const monthArray = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
 
 const Time = () => {
   const [currentTime, setCurrentTime] = useState({
@@ -11,30 +35,6 @@ const Time = () => {
     month: "",
     year: "",
   });
-
-  const daysArray = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-  const monthArray = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
 
   useEffect(() => {
     function updateCountdown() {
@@ -52,9 +52,8 @@ const Time = () => {
     updateCountdown();
     const interval = setInterval(updateCountdown, 1000);
 
-    return () => clearInterval(interval); 
+    return () => clearInterval(interval);
   }, []);
-
   return (
     <div>
       <p>

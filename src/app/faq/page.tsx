@@ -12,8 +12,6 @@ interface FaqsData {
 
 const Faqs: React.FC = () => {
   const [faqs, setFaqs] = useState<FaqsData[] | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
-
   useEffect(() => {
     document.title = "FAQs";
     return () => {
@@ -31,11 +29,11 @@ const Faqs: React.FC = () => {
       })
       .then((data) => {
         setFaqs(data.data);
-        setLoading(false);
+
       })
       .catch((error) => {
         console.error("Error fetching faqs data:", error);
-        setLoading(false);
+
       });
   }, []);
 
@@ -57,7 +55,7 @@ const Faqs: React.FC = () => {
           {faqs &&
             faqs.map((faq, index) => {
               return (
-                <div className={styles.faq}>
+                <div key={index} className={styles.faq}>
                   <Faq questionNumber={index} question={faq.question} answer={faq.answer} />
                 </div>
               );

@@ -131,8 +131,8 @@ const About = () => {
                 </Typography>
                 <Divider style={{ margin: "0.2rem 0 1rem 0px" }} />
                 <Typography color="textSecondary">
-                  To achieve "World Class Excellence in Information and
-                  Communication Technology".
+                  To achieve &quot;World Class Excellence in Information and
+                  Communication Technology&quot;.
                 </Typography>
                 <br />
 

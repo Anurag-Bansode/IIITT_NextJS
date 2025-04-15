@@ -1,7 +1,8 @@
 "use client";
+import ClubCard from "@/components/ClubCard/ClubCard";
 import React, { useEffect, useState } from "react";
 import styles from "./clubs.module.css";
-import ClubCard from "@/components/ClubCard/ClubCard";
+import { CircularProgress } from "@mui/material";
 
 interface Club {
   name: string;
@@ -41,13 +42,18 @@ const Clubs: React.FC = () => {
 
   return (
     <div className={styles.facultyContainer}>
-      <div className={styles.cardContainer}>
-        {clubs?.map((club, index) => (
-          <ClubCard key={index} club={club} />
-        ))}
-      </div>
+      {loading ? (
+        <CircularProgress/>
+      ) : (
+        <div className={styles.cardContainer}>
+          {clubs?.map((club, index) => (
+            <ClubCard key={index} club={club} />
+          ))}
+        </div>
+      )}
     </div>
   );
+
 };
 
 export default Clubs;

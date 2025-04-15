@@ -1,13 +1,12 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import { Typography, Box } from "@mui/material";
-import Grid from "@mui/material/Grid2";
-import styles from "./departments.module.css";
-import nextConfig from "../../../next.config";
-import Image from "next/image";
-
-import CloudDownloadIcon from "@mui/icons-material/CloudDownload";
 import MainCarousel from "@/components/Carousel/MainCarousel";
+import CloudDownloadIcon from "@mui/icons-material/CloudDownload";
+import { Box, Typography } from "@mui/material";
+import Grid from "@mui/material/Grid2";
+import React, { useEffect, useState } from "react";
+import nextConfig from "../../../next.config";
+import { validURL } from "../achievements/validator";
+import styles from "./departments.module.css";
 interface Festival {
   name: string;
   description: string;
@@ -26,9 +25,8 @@ interface Festival {
   ];
 }
 
-const festivals: React.FC = () => {
+const Festivals: React.FC = () => {
   const [festivals, setFestivals] = useState<Festival[] | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     document.title = "Festivals";
@@ -48,8 +46,6 @@ const festivals: React.FC = () => {
         setFestivals(data.data);
       } catch (error) {
         console.error("Error fetching festival data:", error);
-      } finally {
-        setLoading(false);
       }
     };
 
@@ -130,13 +126,4 @@ const festivals: React.FC = () => {
   );
 };
 
-export default festivals;
-
-export function validURL(str:string) {
-  var pattern = new RegExp('^(https?:\\/\\/)?' + // protocol
-      '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
-      '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
-      '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
-      '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
-      '(\\#[-a-z\\d_]*)?$', 'i'); // fragment locator
-  return !!pattern.test(str);}
+export default Festivals;

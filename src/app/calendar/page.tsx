@@ -1,10 +1,10 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import { Typography, Box } from "@mui/material";
-import Grid from "@mui/material/Grid2"
-import styles from "./calendar.module.css";
-import nextConfig from "../../../next.config";
 import EventIcon from "@mui/icons-material/Event";
+import { Box, Typography } from "@mui/material";
+import Grid from "@mui/material/Grid2";
+import React, { useEffect, useState } from "react";
+import nextConfig from "../../../next.config";
+import styles from "./calendar.module.css";
 
 interface Calendar {
   title: string;
@@ -15,10 +15,8 @@ interface CalendarData {
   url: string;
 }
 
-const calendar: React.FC = () => {
+const Calendar: React.FC = () => {
   const [calendar, setCalendar] = useState<Calendar[] | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
-
   useEffect(() => {
     document.title = "Calendar";
     return () => {
@@ -36,11 +34,11 @@ const calendar: React.FC = () => {
       })
       .then((data) => {
         setCalendar(data.data);
-        setLoading(false);
+
       })
       .catch((error) => {
         console.error("Error fetching calendar data:", error);
-        setLoading(false);
+
       });
   }, []);
 
@@ -80,4 +78,4 @@ const calendar: React.FC = () => {
   );
 };
 
-export default calendar
+export default Calendar;

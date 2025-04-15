@@ -25,7 +25,7 @@ const MissionVision = () => {
           </Typography>
           <Divider />
           <Typography color="textSecondary" id="vision" sx={{ mb: 2 }}>
-            To achieve "World Class Excellence in Information and Communication Technology".
+            To achieve  &quot;World Class Excellence in Information and Communication Technology &quot;.
           </Typography>
 
           <Typography variant="h5" component="h1" sx={{ color: "#2e8b57" }}>
@@ -81,7 +81,7 @@ const MissionVision = () => {
           </Typography>
           <Divider />
           <Typography color="textSecondary" id="vision" sx={{ mb: 2 }}>
-            To achieve "World Class Excellence in Information and Communication Technology".
+            To achieve  &quot;World Class Excellence in Information and Communication Technology &quot;.
           </Typography>
 
           <Typography variant="h5" component="h1" sx={{ color: "#2e8b57" }}>

@@ -10,7 +10,6 @@ interface Department {
 
 const Departments: React.FC = () => {
   const [depts, setDepts] = useState<Department[] | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     document.title = "Departments";
@@ -29,11 +28,11 @@ const Departments: React.FC = () => {
       })
       .then((data) => {
         setDepts(data.data);
-        setLoading(false);
+
       })
       .catch((error) => {
         console.error("Error fetching department data:", error);
-        setLoading(false);
+
       });
   }, []);
 

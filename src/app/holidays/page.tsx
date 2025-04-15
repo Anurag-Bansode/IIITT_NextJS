@@ -13,7 +13,6 @@ interface Calendar {
 
 const Holidays: React.FC = () => {
   const [calendar, setCalendar] = useState<Calendar[] | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     document.title = "Holiday";
@@ -32,11 +31,11 @@ const Holidays: React.FC = () => {
       })
       .then((data) => {
         setCalendar(data.data);
-        setLoading(false);
+
       })
       .catch((error) => {
         console.error("Error fetching calendar data:", error);
-        setLoading(false);
+
       });
   }, []);
 

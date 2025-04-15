@@ -1,23 +1,21 @@
 "use client";
 
-import { useEffect } from "react";
 import {
-  Typography,
   Box,
+  Typography,
 } from "@mui/material";
-import Grid from "@mui/material/Grid2"
+import Grid from "@mui/material/Grid2";
+import { useEffect } from "react";
 
-import styles from "./antiragging.module.css"
+import styles from "./antiragging.module.css";
 
-const antiRagging = () => {
+const AntiRagging = () => {
   useEffect(() => {
     document.title = "Anti Raggign Committe | IIIT Tiruchirappalli";
     return () => {
       document.title = "IIIT Trichy";
     };
   }, []);
-
-  const bull = <span>•</span>;
 
   return (
     <div className="page-container">
@@ -144,4 +142,4 @@ const antiRagging = () => {
   );
 };
 
-export default antiRagging;
+export default AntiRagging;

@@ -76,7 +76,7 @@ const Footer: React.FC = () => {
             <hr />
             <a href="/admission_fee_structure">Fee Structure</a>
             <hr />
-            <a href="/faq">FAQ's</a>
+            <a href="/faq">FAQ`&apos;`s</a>
           </div>
           <div className="last line"></div>
           <hr className="mobile" />

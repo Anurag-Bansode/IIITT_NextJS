@@ -4,7 +4,8 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./partners.module.css";
-import { Typography, Grid, Box } from "@mui/material";
+import { Typography, Box } from "@mui/material";
+import Grid from "@mui/material/Grid2";
 import nextConfig from "../../../next.config";
 interface Partner {
   name: string;
@@ -13,7 +14,7 @@ interface Partner {
   link: string;
 }
 
-export default function partners() {
+export default function Partners() {
   const [partners, setPartners] = useState<Partner[]>([]);
 
   useEffect(() => {
@@ -40,8 +41,8 @@ export default function partners() {
   return (
     <div className={styles.pageContainer}>
       <Grid container className={styles.container}>
-        <Grid item xs={false} sm={1} />
-        <Grid item xs={12} sm={10}>
+        <Grid size={1} />
+        <Grid size={10}>
           <Typography variant="h2" gutterBottom className={styles.themeText}>
             <Box component="span" fontWeight={380}>
               Industry Partners
@@ -59,7 +60,7 @@ export default function partners() {
                 {partner.description}
               </Typography>
               <Grid container justifyContent="center">
-                <Grid item xs={12} className={styles.logo}>
+                <Grid size={12} className={styles.logo}>
                   <Link href={partner.link} target="_blank">
                     <Image
                       src={`${nextConfig.env?.IMAGE}/${partner.logo}`}
@@ -70,7 +71,7 @@ export default function partners() {
                     />
                   </Link>
                 </Grid>
-                <Grid item xs={12} className={styles.logo}>
+                <Grid size={12} className={styles.logo}>
                   Logo of {partner.name}.
                 </Grid>
               </Grid>
@@ -84,7 +85,7 @@ export default function partners() {
             </Typography>
           </section>
         </Grid>
-        <Grid item xs={false} sm={1} />
+        <Grid size={1} />
       </Grid>
     </div>
   );

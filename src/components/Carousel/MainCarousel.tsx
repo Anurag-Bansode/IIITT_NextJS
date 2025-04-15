@@ -1,9 +1,8 @@
-import { useState } from "react";
 import Image from "next/image";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // Import carousel styles
-import "./MainCarousel.css"
 import nextConfig from "../../../next.config";
+import "./MainCarousel.css";
 interface ImageData {
   path: string;
   name: string;

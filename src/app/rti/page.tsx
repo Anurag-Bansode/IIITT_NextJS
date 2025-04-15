@@ -22,7 +22,7 @@ interface RTI {
   cls?: string;
 }
 
-export default function rti() {
+export default function RTI() {
   const [rti, setRti] = useState<RTI[] | null>(null);
 
   useEffect(() => {

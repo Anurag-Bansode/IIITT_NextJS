@@ -1,10 +1,10 @@
 "use client";;
+import { Box, Typography } from "@mui/material";
+import Grid from "@mui/material/Grid2";
 import { useEffect } from "react";
-import { Typography, Box } from "@mui/material";
-import Grid from "@mui/material/Grid2"
 import styles from "./contactus.module.css";
 
-const contactus = () => {
+const Contactus = () => {
   useEffect(() => {
     document.title = "contactus Us | IIIT Tiruchirappalli";
     return () => {
@@ -12,9 +12,7 @@ const contactus = () => {
     };
   }, []);
 
-  const bull = <span>•</span>;
-
-  return (
+   return (
     <div className="page-container">
     <Grid container className={styles.container}>
       <Grid size={1} />
@@ -159,4 +157,4 @@ const contactus = () => {
   );
 };
 
-export default contactus;
+export default Contactus;

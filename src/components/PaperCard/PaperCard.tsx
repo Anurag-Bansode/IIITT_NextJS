@@ -1,13 +1,9 @@
 "use client";
 
-import React from "react";
-import { Card, CardContent, CardActions, Button, Typography } from "@mui/material";
+import { Button, Card, CardActions, CardContent, Typography } from "@mui/material";
 import Link from "next/link";
-import DescriptionIcon from "@mui/icons-material/Description";
-import EventNoteIcon from "@mui/icons-material/EventNote";
-import NotificationsIcon from "@mui/icons-material/Notifications";
-import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
-import "./PaperCard.css"
+import React from "react";
+import "./PaperCard.css";
 
 interface Item {
   title: string;
@@ -28,22 +24,6 @@ const PaperCard: React.FC<PaperCardProps> = ({ title, items, linkToOlder }) => {
     </div>
   );
 };
-
-const getIcon = (title: string) => {
-  switch (title.toLowerCase()) {
-    case "news":
-      return <DescriptionIcon className="mr-2 text-blue-500" />;
-    case "events":
-      return <EventNoteIcon className="mr-2 text-green-500" />;
-    case "notices":
-      return <NotificationsIcon className="mr-2 text-red-500" />;
-    case "achievements":
-      return <EmojiEventsIcon className="mr-2 text-yellow-500" />;
-    default:
-      return null;
-  }
-};
-
 const OutlinedCard: React.FC<PaperCardProps> = ({ title, items, linkToOlder }) => {
   return (
     <Card className="outline-root" id="simplecard">
@@ -73,4 +53,4 @@ const OutlinedCard: React.FC<PaperCardProps> = ({ title, items, linkToOlder }) =
   );
 };
 
-export { PaperCard, OutlinedCard };
+export { OutlinedCard, PaperCard };

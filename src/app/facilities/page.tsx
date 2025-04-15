@@ -17,9 +17,8 @@ interface ImageData {
 
 export default function Hostel() {
   const [images, setForms] = useState<ImageData[] | null>(null);
-  const [fromloading, setLoading] = useState<boolean>(true);
   const fetchData = useCallback(async () => {
-    setLoading(true);
+
     try {
       const [formresponse] = await Promise.allSettled([
         fetch("/json/general/facilities.json"),
@@ -34,7 +33,7 @@ export default function Hostel() {
       console.error("Error fetching form data:", error);
       setForms([]);
     } finally {
-      setLoading(false);
+
     }
   }, []);
 

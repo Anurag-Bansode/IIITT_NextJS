@@ -1,18 +1,15 @@
 "use client"
-import { useEffect, useState, useCallback } from "react";
-import styles from "../scholarship/scholarship.module.css"
-import { Typography, Box } from "@mui/material";
-import Grid from "@mui/material/Grid2"
-import { Divider } from "@mui/material";
-import { CircularProgress } from "@mui/material";
 import TableComponent from "@/components/tablecomponent/tablecomponent";
-import nextConfig from "../../../next.config";
+import { Box, CircularProgress, Typography } from "@mui/material";
+import Grid from "@mui/material/Grid2";
+import { useCallback, useEffect, useState } from "react";
+import styles from "../scholarship/scholarship.module.css";
 
 interface FormData {
     title: string;
     link: string;
 }
-export default function annualreports() {
+export default function AnnualReports() {
     const [forms, setForms] = useState<FormData[] | null>(null);
     const [fromloading, setLoading] = useState<boolean>(true);
     const fetchData = useCallback(async () => {

@@ -4,8 +4,9 @@ import Time from "./time";
 import SchoolTwoToneIcon from "@mui/icons-material/SchoolTwoTone";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import nextConfig from "../../../next.config";
+import Image from "next/image";
 const Temperature = () => {
-  const apiKey = `https://api.openweathermap.org/data/2.5/weather?q=tiruchirapalli,india&units=metric&appid=${nextConfig.env.OPEN_API_WEATHER}`;
+
   const [weatherDescription, setweatherDescription] = useState("");
   const [temperature, setTemperature] = useState("");
   const [humidity, setHumidity] = useState(0);
@@ -19,6 +20,7 @@ const Temperature = () => {
     return firstLetter + remaining;
   }
   useEffect(() => {
+    const apiKey = `https://api.openweathermap.org/data/2.5/weather?q=tiruchirapalli,india&units=metric&appid=${nextConfig.env.OPEN_API_WEATHER}`;
     fetch(apiKey)
       .then((res) => res.json())
       .then((result) => {
@@ -39,7 +41,7 @@ const Temperature = () => {
       <div className="main-hr trichy"></div>
       <Time />
       <div className="temperature">
-        <img src={`${imageURL}`} alt="weather image" />
+        <Image src={`${imageURL}`}  alt="weather"/>
         <div>
           <p>{weatherDescription}</p>
           <p>Temp {temperature}°C</p>

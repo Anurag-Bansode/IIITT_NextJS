@@ -17,7 +17,6 @@ interface PersonCardProps {
   researchArea?: string;
   phone?: string;
   dept?: string;
-  deptID?: string;
   Incharge?: string;
   VidhwanLink?: string;
   Institute?: string;
@@ -33,7 +32,6 @@ const PersonCard: React.FC<PersonCardProps> = ({
   researchArea,
   phone,
   dept,
-  deptID,
   Incharge,
   VidhwanLink,
   Institute,

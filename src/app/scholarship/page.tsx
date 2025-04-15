@@ -12,7 +12,7 @@ interface FormData {
     title: string;
     link: string;
 }
-export default function scholarship() {
+export default function Scholarship() {
     const [forms, setForms] = useState<FormData[] | null>(null);
     const [fromloading, setLoading] = useState<boolean>(true);
     const fetchData = useCallback(async () => {
