@@ -41,7 +41,7 @@ const Temperature = () => {
       <div className="main-hr trichy"></div>
       <Time />
       <div className="temperature">
-        <Image src={`${imageURL}`}  alt="weather"/>
+        <img src={`${imageURL}`}  alt="weather"/>
         <div>
           <p>{weatherDescription}</p>
           <p>Temp {temperature}°C</p>
