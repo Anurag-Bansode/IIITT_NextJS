@@ -14,6 +14,11 @@ const ClubCard: React.FC<ClubCardProps> = ({ club }) => {
   const [selectedTab, setSelectedTab] = useState<"about us" | "coordinator">(
     "about us"
   );
+
+  const toggleTab = () => {
+    setSelectedTab((prev) => (prev === "about us" ? "coordinator" : "about us"));
+  };
+
   return (
     <div className={styles.parent}>
       <div className={styles.imageWrapper}>
@@ -24,11 +29,12 @@ const ClubCard: React.FC<ClubCardProps> = ({ club }) => {
       <div className={styles.clubContent}>
         {selectedTab === "about us" ? (
           <>
-          <div className={styles.clubIncharge}>Incharge: {club.facultyIncharge}</div>
-          <div className={styles.clubMotto}>{club.motto}</div>
+            <div className={styles.clubIncharge}>Incharge: {club.facultyIncharge}</div>
+            <div className={styles.clubMotto}>{club.motto}</div>
           </>
         ) : (
           <ul className="clubCoordinator">
+            <div className={styles.clubHead}> CLUB CO-ORDINATORS : </div>
             {club.coordinator.map((student, idx) => (
               <li key={idx}>{student.name}</li>
             ))}
@@ -36,18 +42,12 @@ const ClubCard: React.FC<ClubCardProps> = ({ club }) => {
         )}
       </div>
 
-      <div className="btn">
+      <div className={styles.btn}>
         <button
-          className={selectedTab === "about us" ? "active" : ""}
-          onClick={() => setSelectedTab("about us")}
+          className={styles.active}
+          onClick={toggleTab}
         >
-          About
-        </button>
-        <button
-          className={selectedTab === "coordinator" ? "active" : ""}
-          onClick={() => setSelectedTab("coordinator")}
-        >
-          Coordinator
+          {selectedTab === "about us" ? "Show More" : "Show Less"}
         </button>
       </div>
     </div>
