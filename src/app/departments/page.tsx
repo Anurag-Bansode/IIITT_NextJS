@@ -28,11 +28,9 @@ const Departments: React.FC = () => {
       })
       .then((data) => {
         setDepts(data.data);
-
       })
       .catch((error) => {
         console.error("Error fetching department data:", error);
-
       });
   }, []);
 
@@ -47,17 +45,25 @@ const Departments: React.FC = () => {
             gutterBottom
             className={styles.themeText}
           >
-            <Box component="span" fontWeight={380}>
-              Departments
-            </Box>
+<Box 
+  component="span" 
+  style={{ 
+    paddingBottom: '40px',
+    fontSize: '54px',
+    fontWeight: 580,
+    display: 'inline-block'  // This ensures padding works on span
+  }}
+>
+  DEPARTMENTS
+</Box>
           </Typography>
-          {depts &&
-            depts.map((dept, index) => (
-              <Grid size={12} key={index}>
+          <div className={styles.cardContainer}>
+            {depts &&
+              depts.map((dept, index) => (
                 <div
+                  key={index}
                   className={styles.card}
-                  style={{ marginTop:"3px", animationDelay: `${index * 0.2}s` }}
-                  //onClick={() => router.push(dept.url)}  Redirect on click
+                  style={{ animationDelay: `${index * 0.2}s` }}
                 >
                   <Typography
                     variant="h5"
@@ -72,8 +78,8 @@ const Departments: React.FC = () => {
                     {dept.description}
                   </Box>
                 </div>
-              </Grid>
-            ))}
+              ))}
+          </div>
         </Grid>
         <Grid size={1} />
       </Grid>
