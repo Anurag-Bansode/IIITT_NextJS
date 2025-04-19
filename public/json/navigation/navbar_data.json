@@ -178,7 +178,7 @@
         },
         {
           "text": "Aikyam Magazine",
-          "link": "/aikyam"
+          "link": "http://aikyam.iiitt.ac.in/"
         }
       ]
     },
@@ -205,17 +205,6 @@
       "icon": "call",
       "name": "contactus",
       "link": "/contactus"
-    },
-    {
-      "text": "Virtual Academy",
-      "icon": "web",
-      "name": "vla",
-      "submenu": [
-        {
-          "text": "VLA Home",
-          "link": "/vla"
-        }
-      ]
     }
   ]
 }
