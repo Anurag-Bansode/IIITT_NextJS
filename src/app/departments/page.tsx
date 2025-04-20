@@ -45,17 +45,21 @@ const Departments: React.FC = () => {
             gutterBottom
             className={styles.themeText}
           >
-<Box 
-  component="span" 
-  style={{ 
-    paddingBottom: '40px',
-    fontSize: '54px',
-    fontWeight: 580,
-    display: 'inline-block'  // This ensures padding works on span
-  }}
->
-  DEPARTMENTS
-</Box>
+            <Box 
+              component="span" 
+              sx={{ 
+                fontSize: '54px',
+                fontWeight: 580,
+                display: 'inline-block',
+                background: 'linear-gradient(45deg, #1a5d3a, #2e8b57)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                marginBottom: '2rem',
+                letterSpacing: '1px'
+              }}
+            >
+              DEPARTMENTS
+            </Box>
           </Typography>
           <div className={styles.cardContainer}>
             {depts &&
@@ -70,7 +74,14 @@ const Departments: React.FC = () => {
                     className={styles.themeText}
                     gutterBottom
                   >
-                    <Box component="span" fontWeight="fontWeightBold">
+                    <Box 
+                      component="span" 
+                      sx={{
+                        fontWeight: 600,
+                        fontSize: '1.5rem',
+                        color: '#1a5d3a'
+                      }}
+                    >
                       {dept.name}
                     </Box>
                   </Typography>
