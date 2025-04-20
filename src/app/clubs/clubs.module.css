@@ -4,6 +4,7 @@
   justify-content: center;
   gap: 50px;
   max-width: 1200px;
+
 }
 
 .facultyContainer {
@@ -12,4 +13,5 @@
   flex-direction: column;
   align-items: center;
   gap: 2rem;
+
 }
