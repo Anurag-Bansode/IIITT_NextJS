@@ -61,9 +61,6 @@ jobs:
           #
           # You may remove this line if you want to manage the configuration yourself.
           static_site_generator: next
-      - name: Environment Config
-        env: # Or as an environment variable
-          super_secret: ${{ secrets.SuperSecret }}
       - name: Restore cache
         uses: actions/cache@v4
         with:
@@ -94,3 +91,12 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        env:
+          NEXT_PUBLIC_IIITT_DOMAIN: ${{ secrets.NEXT_PUBLIC_IIITT_DOMAIN }}
+          NEXT_PUBLIC_CDN_IIITT: ${{ secrets.NEXT_PUBLIC_CDN_IIITT }}
+          NEXT_PUBLIC_IMAGE_URL: ${{ secrets.NEXT_PUBLIC_IMAGE_URL }}
+          NEXT_PUBLIC_DOCUMENT_URL: ${{ secrets.NEXT_PUBLIC_DOCUMENT_URL }}
+          NEXT_PUBLIC_OPEN_WEATHER_KEY: ${{ secrets.NEXT_PUBLIC_OPEN_WEATHER_KEY }}
+
+
+        
