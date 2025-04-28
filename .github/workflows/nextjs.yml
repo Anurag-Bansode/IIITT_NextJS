@@ -88,6 +88,10 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
+      - name: Debug Secrets
+        run: echo "Domain is $NEXT_PUBLIC_IIITT_DOMAIN"
+        env:
+          NEXT_PUBLIC_IIITT_DOMAIN: ${{ secrets.NEXT_PUBLIC_IIITT_DOMAIN }}
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
