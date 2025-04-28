@@ -102,21 +102,29 @@ const Navbar = () => {
     <>
       {/* Mobile Navbar */}
       <div id="mobile_navbar" className="MuiAppBar-root MuiToolbar-regular">
-        <IconButton color="inherit" aria-label="menu" onClick={() => setDrawerOpen(true)}>
-          <MenuIcon sx={{ color: "white" }} />
-        </IconButton>
-        <div id="quick_nav" style={{ display: "flex", gap: "10px" }}>
-          <Link href="/#announcements_marquee">
-            <NotificationsIcon sx={{ color: "white" }} />
-          </Link>
-          <Link href="/#news_event_notice">
-            <EventNoteIcon sx={{ color: "white" }} />
-          </Link>
-          <Link href="/#twitter_timeline">
-            <TwitterIcon sx={{ color: "white" }} />
-          </Link>
-        </div>
-      </div>
+  <div id="quick_nav" style={{ display: "flex", gap: "10px", alignItems: "center" }}>
+    {/* Menu Icon */}
+    <IconButton color="inherit" aria-label="menu" onClick={() => setDrawerOpen(true)}>
+      <MenuIcon sx={{ color: "white", fontSize: { xs: 24, sm: 28 } }} />
+    </IconButton>
+    <Link href="/#announcements_marquee">
+      <IconButton color="inherit">
+        <NotificationsIcon sx={{ color: "white", fontSize: { xs: 24, sm: 28 } }} />
+      </IconButton>
+    </Link>
+    <Link href="/#news_event_notice">
+      <IconButton color="inherit">
+        <EventNoteIcon sx={{ color: "white", fontSize: { xs: 24, sm: 28 } }} />
+      </IconButton>
+    </Link>
+    <Link href="/#twitter_timeline">
+      <IconButton color="inherit">
+        <TwitterIcon sx={{ color: "white", fontSize: { xs: 24, sm: 28 } }} />
+      </IconButton>
+    </Link>
+  </div>
+</div>
+
 
       {/* Desktop Navbar */}
       <div id="desktop_menu" className="MuiAppBar-root MuiToolbar-regular">
