@@ -184,19 +184,19 @@
     },
     {
       "text": "Scholarship",
-      "icon": "call",
+      "icon": "workspace_premium",
       "name": "scholarship",
       "link": "/scholarship"
     },
     {
       "text": "C2S Project",
-      "icon": "call",
+      "icon": "code",
       "name": "C2S Project",
       "link": "https://iiitt.ac.in/c2s"
     },
     {
       "text": "placements",
-      "icon": "call",
+      "icon": "work",
       "name": "placements",
       "link": "http://placement.iiitt.ac.in/"
     },
