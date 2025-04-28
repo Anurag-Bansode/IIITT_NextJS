@@ -1,8 +1,9 @@
-"use client"; 
+"use client";
 
 import { useEffect, useState } from "react";
 import { Card, CardContent, CircularProgress, Divider, Link } from "@mui/material";
 import "./marquee.css";
+import nextConfig from "../../../next.config";
 
 interface Announcement {
   text: string;
@@ -36,7 +37,20 @@ const Marquee = ({ src = "/general/announcements.json" }: { src?: string }) => {
             <ul className="marquee-content">
               {announcements.map((item, idx) => (
                 <li key={idx} className="marquee-item">
-                  <Link href={item.link}>{item.text}</Link>
+                  {item.link ? (
+                    item.link.endsWith('.pdf') ? (
+                      <a href={`${nextConfig?.env?.DOCUMENT}${item.link}`} target="_blank" rel="noopener noreferrer">
+                        {item.text}
+                      </a>
+                    ) : (
+                      <Link href={item.link}>
+                        {item.text}
+                      </Link>
+                    )
+                  ) : (
+                    item.text
+                  )}
+
                   {idx !== announcements.length - 1 && <Divider />}
                 </li>
               ))}
