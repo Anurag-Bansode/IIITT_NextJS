@@ -44,7 +44,7 @@ const About = () => {
         <Card
           style={{
             border: "none",
-            borderRadius: "0",
+            borderRadius: "10px",
             boxShadow: "none",
             overflow: "visible",
           }}
@@ -54,8 +54,9 @@ const About = () => {
             variant="subtitle1"
             style={{
               color: "#555555",
-              textAlign: "left",
+              textAlign: "justify",
               lineHeight: "2",
+              marginInline: "1rem",
             }}
           >
             <Box component="span" fontWeight="fontWeightBold">
@@ -172,6 +173,7 @@ const About = () => {
               color: "#555555",
               textAlign: "left",
               lineHeight: "2",
+              marginInline: "1rem",
             }}
           >
             The focus is to address the challenges faced by the Indian IT
