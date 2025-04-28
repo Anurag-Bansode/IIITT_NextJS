@@ -61,6 +61,11 @@ jobs:
           #
           # You may remove this line if you want to manage the configuration yourself.
           static_site_generator: next
+      - name: Environment Config
+        with: # Set the secret as an input
+          super_secret: ${{ secrets.SuperSecret }}
+        env: # Or as an environment variable
+          super_secret: ${{ secrets.SuperSecret }}
       - name: Restore cache
         uses: actions/cache@v4
         with:
