@@ -12,14 +12,14 @@ import nextConfig from "../../../next.config";
 import ScrollToTop from "./ScrollToTop";
 
 const Footer: React.FC = () => {
-    return (
-<div>
+  return (
+    <div>
       <footer className="footer">
         <div className="main-div">
           <div className="contact-main">
             <div className="contacts">
               <div className="logo">
-              <Image src={`${nextConfig.env?.IMAGE}/iiitt-logo.png`} alt="IIITT Logo" priority width={40} height={80}/>
+                <Image src={`${nextConfig.env?.IMAGE}/iiitt-logo.png`} alt="IIITT Logo" priority width={40} height={80} />
               </div>
               <h2>Indian Institute Of Information Technology</h2>
               <h3>Trichy Dindigul Highway,Pirattiyur,Tiruchirappalli-620009</h3>
@@ -73,10 +73,15 @@ const Footer: React.FC = () => {
             <a href="/anti_ragging_committee">Anti Ragging Committee</a>
             <hr />
             <a href="/faq">FAQ&apos;s</a>
+            <hr />
+            <a href="http://iiitt.ac.in/">Older website</a>
+            <hr />
+            <a href="http://dev.iiitt.ac.in">Developer Site</a>
           </div>
+
           <div className="last line"></div>
           <hr className="mobile" />
-         <Temperature/>
+          <Temperature />
         </div>
         <div>
           <a className="credits" href="webDevClub">
@@ -84,12 +89,11 @@ const Footer: React.FC = () => {
             Dev-IIITT
           </a>
         </div>
-        <ScrollToTop/>
+        <ScrollToTop />
       </footer>
     </div>
-    );
-  };
-  
-  
-  export default Footer;
-  
+  );
+};
+
+
+export default Footer;
