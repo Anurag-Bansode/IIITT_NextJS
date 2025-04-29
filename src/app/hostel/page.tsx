@@ -4,7 +4,7 @@ import Grid from "@mui/material/Grid2";
 import { useCallback, useEffect, useState } from "react";
 import nextConfig from "../../../next.config";
 import styles from "./hostel.module.css";
-
+import Image from "next/image";
 import PersonCard from "@/components/PersonCard/PersonCard";
 import TableComponent from "@/components/tablecomponent/tablecomponent";
 import Card from "@mui/material/Card";
@@ -84,21 +84,15 @@ export default function Hostel() {
 
         {hostelinfo?.map((hInfo, index) => (
           <Grid key={index} size={10}>
+
             <Card sx={{
               borderRadius: "12px",
               boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
               overflow: "hidden"
-            }}>
-              <CardMedia
-                sx={{ minHeight: 350 }}
-                image={`${nextConfig.env?.DOCUMENT}${hInfo.Hostelsrc}`}
-              />
+            }}><div>
+              <Image src={`${nextConfig.env?.DOCUMENT}${hInfo.Hostelsrc}`} width={680} height={350} alt={hInfo.title}/>
+              </div>
               <CardContent>
-                <Typography
-                  gutterBottom
-                  variant="h5"
-                  component="div"
-                ></Typography>
                 <Typography variant="body2" sx={{ color: "text.secondary" }}>
                   {hInfo.desc}
                 </Typography>
@@ -120,10 +114,7 @@ export default function Hostel() {
         {mess?.map((hInfo, index) => (
           <Grid key={index} size={10}>
             <Card className={styles.cardContainer}>
-              <CardMedia
-                sx={{ height: 350 }}
-                image={`${nextConfig.env?.DOCUMENT}${hInfo.Hostelsrc}`}
-              />
+            <Image src={`${nextConfig.env?.DOCUMENT}${hInfo.Hostelsrc}`} width={600} height={350} alt={hInfo.title}/>
               <CardContent>
                 <Typography
                   gutterBottom
