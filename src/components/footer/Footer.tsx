@@ -72,11 +72,7 @@ const Footer: React.FC = () => {
             <div className="main-hr  quick-ex"></div>
             <a href="/anti_ragging_committee">Anti Ragging Committee</a>
             <hr />
-            <a href="/admission_procedure">Admission Procedure</a>
-            <hr />
-            <a href="/admission_fee_structure">Fee Structure</a>
-            <hr />
-            <a href="/faq">FAQ`&apos;`s</a>
+            <a href="/faq">FAQ&apos;s</a>
           </div>
           <div className="last line"></div>
           <hr className="mobile" />

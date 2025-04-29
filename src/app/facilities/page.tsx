@@ -60,7 +60,7 @@ export default function Hostel() {
             <Card>
               <CardMedia
                 sx={{ minHeight: 350 }}
-                image={`${nextConfig.env?.IMAGE}${hInfo.url}`}
+                image={`${nextConfig.env?.IMAGE}/${hInfo.url}`}
               />
               </Card>
           </Grid>
