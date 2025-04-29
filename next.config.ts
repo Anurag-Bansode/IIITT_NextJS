@@ -10,6 +10,12 @@ const nextConfig: NextConfig = {
         pathname:'/images/**',
         search:''
       },
+      {
+        protocol: "http",
+        hostname: process.env.NEXT_PUBLIC_IIITT_DOMAIN as string,
+        port: '',
+        pathname: '/downloads/**',
+      },
     ],
     minimumCacheTTL: 60,
     formats: ["image/webp"],
