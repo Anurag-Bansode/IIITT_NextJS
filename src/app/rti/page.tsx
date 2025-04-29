@@ -2,15 +2,10 @@
 
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import {
-  Card,
-  Typography,
-  Box,
-  CardMedia,
-  CardContent,
-} from "@mui/material";
+import { Card, Typography, Box, CardMedia, CardContent } from "@mui/material";
 import styles from "./rti.module.css";
 import nextConfig from "../../../next.config";
+
 interface RTI {
   head: string;
   name: string;
@@ -19,11 +14,10 @@ interface RTI {
   phone?: string;
   fax?: string;
   src: string;
-  cls?: string;
 }
 
 export default function RTI() {
-  const [rti, setRti] = useState<RTI[] | null>(null);
+  const [rtiList, setRtiList] = useState<RTI[]>([]);
 
   useEffect(() => {
     document.title = "RTI";
@@ -37,7 +31,7 @@ export default function RTI() {
       try {
         const response = await fetch("/json/committee/members/rti.json");
         const data = await response.json();
-        setRti(data.data);
+        setRtiList(data.data);
       } catch (error) {
         console.error("Error fetching RTI data:", error);
       }
@@ -49,42 +43,51 @@ export default function RTI() {
   return (
     <div className={styles.pageContainer}>
       <Typography variant="h2" component="h2" gutterBottom className={styles.heading}>
-        <Box component="span" fontWeight={380} paddingTop={"2rem"}>
+        <Box component="span" fontWeight={380}>
           RTI
         </Box>
       </Typography>
-      <div className={styles.head}>
-        {rti &&
-          rti.map((item, index) => (
-            <div key={index} className={styles.rti}>
-              <Typography variant="h3" className={styles.themeText}>
-                {item.head}
-              </Typography>
-              <Card className={styles.card}>
-                <CardMedia>
-                  <Image
-                    src={`${nextConfig.env?.IMAGE}/${item.src}`}
-                    alt={item.name}
-                    width={200}
-                    height={250}
-                    className={styles.media}
-                  />
-                </CardMedia>
-                <CardContent>
-                  <Typography variant="h6" gutterBottom className={styles.info}>
-                    {item.name}
-                  </Typography>
-                  <Typography className={item.cls}>
-                    <Box fontSize="1.3rem">{item.designation}</Box>
-                    <br />
-                    <a href={`mailto:${item.emailID}`}>{item.emailID}</a>
-                    <br />
-                    {item.fax && <a href={`fax:${item.fax}`}>{item.fax}</a>}
-                  </Typography>
-                </CardContent>
-              </Card>
+
+      <div className={styles.cardsContainer}>
+        {rtiList.map((rti, index) => (
+          <Card key={index} className={styles.card}>
+            <div className={styles.cardContent}>
+              <div className={styles.imageWrapper}>
+                <Image
+                  src={`${nextConfig.env?.IMAGE}/${rti.src}`}
+                  alt={rti.name}
+                  width={200}
+                  height={300}
+                  className={styles.media}
+                />
+              </div>
+
+              <div className={styles.textContent}>
+                <Typography variant="h5" className={styles.themeText}>
+                  {rti.head}
+                </Typography>
+
+                <Typography variant="h6" className={styles.name}>
+                  {rti.name}
+                </Typography>
+
+                <Typography className={styles.designation}>
+                  {rti.designation}
+                </Typography>
+
+                <div className={styles.contactInfo}>
+                  <a href={`mailto:${rti.emailID}`} className={styles.emailLink}>
+                    {rti.emailID}
+                  </a>
+
+
+
+
+                </div>
+              </div>
             </div>
-          ))}
+          </Card>
+        ))}
       </div>
     </div>
   );
