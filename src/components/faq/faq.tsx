@@ -34,8 +34,8 @@ const Faq: React.FC<faqprops> = ({ questionNumber, question, answer }) => {
           <CardContent className={styles.text}>
             {answer}
             {questionNumber === 11 ? (
-              <Link href="/contactus">
-                <a style={{ display: "inline" }}>location page for more information.</a>
+              <Link style={{ display: "inline" }} href="/contactus">
+                <span>location page for more information.</span>
               </Link>
             ) : null}
           </CardContent>

@@ -1,14 +1,9 @@
-"use client";;
-import { Typography } from "@mui/material";
-import Grid from "@mui/material/Grid2";
+"use client";
+import { Typography, Card, CardContent } from "@mui/material";
 import { useCallback, useEffect, useState } from "react";
-import nextConfig from "../../../next.config";
+import Image from "next/image";
 import styles from "./facilites.module.css";
-
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-
+import nextConfig from "../../../next.config";
 
 interface ImageData {
   title: string;
@@ -17,23 +12,15 @@ interface ImageData {
 
 export default function Hostel() {
   const [images, setForms] = useState<ImageData[] | null>(null);
+
   const fetchData = useCallback(async () => {
-
     try {
-      const [formresponse] = await Promise.allSettled([
-        fetch("/json/general/facilities.json"),
-
-      ]);
-
-      if (formresponse.status === "fulfilled") {
-        const meetingsJson = await formresponse.value.json();
-        setForms(meetingsJson.data);
-      }
+      const response = await fetch("/json/general/facilities.json");
+      const data = await response.json();
+      setForms(data.data);
     } catch (error) {
       console.error("Error fetching form data:", error);
       setForms([]);
-    } finally {
-
     }
   }, []);
 
@@ -47,29 +34,23 @@ export default function Hostel() {
 
   return (
     <div>
-      <Grid size={1} />
-      <div className={styles.title}><Typography variant="h2">Facilities</Typography></div>
+      <div className={styles.title}>
+        <Typography variant="h2">Facilities</Typography>
+      </div>
 
       <div className={styles.cardContainer}>
-
         {images?.map((hInfo, index) => (
-          <Grid key={index} size={10}>
-            <CardContent>
-              <Typography variant="h6" className={styles.themeText} >{hInfo.title}</Typography>
-            </CardContent>
-            <Card>
-              <CardMedia
-                sx={{ minHeight: 350 }}
-                image={`${nextConfig.env?.IMAGE}${hInfo.url}`}
-              />
-              </Card>
-          </Grid>
+          <Card key={index} className={styles.card}>
+            <Image
+              src={`${nextConfig?.env?.IMAGE}/${hInfo.url}`}
+              alt={hInfo.title}
+              width={100}
+              height={500}
+              className={styles.image}
+            />
+          </Card>
         ))}
-
       </div>
-      <Grid size={1} />
-
-
     </div>
   );
 }

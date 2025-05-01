@@ -74,7 +74,7 @@ const Tenders = () => {
               <section className={styles.item_section}>
                 <Typography variant="h5" className={styles.themeText}>
                   <Box component="span" fontWeight="fontWeightBold">
-                    New notices
+                    Open Tender Notices
                   </Box>
                 </Typography>
                 <ul className="doclist">
@@ -112,10 +112,13 @@ const Tenders = () => {
               </section>
 
               {/* Old Notices */}
+              <br>
+              </br>
+              <br></br>
               <section className={styles.item_section}>
                 <Typography variant="h5" className={styles.themeText}>
                   <Box component="span" fontWeight="fontWeightBold">
-                    Old notices
+                    Closed Tenders Notices
                   </Box>
                 </Typography>
                 <ul className="doclist">

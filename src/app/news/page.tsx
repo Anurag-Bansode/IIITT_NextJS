@@ -74,7 +74,7 @@ const News = () => {
               <section className={styles.item_section}>
                 <Typography variant="h5" className={styles.themeText}>
                   <Box component="span" fontWeight="fontWeightBold">
-                    New notices
+                    Updates
                   </Box>
                 </Typography>
                 <ul className="doclist">
@@ -115,7 +115,7 @@ const News = () => {
               <section className={styles.item_section}>
                 <Typography variant="h5" className={styles.themeText}>
                   <Box component="span" fontWeight="fontWeightBold">
-                    Old notices
+                    Archived
                   </Box>
                 </Typography>
                 <ul className="doclist">

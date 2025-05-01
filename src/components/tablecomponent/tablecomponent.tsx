@@ -22,7 +22,7 @@ const TableComponent = ({
   loading,
   isMeetingTable = false,
 }: {
-  title: string;
+  title?: string;
   members: any[];
   columns: string[];
   loading?: boolean;

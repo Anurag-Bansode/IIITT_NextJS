@@ -114,6 +114,9 @@ const Notices = () => {
               </section>
 
               {/* Old Notices */}
+              <br>
+              </br>
+              <br></br>
               <section className={styles.item_section}>
                 <Typography variant="h5" className={styles.themeText}>
                   <Box component="span" fontWeight="fontWeightBold">

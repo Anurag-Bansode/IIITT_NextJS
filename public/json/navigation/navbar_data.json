@@ -42,7 +42,7 @@
         },
         {
           "text": "ICC",
-          "link": "/internal-committee"
+          "link": "https://iiitt.ac.in/downloads/Revised%20Office%20Order%20-%20ICC%20-%2017.02.2025.pdf"
         },
         {
           "text": "Industry Partners",
@@ -68,7 +68,25 @@
         },
         {
           "text": "Departments",
-          "link": "/departments"
+          "link": "/departments" ,
+          "submenu":[{
+            "text":"Computer Science and Engineering",
+            "link":"/departments/cse"
+        },
+        {
+            "text":"Electronics and Communication Engineering",
+            "link":"/departments/ece"
+        },
+        {
+          "text":"Mechanical Engineering",
+          "link":"/departments/mech"
+        },
+        {
+            "text":"Humanities and Social Sciences",
+            "link":"/departments/sh"
+        }
+      ]
+
         },
         {
           "text": "Curriculum",
@@ -151,8 +169,12 @@
           "link": "/studentcouncil"
         },
         {
-          "text": "Code of Conduct",
-          "link": "/codeofconduct"
+          "text": "Code of Conduct(2024)",
+          "link": "http://store.iiitt.ac.in/downloads/notices/codeofconductforstudents(%202024).pdf"
+        },
+        {
+          "text": "Code of Conduct(2025 onwards)",
+          "link": "http://store.iiitt.ac.in/downloads/notices/Regulations%20for%20Academic%20and%20Hostel%20Students_IIITT-2025-1.pdf"
         }
       ]
     },
@@ -184,21 +206,21 @@
     },
     {
       "text": "Scholarship",
-      "icon": "call",
+      "icon": "workspace_premium",
       "name": "scholarship",
       "link": "/scholarship"
     },
     {
       "text": "C2S Project",
-      "icon": "call",
+      "icon": "code",
       "name": "C2S Project",
-      "link": "https://iiitt.ac.in/c2s"
+      "link": "/c2sproject"
     },
     {
       "text": "placements",
-      "icon": "call",
+      "icon": "work",
       "name": "placements",
-      "link": "    http://placement.iiitt.ac.in/"
+      "link": "http://placement.iiitt.ac.in/"
     },
     {
       "text": "Contact Us",
