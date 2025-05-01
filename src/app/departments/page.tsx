@@ -6,6 +6,7 @@ import styles from "./departments.module.css";
 interface Department {
   name: string;
   description: string;
+  url: string;
 }
 
 const Departments: React.FC = () => {
@@ -45,20 +46,20 @@ const Departments: React.FC = () => {
             gutterBottom
             className={styles.themeText}
           >
-            <Box 
-              component="span" 
-              sx={{ 
-                fontSize: '54px',
+            <Box
+              component="span"
+              sx={{
+                fontSize: { sm: "48px", md: "54px" },
                 fontWeight: 580,
-                display: 'inline-block',
-                background: 'linear-gradient(45deg, #1a5d3a, #2e8b57)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                marginBottom: '2rem',
-                letterSpacing: '1px'
+                display: "inline-block",
+                background: "linear-gradient(45deg, #1a5d3a, #2e8b57)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                marginBottom: "2rem",
+                letterSpacing: "1px",
               }}
             >
-              DEPARTMENTS
+              Departments
             </Box>
           </Typography>
           <div className={styles.cardContainer}>
@@ -74,12 +75,12 @@ const Departments: React.FC = () => {
                     className={styles.themeText}
                     gutterBottom
                   >
-                    <Box 
-                      component="span" 
+                    <Box
+                      component="span"
                       sx={{
                         fontWeight: 600,
-                        fontSize: '1.5rem',
-                        color: '#1a5d3a'
+                        fontSize: "1.5rem",
+                        color: "#1a5d3a",
                       }}
                     >
                       {dept.name}
@@ -87,6 +88,18 @@ const Departments: React.FC = () => {
                   </Typography>
                   <Box component="p" className={styles.deptDesc}>
                     {dept.description}
+                  </Box>
+                  <Box mt={2} textAlign="right">
+                    <a
+                      href={dept.url}
+                      style={{
+                        color: "#1a5d3a",
+                        fontWeight: "bold",
+                        textDecoration: "none",
+                      }}
+                    >
+                      Know more &rarr;
+                    </a>
                   </Box>
                 </div>
               ))}

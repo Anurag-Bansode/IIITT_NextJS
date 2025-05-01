@@ -63,8 +63,8 @@ const Festivals: React.FC = () => {
             gutterBottom
             className={styles.themeText}
           >
-            <Box component="span" fontWeight={380}>
-              festivals
+            <Box component="span" fontWeight={380} fontSize={{ sm: "48px", md: "54px" }}>
+              Festivals
             </Box>
           </Typography>
           {festivals &&
