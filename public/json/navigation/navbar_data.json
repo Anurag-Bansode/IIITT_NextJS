@@ -68,7 +68,21 @@
         },
         {
           "text": "Departments",
-          "link": "/departments"
+          "link": "/departments" ,
+          "submenu":[{
+            "text":"Computer Science and Engineering",
+            "link":"/departments/cse"
+        },
+        {
+            "text":"Electronics and Communication Engineering",
+            "link":"/departments/ece"
+        },
+        {
+            "text":"Humanities and Social Sciences",
+            "link":"/departments/hss"
+        }
+      ]
+
         },
         {
           "text": "Curriculum",
@@ -151,8 +165,12 @@
           "link": "/studentcouncil"
         },
         {
-          "text": "Code of Conduct",
-          "link": "/codeofconduct"
+          "text": "Code of Conduct(2024)",
+          "link": "http://store.iiitt.ac.in/downloads/notices/codeofconductforstudents(%202024).pdf"
+        },
+        {
+          "text": "Code of Conduct(2025 onwards)",
+          "link": "http://store.iiitt.ac.in/downloads/notices/Regulations%20for%20Academic%20and%20Hostel%20Students_IIITT-2025-1.pdf"
         }
       ]
     },

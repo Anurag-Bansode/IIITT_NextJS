@@ -1,42 +1,42 @@
 "use client";
 
-import { useState, useEffect, MouseEvent } from "react";
-import Link from "next/link";
 import {
-  Menu,
-  MenuItem,
+  Box,
   Button,
+  Divider,
   Drawer,
   IconButton,
-  Divider,
-  Typography,
   List,
   ListItem,
   ListItemIcon,
   ListItemText,
+  Menu,
+  MenuItem,
+  Typography,
 } from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
-import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
-import NotificationsIcon from "@mui/icons-material/Notifications";
-import EventNoteIcon from "@mui/icons-material/EventNote";
-import TwitterIcon from "@mui/icons-material/Twitter";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { MouseEvent, useEffect, useState } from "react";
+
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
+import CallIcon from '@mui/icons-material/Call';
+import CodeIcon from '@mui/icons-material/Code';
+import EventNoteIcon from "@mui/icons-material/EventNote";
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 import LocalLibraryIcon from '@mui/icons-material/LocalLibrary';
-import PeopleIcon from '@mui/icons-material/People';
+import MenuIcon from "@mui/icons-material/Menu";
 import NoteAddIcon from '@mui/icons-material/NoteAdd';
+import NotificationsIcon from "@mui/icons-material/Notifications";
+import PeopleIcon from '@mui/icons-material/People';
 import PersonIcon from '@mui/icons-material/Person';
 import SchoolIcon from '@mui/icons-material/School';
-import CallIcon from '@mui/icons-material/Call';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import ExpandLessIcon from '@mui/icons-material/ExpandLess';
-import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
-import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
+import TwitterIcon from "@mui/icons-material/Twitter";
 import WorkIcon from '@mui/icons-material/Work';
-import FlagIcon from '@mui/icons-material/Flag';
-import DashboardIcon from '@mui/icons-material/Dashboard';
-import CodeIcon from '@mui/icons-material/Code';
-import Image from "next/image";
+import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
 import { styled } from "@mui/material/styles";
+import Image from "next/image";
 import nextConfig from "../../../next.config";
 
 // Define types for navbar items
@@ -76,10 +76,11 @@ const StyledButton = styled(Button)({
   color: "white",
 });
 
+
 const Navbar = () => {
   const [navItems, setNavItems] = useState<NavItem[]>([]);
   const [drawerOpen, setDrawerOpen] = useState<boolean>(false);
-
+  const pathname = usePathname();
   useEffect(() => {
     let isMounted = true;
     const fetchNavItems = async () => {
@@ -102,36 +103,41 @@ const Navbar = () => {
     <>
       {/* Mobile Navbar */}
       <div id="mobile_navbar" className="MuiAppBar-root MuiToolbar-regular">
-  <div id="quick_nav" style={{ display: "flex", gap: "10px", alignItems: "center" }}>
-    {/* Menu Icon */}
-    <IconButton color="inherit" aria-label="menu" onClick={() => setDrawerOpen(true)}>
-      <MenuIcon sx={{ color: "white", fontSize: { xs: 24, sm: 28 } }} />
-    </IconButton>
-    <Link href="/#announcements_marquee">
-      <IconButton color="inherit">
-        <NotificationsIcon sx={{ color: "white", fontSize: { xs: 24, sm: 28 } }} />
-      </IconButton>
-    </Link>
-    <Link href="/#news_event_notice">
-      <IconButton color="inherit">
-        <EventNoteIcon sx={{ color: "white", fontSize: { xs: 24, sm: 28 } }} />
-      </IconButton>
-    </Link>
-    <Link href="/#twitter_timeline">
-      <IconButton color="inherit">
-        <TwitterIcon sx={{ color: "white", fontSize: { xs: 24, sm: 28 } }} />
-      </IconButton>
-    </Link>
-  </div>
-</div>
+        <div id="quick_nav" style={{ display: "flex", gap: "10px", alignItems: "center" }}>
+          {/* Menu Icon */}
+          <IconButton color="inherit" aria-label="menu" onClick={() => setDrawerOpen(true)}>
+            <MenuIcon sx={{ color: "white", fontSize: { xs: 24, sm: 28 } }} />
+          </IconButton>
+          <Link href="/#announcements_marquee">
+            <IconButton color="inherit">
+              <NotificationsIcon sx={{ color: "white", fontSize: { xs: 24, sm: 28 } }} />
+            </IconButton>
+          </Link>
+          <Link href="/#news_event_notice">
+            <IconButton color="inherit">
+              <EventNoteIcon sx={{ color: "white", fontSize: { xs: 24, sm: 28 } }} />
+            </IconButton>
+          </Link>
+          <Link href="/#twitter_timeline">
+            <IconButton color="inherit">
+              <TwitterIcon sx={{ color: "white", fontSize: { xs: 24, sm: 28 } }} />
+            </IconButton>
+          </Link>
+        </div>
+      </div>
 
 
       {/* Desktop Navbar */}
       <div id="desktop_menu" className="MuiAppBar-root MuiToolbar-regular">
         <div style={{ display: "flex", gap: "20px", minHeight: "64px" }}>
-          <Link href="/" id="home_button">
-            <StyledHomeIcon />
-          </Link>
+          {pathname !== "/" ? (
+            <Link href="/" id="home_button">
+              <StyledHomeIcon sx={{ fontSize: { xs: 28, sm: 36 } }} />
+            </Link>
+          ) : (
+            <Box sx={{ width: { xs: 28, sm: 36 }, pl: "10px" }} />
+          )}
+
           {navItems.map((menuItem, index) => (
             <DropdownMenu key={index} menu={menuItem} />
           ))}
@@ -140,33 +146,33 @@ const Navbar = () => {
 
       {/* Sidebar Drawer */}
       <Drawer anchor="left" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
-  <List>
-    <ListItem>
-      <ListItemIcon>
-        <Image
-          src={`${nextConfig.env?.IMAGE}/iiitt-logo.png`}
-          alt="IIITT Logo"
-          priority
-          width={40}
-          height={80}
-        />
-      </ListItemIcon>
-      <ListItemText>
-        <Typography variant="h6" sx={{ color: "Black" }}>IIITT</Typography>
-      </ListItemText>
-    </ListItem>
-  </List>
-  <Divider />
-  <List>
-    {navItems.map((menuItem, index) => (
-      <MobileMenuItem
-        key={index}
-        item={menuItem}
-        onClose={() => setDrawerOpen(false)}
-      />
-    ))}
-  </List>
-</Drawer>
+        <List>
+          <ListItem>
+            <ListItemIcon>
+              <Image
+                src={`${nextConfig.env?.IMAGE}/iiitt-logo.png`}
+                alt="IIITT Logo"
+                priority
+                width={40}
+                height={80}
+              />
+            </ListItemIcon>
+            <ListItemText>
+              <Typography variant="h6" sx={{ color: "Black" }}>IIITT</Typography>
+            </ListItemText>
+          </ListItem>
+        </List>
+        <Divider />
+        <List>
+          {navItems.map((menuItem, index) => (
+            <MobileMenuItem
+              key={index}
+              item={menuItem}
+              onClose={() => setDrawerOpen(false)}
+            />
+          ))}
+        </List>
+      </Drawer>
     </>
   );
 };

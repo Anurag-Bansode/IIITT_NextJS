@@ -141,12 +141,11 @@ export default function Hostel() {
       </div>
       <Grid size={1} />
       <div className={styles.sectiondivider}></div>
-
+      <div className={styles.title}><Typography variant="h2">Hostel Forms</Typography></div>
       {fromloading ? (
         <CircularProgress />
       ) : forms && forms.length > 0 ? (
         <TableComponent
-          title="Hostel Forms"
           loading={fromloading}
           columns={[]}
           isMeetingTable={true}

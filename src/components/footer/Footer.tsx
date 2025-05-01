@@ -22,14 +22,14 @@ const Footer: React.FC = () => {
                 <Image src={`${nextConfig.env?.IMAGE}/iiitt-logo.png`} alt="IIITT Logo" priority width={40} height={80} />
               </div>
               <h2>Indian Institute Of Information Technology</h2>
-              <h3>Trichy Dindigul Highway,Pirattiyur,Tiruchirappalli-620009</h3>
+              <h3> Sethurapatti,Trichy-Madurai Highway,Tiruchirappalli,Tamil Nadu-620012</h3>
               <a href="mailto:office@iiitt.ac.in">
                 <MailIcon className="mailicon" />
                 office@iiitt.ac.in
               </a>
               <a href="tel:8859167328">
                 <CallIcon className="phoneicon" />
-                +91 431 2500 539
+                +91 94420 45851
               </a>
             </div>
             <div className="icon">
@@ -75,16 +75,14 @@ const Footer: React.FC = () => {
             <a href="/faq">FAQ&apos;s</a>
             <hr />
             <a href="http://iiitt.ac.in/">Older website</a>
-            <hr />
-            <a href="http://dev.iiitt.ac.in">Developer Site</a>
-          </div>
+           </div>
 
           <div className="last line"></div>
           <hr className="mobile" />
           <Temperature />
         </div>
         <div>
-          <a className="credits" href="webDevClub">
+          <a className="credits">
             &lt;/&gt; with <Icon id="favorite">favorite_border</Icon> by Web
             Dev-IIITT
           </a>
