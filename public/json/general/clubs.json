@@ -6,11 +6,12 @@
       "facultyIncharge": "Dr. J. Kokila",
       "coordinator": [
         {
-          "name": "LAKSHENDRA SEJWANI"
-        },
-        {
           "name": "Anurag Nandkumar Bansode"
         },
+        {
+          "name": "LAKSHENDRA SEJWANI"
+        },
+
         {
           "name": "Amogh G C"
         },
@@ -26,35 +27,9 @@
         {
           "name": "Pravas Mohanty  "
         }
-      ],
-      "volunteer": [
-        {
-          "name": "Nitish Kumar"
-        },
-        {
-          "name": "Jagmohan Dixit"
-        }
       ]
     },
-    {
-      "name": "Competitive Coding Club",
-      "motto": "Competitive coding is a game. You practice and get better everyday.",
-      "facultyIncharge": "Dr. G.Devasena",
-      "coordinator": [
-        {
-          "name": "Krishna Rai"
-        },
-        {
-          "name": "Gideon Daniel Giftson"
-        },
-        {
-          "name": "Shashi Preetam"
-        },
-        {
-          "name": "Utkarsh Pandey"
-        }
-      ]
-    },
+
     {
       "name": " (N.E.R.D.) Robotics Club",
       "motto": "Building robots is a daily task for them.",
@@ -77,40 +52,8 @@
         }
       ]
     },
-    {
-      "name": "Circuits Club",
-      "motto": "Yeah, these people play with current and signals!",
-      "facultyIncharge": "Dr. G Seetharaman",
-      "coordinator": [
-        {
-          "name": "Talasani Varun Reddy"
-        },
-        {
-          "name": "N Nagamallishwar"
-        },
-        {
-          "name": "Bhardwaj Routhu"
-        }
-      ]
-    },
-    {
-      "name": "IOT Club",
-      "motto": "You see that chair, soon it will be connected to the internet!",
-      "facultyIncharge": "Dr. M.Senthil Sivakumar",
-      "coordinator": [
-        {
-          "name": "Pulijala Sathwik"
-        },
-        {
-          "name": "Siddharth Sahu"
-        },
-        {
-          "name": "Vikash Bhabhu R"
-        }
-      ]
-    },
-    {
-      "name": "Oculus (Photography Club)",
+   {
+      "name": "Photography Club",
       "motto": "Lights. Camera. Shoot!",
       "facultyIncharge": "Dr. HARISH ADHITHYA M",
       "coordinator": [
@@ -138,23 +81,7 @@
       ]
     },
     {
-      "name": "Literary and Debating Club",
-      "motto": "Et tu, Brute?",
-      "facultyIncharge": "Dr. V. Sindhu",
-      "coordinator": [
-        {
-          "name": "Nishit Mangal"
-        },
-        {
-          "name": "Shubham Kumar Bhagat"
-        },
-        {
-          "name": "Simmi Raj"
-        }
-      ]
-    },
-    {
-      "name": "Aesthetic Club (Finearts/Music/Dance)",
+      "name": "Dance Club",
       "motto": "The most loving and caring people can easily be found here.",
       "facultyIncharge": "Dr. HARISH ADHITHYA M",
       "coordinator": [
@@ -175,8 +102,15 @@
         },
         {
           "name": "Charu Mehra"
-        },
-        {
+        }
+      ]
+    },
+    {
+      "name": "Music Club",
+      "motto": "The most loving and caring people can easily be found here.",
+      "facultyIncharge": "Dr. HARISH ADHITHYA M",
+      "coordinator": [
+         {
           "name": "Kancharla NVL Durga Mahitha"
         },
         {
@@ -196,75 +130,6 @@
         },
         {
           "name": "Hendrik Marino A"
-        }
-      ]
-    },
-    {
-      "name": "Science Club",
-      "motto": "A place for Interesting and Scientific stuff.",
-      "facultyIncharge": "Dr. Jagadeeshwarar Pashikanti",
-      "coordinator": [
-        {
-          "name": "Mukesh Kumar"
-        },
-        {
-          "name": "Thivya Sekhar P M"
-        }
-      ]
-    },
-    {
-      "name": "EBSB(Ek Bharat Shresta Bharat) Club",
-      "motto": "Volunteers for a United India",
-      "facultyIncharge": "Dr. Rinshu Dwivedi",
-      "coordinator": [
-        {
-          "name": "Nunna Lakshmi Saranya"
-        },
-        {
-          "name": "Dip Kumar Patel"
-        },
-        {
-          "name": "Rishank Goyal"
-        },
-        {
-          "name": "Tejasvi Rayidi"
-        }
-      ]
-    },
-    {
-      "name": "Sports Club",
-      "motto": "The most popular club offering all available Sports",
-      "facultyIncharge": "Dr. Jagadeeshwarar Pashikanti",
-      "header": [
-        "Year",
-        "Volunteers/Captains",
-        "Name of the game"
-      ],
-      "coordinator": [
-        {
-          "name": "Konala Sam Ashray"
-        },
-        {
-          "name": "Anish Akode"
-        },
-        {
-          "name": "R Bharadwaj"
-        }
-      ]
-    },
-    {
-      "name": "Yoga Club",
-      "motto": "Yoga",
-      "facultyIncharge": "Dr. N Renugadevi",
-      "coordinator": [
-        {
-          "name": "Vikas Kumar Verma"
-        },
-        {
-          "name": "Vemuri Bhavna"
-        },
-        {
-          "name": "Suman Raj"
         }
       ]
     },

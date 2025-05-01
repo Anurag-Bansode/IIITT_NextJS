@@ -5,34 +5,6 @@
         "dept": "CSE",
         "deptID": "1"
       },
-      "name": "Dr. R. Dhanalakshmi",
-      "designation": "Associate Professor",
-      "researchArea": "Computer Networks, Combinatorial Optimization Techniques, Data Analytics",
-      "emailID": "dhanalakshmir@iiitt.ac.in",
-      "src": "/faculty/Dhanalakshmi_cropped.jpg",
-      "Incharge": "",
-      "Institute": " Ph.D. (Jawaharlal Nehru Technological University Hyderabad)",
-      "VidhwanLink": "https://vidwan.inflibnet.ac.in/profile/101692"
-    },
-    {
-      "id": {
-        "dept": "CSE",
-        "deptID": "2"
-      },
-      "name": "Dr. N. Renugadevi",
-      "designation": "Assistant Professor",
-      "researchArea": "Information Security, Group Key Management, Secure Group Communication, Artificial Intelligence, Data Science, Remote Sensing & Geographic Information System(GIS), Digital Agriculture, Cognitive Radio Networks ",
-      "emailID": "renugadevin@iiitt.ac.in",
-      "src": "/faculty/Renuga.jpg",
-      "Incharge": "Exam Cell, Alumni Association",
-      "Institute": " Ph.D. CSE (NIT Tiruchirappalli)",
-      "VidhwanLink": "https://vidwan.inflibnet.ac.in/profile/194473"
-    },
-    {
-      "id": {
-        "dept": "CSE",
-        "deptID": "3"
-      },
       "name": "Dr. G. Devasena",
       "designation": "Assistant Professor , Head of the Department",
       "Incharge": "Training and Placement, AISHE portal, NSP portal, Digilocker",
@@ -45,6 +17,35 @@
     {
       "id": {
         "dept": "CSE",
+        "deptID": "2"
+      },
+      "name": "Dr. R. Dhanalakshmi",
+      "designation": "Associate Professor",
+      "researchArea": "Computer Networks, Combinatorial Optimization Techniques, Data Analytics",
+      "emailID": "dhanalakshmir@iiitt.ac.in",
+      "src": "/faculty/Dhanalakshmi_cropped.jpg",
+      "Incharge": "",
+      "Institute": " Ph.D. (Jawaharlal Nehru Technological University Hyderabad)",
+      "VidhwanLink": "https://vidwan.inflibnet.ac.in/profile/101692"
+    },
+    {
+      "id": {
+        "dept": "CSE",
+        "deptID": "3"
+      },
+      "name": "Dr. N. Renugadevi",
+      "designation": "Assistant Professor",
+      "researchArea": "Information Security, Group Key Management, Secure Group Communication, Artificial Intelligence, Data Science, Remote Sensing & Geographic Information System(GIS), Digital Agriculture, Cognitive Radio Networks ",
+      "emailID": "renugadevin@iiitt.ac.in",
+      "src": "/faculty/Renuga.jpg",
+      "Incharge": "Exam Cell, Alumni Association",
+      "Institute": " Ph.D. CSE (NIT Tiruchirappalli)",
+      "VidhwanLink": "https://vidwan.inflibnet.ac.in/profile/194473"
+    },
+
+    {
+      "id": {
+        "dept": "CSE",
         "deptID": "4"
       },
       "name": "Dr. Anoop Jacob Thomas",
@@ -52,7 +53,7 @@
       "researchArea": "Medical Image Processing, Neuroimage Processing, Image Processing, Algorithms",
       "emailID": "anoopjt@iiitt.ac.in",
       "src": "/faculty/AnoopJacobThomas.jpg",
-      "Incharge": "Training and Placement, AISHE portal, NSP portal, Digilocker",
+      "Incharge": "Campus Networking, EBSB, ERP, Exam Cell Member, Student Discipline, Hall Booking ",
       "Institute": "Ph.D. CSE (IIT Ropar)",
       "VidhwanLink": "https://vidwan.inflibnet.ac.in/profile/194478"
     },
@@ -94,7 +95,7 @@
       "researchArea": "Hardware Security, Information Security, Blockchain Technology, IoT Edge Computing, Computer Architecture",
       "emailID": "kokilaj@iiitt.ac.in",
       "src": "/faculty/KokilaJ.jpg",
-      "Incharge": "Admission (UG & PG),Gem & CPP, Insurance, Purchase, 6th Convocation,Aikyam Magazine",
+      "Incharge": "Website development,maintenance and Social Media, clubs - (Website Dev, Media, Competitive Coding), E-Cell ",
       "Institute": "Ph.D. CSE (NIT Tiruchirappalli) under Visvesvaraya Phd Scheme",
       "VidhwanLink": "https://vidwan.inflibnet.ac.in/profile/212555"
     }
@@ -198,7 +199,6 @@
       "Institute": "Ph.D. ECE (NIT Tiruchirappalli)",
       "VidhwanLink": "https://vidwan.inflibnet.ac.in/profile/588971"
     }
-
   ],
   "ME": [
     {

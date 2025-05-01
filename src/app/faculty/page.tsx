@@ -6,6 +6,7 @@ import PersonCard from "@/components/PersonCard/PersonCard";
 import { Typography } from "@mui/material";
 import Link from "next/link";
 import styles from "./faculty.module.css"; 
+import nextConfig from "../../../next.config";
 
 interface FacultyMember {
   name: string;
@@ -92,7 +93,7 @@ const Faculty = () => {
         <span className={styles.boldText}>Faculty Rule Book</span>
       </Typography>
       <Typography align="center">
-        <Link href="/docs/C-StaffHandbook.pdf" download className={styles.downloadLink}>
+        <Link href={`${nextConfig?.env?.DOCUMENT}/C-StaffHandbook.pdf`} download className={styles.downloadLink}>
           📄 Download Faculty Rule Book
         </Link>
       </Typography>
