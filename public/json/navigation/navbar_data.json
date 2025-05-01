@@ -78,6 +78,10 @@
             "link":"/departments/ece"
         },
         {
+          "text":"Mechanical Engineering",
+          "link":"/departments/mech"
+        },
+        {
             "text":"Humanities and Social Sciences",
             "link":"/departments/sh"
         }

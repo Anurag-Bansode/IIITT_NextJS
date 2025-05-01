@@ -1,17 +1,41 @@
-/* Director.module.css */
-
+/* src/app/director/Director.module.css */
 .pageContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 2rem;
-  text-align: center;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .styledCard {
   padding: 1.5rem;
   max-width: 350px;
   text-align: center;
+}
+
+.messageCard {
+  width: 100%;
+  max-width: 900px;
+  margin-top: 2rem;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.messageTitle {
+  color: #1a5d3a;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 2rem !important;
+}
+
+.messageText {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #333;
+  text-align: justify;
+  white-space: pre-line;
 }
 
 .imageContainer {
@@ -28,16 +52,25 @@
   display: inline-block;
   padding-top: 1rem;
   font-weight: 500;
+  color: #2e8b57;
+  text-decoration: none;
 }
 
 .linkStyle:hover {
   text-decoration: underline;
-  color: blueviolet;
+  color: #1a5d3a;
 }
 
-.textContent {
-  font-size: 1.2rem;
-  line-height: 1.5;
-  max-width: 800px;
-  text-align: center;
+@media (max-width: 768px) {
+  .pageContainer {
+    padding: 1rem;
+  }
+  
+  .messageCard {
+    margin-top: 1rem;
+  }
+  
+  .messageText {
+    font-size: 1rem;
+  }
 }
