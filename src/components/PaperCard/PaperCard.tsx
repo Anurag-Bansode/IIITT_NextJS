@@ -4,6 +4,8 @@ import { Button, Card, CardActions, CardContent, Typography } from "@mui/materia
 import Link from "next/link";
 import React from "react";
 import "./PaperCard.css";
+import { validURL } from "@/app/achievements/validator";
+import nextConfig from "../../../next.config";
 
 interface Item {
   title: string;
@@ -33,7 +35,11 @@ const OutlinedCard: React.FC<PaperCardProps> = ({ title, items, linkToOlder }) =
           {items &&
             items.map((item,index) => (
               <li key={index} style={{ marginBottom: "15px" }}>
-                <Link href={item.link}>{item.title}</Link>
+                <Link  href={
+                          validURL(item.link)
+                            ? item.link
+                            : `${nextConfig.env?.DOCUMENT}/${item.link}`
+                        }>{item.title}</Link>
                 <br />
                 {item.date && <Typography
                   variant="caption"

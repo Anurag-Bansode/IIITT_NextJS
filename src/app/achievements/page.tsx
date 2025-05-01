@@ -76,7 +76,7 @@ const Achievements = () => {
               <section className={styles.item_section}>
                 <Typography variant="h5" className={styles.themeText}>
                   <Box component="span" fontWeight="fontWeightBold">
-                    New notices
+                    Achievements
                   </Box>
                 </Typography>
                 <ul className="doclist">
@@ -94,17 +94,20 @@ const Achievements = () => {
                       >
                         <div className={styles.item}>
                           <Typography>
-                            {item.date && (
-                              <Typography variant="caption" color="textSecondary" gutterBottom>
-                                Posted on: {item.date}
-                              </Typography>
-                            )}
-                            <br />
+
                             <Box className={styles.themeText} component="span">
                               {item.title}
                             </Box>
                             <br />
                             <Box component="span">{item.text}</Box>
+                            <br />
+                            {item.date && (
+                              <Typography variant="caption" color="textSecondary" gutterBottom>
+                                Posted on: {item.date}
+                              </Typography>
+                            )}
+
+
                           </Typography>
                         </div>
                       </a>
@@ -114,7 +117,7 @@ const Achievements = () => {
               </section>
 
               {/* Old Notices */}
-              <section className={styles.item_section}>
+              {/* <section className={styles.item_section}>
                 <Typography variant="h5" className={styles.themeText}>
                   <Box component="span" fontWeight="fontWeightBold">
                     Old notices
@@ -152,7 +155,7 @@ const Achievements = () => {
                     </li>
                   ))}
                 </ul>
-              </section>
+              </section> */}
             </>
           )}
         </Grid>
