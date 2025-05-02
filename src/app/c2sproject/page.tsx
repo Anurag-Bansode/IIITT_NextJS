@@ -22,6 +22,7 @@ const C2SProject = () => {
   const [links, setLinks] = useState<LinkItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const base=`${process.env.NEXT_PUBLIC_CDN_IIITT}${process.env.NEXT_PUBLIC_DOCUMENT_URL}` || "http://store.iiitt.ac.in/downloads/c2s/bgimg2.jpg";
 
   useEffect(() => {
     document.title = "C2S Project";
@@ -52,7 +53,7 @@ const C2SProject = () => {
   return (
     <div
       style={{
-        backgroundImage: `url(${nextConfig?.env?.DOCUMENT}/c2s/bgimg2.jpg)`,
+        backgroundImage: `url(${base}}/c2s/bgimg2.jpg)`,
         backgroundRepeat: "no-repeat",
         backgroundAttachment: "fixed",
         backgroundSize: "100% 100%",
