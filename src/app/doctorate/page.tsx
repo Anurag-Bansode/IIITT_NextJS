@@ -56,7 +56,7 @@ const Doctorate: React.FC = () => {
             className={styles.themeText}
           >
             <Box component="span" fontWeight={380}>
-              Postgraduate
+              Doctorate
             </Box>
           </Typography>
 

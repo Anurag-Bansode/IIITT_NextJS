@@ -41,6 +41,11 @@ export default function Hostel() {
       <div className={styles.cardContainer}>
         {images?.map((hInfo, index) => (
           <Card key={index} className={styles.card}>
+            <CardContent>
+              <Typography variant="subtitle1" className={styles.imageTitle}>
+                {hInfo.title}
+              </Typography>
+            </CardContent>
             <Image
               src={`${nextConfig?.env?.IMAGE}/${hInfo.url}`}
               alt={hInfo.title}
@@ -48,7 +53,9 @@ export default function Hostel() {
               height={500}
               className={styles.image}
             />
+
           </Card>
+
         ))}
       </div>
     </div>
