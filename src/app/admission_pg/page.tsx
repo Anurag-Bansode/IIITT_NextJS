@@ -35,9 +35,9 @@ const Admission_pg: React.FC = () => {
                     </Typography>
 
                     {admissionData.programs.map((program: any) => (
-                        <Box key={program.id}>
+                        <Box key={program.id} >
                             <h3><strong>{program.title}</strong></h3>
-                            <hr />
+<hr></hr>
                             {program.items.map((item: any, index: number) => (
                                 <p key={index}>
                                     <a
@@ -50,7 +50,6 @@ const Admission_pg: React.FC = () => {
                                     </a>
                                 </p>
                             ))}
-                            <hr />
                             <br />
                         </Box>
                     ))}

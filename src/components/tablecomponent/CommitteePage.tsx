@@ -31,6 +31,7 @@ export default function CommitteePage({ committee }: { committee: string }) {
       {members?.length ? (
         <TableComponent
           title={`Members of ${formattedCommitteeName}`}
+
           members={members}
           columns={columnMapping[committee]}
           loading={loading}
@@ -42,7 +43,7 @@ export default function CommitteePage({ committee }: { committee: string }) {
         </Typography>
       )}
       
-      {isMeetingJsonAvailable && committeeName!=="admission" && (
+      {isMeetingJsonAvailable && committeeName!="admission" && (
         <>
           {loading ? (
             <Skeleton variant="rectangular" width="100%" height={100} />
