@@ -4,6 +4,7 @@ import { Typography, Skeleton } from "@mui/material";
 import { useCommitteeData } from "./useCommitteeData";
 import TableComponent from "./tablecomponent";
 import styles from "./committee.module.css";
+import {Box} from "@mui/material";
 
 export default function CommitteePage({ committee }: { committee: string }) {
   const { members, meetings, loading, isMeetingJsonAvailable } =
@@ -46,14 +47,16 @@ export default function CommitteePage({ committee }: { committee: string }) {
           {loading ? (
             <Skeleton variant="rectangular" width="100%" height={100} />
           ) : meetings?.length ? (
-            <TableComponent
-              title={`${formattedCommitteeName} Minutes`}
-              members={meetings}
-              columns={["Title", "Description"]}
-              loading={loading}
-              isMeetingTable
-              aria-label={`Table displaying minutes of ${formattedCommitteeName}`}
-            />
+<Box mt={5}>
+  <TableComponent
+    title={`${formattedCommitteeName} Minutes`}
+    members={meetings}
+    columns={["Title", "Description"]}
+    loading={loading}
+    isMeetingTable
+    aria-label={`Table displaying minutes of ${formattedCommitteeName}`}
+  />
+</Box>
           ) : (
             <Typography variant="body1" className={styles.noDataText}>
               No meeting records available.

@@ -1,13 +1,16 @@
 {"data":[
     {
         "s_no": 1,
-        "name": "Dr. V. Sindhu",
-        "role": "AR (i/c) Administration"
+        "name": "Prof. G. Seetharaman",
+        "designation":"Registrar (i/c)",
+        "role": "CPIO"
     },
     {
         "s_no": 2,
-        "name": "Prof. G. Seetharaman",
-        "role": "Registrar (i/c)"
+        "name": "Dr. V. Sindhu",
+        "designation":"AR (i/c) Administration",
+        "role": "PIO(nodal)"
     }
+
 ]
 }

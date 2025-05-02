@@ -49,7 +49,7 @@ const Departments: React.FC = () => {
             <Box
               component="span"
               sx={{
-                fontSize: { sm: "48px", md: "54px" },
+                fontSize: { xs: "32px", sm: "42px", md: "54px" },
                 fontWeight: 580,
                 display: "inline-block",
                 background: "linear-gradient(45deg, #1a5d3a, #2e8b57)",
