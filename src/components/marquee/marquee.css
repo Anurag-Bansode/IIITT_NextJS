@@ -46,7 +46,7 @@
 
 /* Marquee container */
 .marquee-container {
-  height: 150px; /* Set a fixed height */
+  height:80%; /* Set a fixed height */
   overflow: hidden;
   position: relative;
   width: 100%;
@@ -82,4 +82,12 @@
   white-space: normal; /* Allows text wrapping */
   word-wrap: break-word;
   overflow-wrap: break-word;
+}
+/* Pause animation on hover */
+.marquee-container:hover .marquee-content {
+  animation-play-state: paused;
+  cursor: pointer;
+}
+.marquee-item a:hover {
+  text-decoration: underline;
 }

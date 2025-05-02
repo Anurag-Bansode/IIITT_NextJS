@@ -69,11 +69,9 @@
       }
     ],
     "contact": {
-      "department": "Department of Electronics and Communication Engineering",
-      "college": "College Name",
-      "location": "City, State - ZIP Code",
-      "email": "cse@college.com",
-      "phone": "+91-12345-67890"
+      "department": "Department of Mechanical Engineering",
+      "college": "Indian Institute of Information Technology",
+      "location": "Tiruchirappalli, TamilNadu - 620012"
     }
   }
 }

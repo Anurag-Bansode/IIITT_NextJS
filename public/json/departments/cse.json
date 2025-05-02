@@ -9,24 +9,30 @@
     },
     "faculty_members": [
       {
-        "name": "Dr. A. Kumar",
-        "designation": "Professor & Head of Department"
+        "name": "Dr. G. Devasena",
+        "designation": "Assistant Professor , Head of the Department"
       },
       {
-        "name": "Prof. S. Meena",
-        "designation": "Associate Professor (AI & ML)"
+       "name": "Dr. R. Dhanalakshmi",
+      "designation": "Associate Professor"
       },
       {
-        "name": "Mr. R. Vignesh",
-        "designation": "Assistant Professor (Cybersecurity)"
+        "name": "Dr. N. Renugadevi",
+      "designation": "Assistant Professor"
       },
       {
-        "name": "Ms. L. Priya",
-        "designation": "Assistant Professor (Data Structures)"
+       "name": "Dr. Anoop Jacob Thomas",
+      "designation": "Assistant Professor"
       },
       {
-        "name": "Mr. Sanjay R",
-        "designation": "Lecturer (Web Technologies)"
+        "name": "Dr. T. Sugirtha",
+        "designation": "Assistant Professor"
+      },{
+        "name": "Dr. M. Ambika",
+      "designation": "Assistant Professor"
+      },{
+        "name": "Dr. J. Kokila",
+        "designation": "Assistant Professor"
       }
     ],
     "faculty_profiles_link": "View Full Faculty Profiles",
@@ -86,11 +92,9 @@
       }
     ],
     "contact": {
-      "department": "Department of Electronics and Communication Engineering",
-      "college": "College Name",
-      "location": "City, State - ZIP Code",
-      "email": "cse@college.com",
-      "phone": "+91-12345-67890"
+      "department": "Department of Computer Science Engineering",
+      "college": "Indian Institute of Information Technology",
+      "location": "Tiruchirappalli, TamilNadu - 620012"
     }
   }
 }

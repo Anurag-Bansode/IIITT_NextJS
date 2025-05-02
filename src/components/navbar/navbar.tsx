@@ -208,53 +208,62 @@ const DropdownMenu: React.FC<{ menu: NavItem }> = ({ menu }) => {
     </div>
   );
 };
+const NestedDropdown: React.FC<{
+  menuItem: SubMenuItem;
+  onClose: () => void;
+}> = ({ menuItem, onClose }) => {
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
-// Nested Dropdown for handling deeper submenus
-const NestedDropdown: React.FC<{ menuItem: SubMenuItem; onClose: () => void }> = ({ menuItem, onClose }) => {
-  const [subAnchorEl, setSubAnchorEl] = useState<null | HTMLElement>(null);
-
-  const handleSubOpen = (event: MouseEvent<HTMLLIElement>) => {
-    setSubAnchorEl(event.currentTarget);
+  const handleMouseEnter = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
   };
 
-  const handleSubClose = () => {
-    setSubAnchorEl(null);
-    onClose();
+  const handleMouseLeave = () => {
+    setAnchorEl(null);
   };
+
+  const hasSubmenu = menuItem.submenu && menuItem.submenu.length > 0;
+
+  const menuItemContent = (
+    <Link
+      href={menuItem.link || "#"}
+      style={{ color: "black", textDecoration: "none" }}
+    >
+      {menuItem.text}
+    </Link>
+  );
 
   return (
-    <div>
-      {menuItem.submenu ? (
-        <>
-          <MenuItem onMouseEnter={handleSubOpen} onMouseLeave={handleSubClose}>
-            {menuItem.text}
-          </MenuItem>
-          <Menu
-            anchorEl={subAnchorEl}
-            open={Boolean(subAnchorEl)}
-            onClose={handleSubClose}
-            anchorOrigin={{ vertical: "top", horizontal: "right" }}
-            transformOrigin={{ vertical: "top", horizontal: "left" }}
-          >
-            {menuItem.submenu.map((subItem, index) => (
-              <MenuItem key={index} onClick={handleSubClose}>
-                <Link href={subItem.link} style={{ color: "Black", textDecoration: "none" }}>
-                  {subItem.text}
-                </Link>
-              </MenuItem>
-            ))}
-          </Menu>
-        </>
-      ) : (
-        <MenuItem onClick={onClose}>
-          <Link href={menuItem.link} style={{ color: "Black", textDecoration: "none" }}>
-            {menuItem.text}
-          </Link>
-        </MenuItem>
+    <>
+      <MenuItem
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        disableRipple
+        sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}
+      >
+        {hasSubmenu ? menuItem.text : menuItemContent}
+        {hasSubmenu && <ExpandMoreIcon fontSize="small" />}
+      </MenuItem>
+
+      {hasSubmenu && (
+        <Menu
+          anchorEl={anchorEl}
+          open={Boolean(anchorEl)}
+          onClose={onClose}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          anchorOrigin={{ vertical: "top", horizontal: "right" }}
+          transformOrigin={{ vertical: "top", horizontal: "left" }}
+        >
+          {menuItem.submenu?.map((subItem, index) => (
+            <NestedDropdown key={index} menuItem={subItem} onClose={onClose} />
+          ))}
+        </Menu>
       )}
-    </div>
+    </>
   );
 };
+
 
 const MobileMenuItem = ({ item, depth = 0, onClose }: { item: NavItem | SubMenuItem; depth?: number; onClose: () => void }) => {
   const [isExpanded, setIsExpanded] = useState(false);
