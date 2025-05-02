@@ -47,11 +47,11 @@ export default function Scholarship() {
                     variant="h2"
                     component="h2"
                     gutterBottom
-                    className={styles.themeText}
+                    align="center"
+                    color="#2e8b57"
+                    sx={{ fontWeight: 300 }}
                 >
-                    <Box component="span" fontWeight={380}>
-                        Scholarship
-                    </Box>
+                    Scholarship
                 </Typography>
 
                 <section className={styles.sectionPadding}>
@@ -65,20 +65,20 @@ export default function Scholarship() {
                         <a href="https://scholarships.gov.in/">
                             <Typography variant="h6">NSP portal</Typography>
                         </a>
-                            <a href={`${nextConfig.env?.DOCUMENT}${"/scholarships/Circular_NSP_2024_25.pdf"}`}>
+                        <a href={`${nextConfig.env?.DOCUMENT}${"/scholarships/Circular_NSP_2024_25.pdf"}`}>
                             <Typography variant="h6">Announcement for the NSP Scholarship 2024-2025</Typography>
                         </a>
                     </Box>
                     <ul>
-                            <li className={styles.linear}>
-                                For information (use the link : <a href="https://scholarships.gov.in/All-Scholarships">https://scholarships.gov.in/All-Scholarships</a>)
-                            </li>
-                            <br></br>
-                            <li className={styles.linear}>
-                                To apply on National Scholarship Portal (use the link : <a href="https://scholarships.gov.in/">https://scholarships.gov.in/</a> )
-                            </li>
+                        <li className={styles.linear}>
+                            For information (use the link : <a href="https://scholarships.gov.in/All-Scholarships">https://scholarships.gov.in/All-Scholarships</a>)
+                        </li>
+                        <br></br>
+                        <li className={styles.linear}>
+                            To apply on National Scholarship Portal (use the link : <a href="https://scholarships.gov.in/">https://scholarships.gov.in/</a> )
+                        </li>
 
-                        </ul>
+                    </ul>
                 </section>
                 <Divider />
                 {fromloading ? (

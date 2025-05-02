@@ -32,11 +32,13 @@ const About = () => {
         <Typography
           variant="h2"
           component="h2"
-          style={{
+          align="center"
+          gutterBottom
+          sx={{
             color: "#2e8b57",
-            paddingBottom: "1.5rem",
-            marginTop: "40px",
-            textAlign: "center",
+            mt: 5,
+            pb: 3,
+            fontSize: { xs: "2rem", md: "3.75rem" }
           }}
         >
           About us | IIIT Tiruchirappalli

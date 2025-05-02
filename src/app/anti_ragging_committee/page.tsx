@@ -23,11 +23,16 @@ const AntiRagging = () => {
         <Grid size={1} />
         <Grid container size={10} className={styles.container}>
           <Grid size={12}>
-            <Typography variant="h2" gutterBottom className={styles.themeText}>
-              <Box component="div" fontWeight={380}>
-                Ragging is a Crime!!
-              </Box>
-            </Typography>
+             <Typography
+                      variant="h2"
+                      component="h2"
+                      gutterBottom
+                      align="center"
+                      color= "#2e8b57"
+                      sx={{ fontWeight: 300 }}
+                    >
+                      Ragging is a Crime
+                    </Typography>
           </Grid>
           <section>
             <Typography variant="h4">What Constitutes Ragging?</Typography>

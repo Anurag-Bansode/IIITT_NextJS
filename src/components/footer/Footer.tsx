@@ -5,6 +5,7 @@ import "../../../public/css/style.css"
 import TwitterIcon from "@mui/icons-material/Twitter";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import YouTubeIcon from '@mui/icons-material/YouTube';
 import MailIcon from "@mui/icons-material/Mail";
 import CallIcon from "@mui/icons-material/Call";
 import Temperature from "./temperature";
@@ -46,6 +47,11 @@ const Footer: React.FC = () => {
               <a href="https://www.linkedin.com/school/iiitt/">
                 <div className="icon-bg">
                   <LinkedInIcon className="linkedin" />
+                </div>
+              </a>
+              <a href="https://www.youtube.com/@iiitt">
+                <div className="icon-bg">
+                  <YouTubeIcon className="youtube" />
                 </div>
               </a>
             </div>

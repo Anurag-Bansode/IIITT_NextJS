@@ -68,6 +68,7 @@ const C2SProject = () => {
           alt="C2S Logo"
           width={1000}
           height={130}
+          layout="responsive"
         />
       </Box>
 

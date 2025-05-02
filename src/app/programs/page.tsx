@@ -24,12 +24,13 @@ const Programs: React.FC = () => {
           variant="h2"
           component="h2"
           gutterBottom
-          className={styles.themeText}
+          align="center"
+          color= "#2e8b57"
+          sx={{ fontWeight: 300 }}
         >
-          <Box component="span" fontWeight={380}>
-            Programs
-          </Box>
+          Programs
         </Typography>
+
 
 
         <Card className={styles.card}>
@@ -87,22 +88,22 @@ const Programs: React.FC = () => {
                   Data Analytics, Machine Learning, Deep Learning, IoT, Cloud Computing,
                   Medical Image Processing
                 </Typography>
-                </Grid>
-                <Grid size={12}>
+              </Grid>
+              <Grid size={12}>
                 <Typography fontWeight="bold">Electronics and Communication Engineering</Typography>
                 <Typography variant="body2">
                   VLSI Design, Wireless Communication, Micro & Nano Electronics,
                   Compact Modeling & Simulation
                 </Typography>
-                </Grid>
-                <Grid size={12}>
+              </Grid>
+              <Grid size={12}>
                 <Typography fontWeight="bold">Mechanical Engineering</Typography>
                 <Typography variant="body2">
                   Additive Manufacturing, Powder Metallurgy, Smart Materials,
                   Energy storage materials
                 </Typography>
-                </Grid>
-                <Grid>
+              </Grid>
+              <Grid>
                 <Typography fontWeight="bold">Science and Humanities</Typography>
                 <ul className={styles.list}>
                   <li>Physics - Optoelectronic Materials, Fiber optics, Plasmonics</li>
@@ -110,7 +111,7 @@ const Programs: React.FC = () => {
                   <li>Economics - Health Economics, Global issues in health</li>
                   <li>English - Applied Linguistics, Indian Writing in English</li>
                 </ul>
-                </Grid>
+              </Grid>
             </Grid>
           </CardContent>
         </Card>

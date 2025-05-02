@@ -111,7 +111,7 @@ html {
 }
 .twitter,
 .facebook,
-.linkedin {
+.linkedin,.youtube {
   color: #fff;
   margin: 8px;
   transform: scale(1.3);

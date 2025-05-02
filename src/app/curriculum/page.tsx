@@ -48,10 +48,17 @@ const Curriculum: React.FC = () => {
   return (
     <div className="page-container">
       <Grid container className={styles.container}>
-        <Grid  size={1} />
+        <Grid size={1} />
         <Grid size={10}>
-          <Typography variant="h2" gutterBottom className={styles.themeText}>
-            <Box fontWeight={380}>Curriculum</Box>
+          <Typography
+            variant="h2"
+            component="h2"
+            gutterBottom
+            align="center"
+            color="#2e8b57"
+            sx={{ fontWeight: 300 }}
+          >
+            Curriculum
           </Typography>
           <section className={styles.sectionPadding}>
             <Typography variant="h5" gutterBottom>
@@ -122,7 +129,7 @@ const Curriculum: React.FC = () => {
                 Syllabus
               </Box>
             </Typography>
-                  </section>
+          </section>
           {loading ? (
             <Typography>Loading curriculum data...</Typography>
           ) : !curriculumData ? (

@@ -45,6 +45,7 @@ export default function AnnualReports() {
                     component="h2"
                     gutterBottom
                     className={styles.themeText}
+                    align="center"
                 >
                     <Box component="span" fontWeight={380}>
                         Annual Reports

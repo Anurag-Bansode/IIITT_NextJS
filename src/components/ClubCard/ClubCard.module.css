@@ -80,8 +80,8 @@
 
 .btn button:hover {
   background-color: #007f5f;
-  box-shadow: 0 0 10px #88d4ab,     
-              0 0 10px #88d4ab, 
+  box-shadow: 0 0 10px #88d4ab,
+              0 0 10px #88d4ab,
               0 0 10px #88d4ab;
 }
 
@@ -97,11 +97,71 @@
 }
 
 .clubHead{
-  padding : 0.5rem 1rem; 
+  padding : 0.5rem 1rem;
   font-family : arial;
   font-weight : bold;
   border-radius : 4px;
   background-color : #2b9348;
   margin : 0.5rem;
   color : #fff;
+}
+
+
+@media (max-width: 768px) {
+  .parent {
+    width: 90%;
+    padding: 1.5rem 1rem;
+  }
+
+  .imagecontainer {
+    width: 70px;
+    height: 70px;
+  }
+
+  .clubName {
+    font-size: 1.3rem;
+    margin-top: 45px;
+  }
+
+  .clubMotto,
+  .clubIncharge {
+    font-size: 0.95rem;
+  }
+
+  .btn {
+    flex-direction: column;
+    gap: 0.5rem;
+    margin: 1.5rem 0;
+  }
+
+  .btn button {
+    font-size: 1rem;
+    padding: 0.6rem 1rem;
+  }
+
+  .clubHead {
+    font-size: 0.95rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .imagecontainer {
+    width: 60px;
+    height: 60px;
+  }
+
+  .clubName {
+    font-size: 1.1rem;
+    margin-top: 40px;
+  }
+
+  .btn button {
+    font-size: 0.95rem;
+    padding: 0.5rem 0.9rem;
+  }
+
+  .clubHead {
+    font-size: 0.85rem;
+  }
 }
