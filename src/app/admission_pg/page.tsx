@@ -3,11 +3,12 @@ import React, { useEffect, useState } from "react";
 import { Typography, Box } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import styles from './Admission_pg.module.css';
+import nextConfig from "../../../next.config";
+import { validURL } from "../achievements/validator";
 
 const Admission_pg: React.FC = () => {
     const [admissionData, setAdmissionData] = useState<any>(null);
 
-    // Fetch JSON data
     useEffect(() => {
         fetch('/json/admission/pg.json')
             .then((response) => response.json())
@@ -21,7 +22,7 @@ const Admission_pg: React.FC = () => {
 
     return (
         <div>
-            <Grid container className={styles.container}>
+            <Grid container className={styles.container} style={{ marginTop: "2rem" }}>
                 <Grid size={1} />
                 <Grid size={10}>
                     <Typography
@@ -33,89 +34,26 @@ const Admission_pg: React.FC = () => {
                         <Box component="span">M.Tech Admission</Box>
                     </Typography>
 
-                    {/* Display CCMT 2024 content */}
-                    <h3><strong>{admissionData.ccmt2024.title}</strong></h3>
-                    <hr />
-                    <p>
-                        <a
-                            target="_blank"
-                            href={admissionData.ccmt2024.onlineReporting.url}
-                            className={styles.link}
-                        >
-                            {admissionData.ccmt2024.onlineReporting.text}
-                        </a>
-                    </p>
-                    <p>
-                        <a
-                            target="_blank"
-                            href={admissionData.ccmt2024.nicPortal.url}
-                            className={styles.link}
-                        >
-                            {admissionData.ccmt2024.nicPortal.text}
-                        </a>
-                    </p>
-                    <p>
-                        <a
-                            target="_blank"
-                            href={admissionData.ccmt2024.feeStructure.url}
-                            className={styles.link}
-                        >
-                            {admissionData.ccmt2024.feeStructure.text}
-                        </a>
-                    </p>
-                    <p>
-                        <a
-                            target="_blank"
-                            href={admissionData.ccmt2024.feeRefund.url}
-                            className={styles.link}
-                        >
-                            {admissionData.ccmt2024.feeRefund.text}
-                        </a>
-                    </p>
-
-                    <br></br>
-
-
-                    {/* Display CCMN 2024 content */}
-
-                    <h3><strong>{admissionData.ccmn2024.title}</strong></h3>
-                    <hr />
-                    <p>
-                        <a
-                            target="_blank"
-                            href={admissionData.ccmn2024.onlineReporting.url}
-                            className={styles.link}
-                        >
-                            {admissionData.ccmn2024.onlineReporting.text}
-                        </a>
-                    </p>
-                    <p>
-                        <a
-                            target="_blank"
-                            href={admissionData.ccmn2024.nicPortal.url}
-                            className={styles.link}
-                        >
-                            {admissionData.ccmn2024.nicPortal.text}
-                        </a>
-                    </p>
-                    <p>
-                        <a
-                            target="_blank"
-                            href={admissionData.ccmn2024.feeStructure.url}
-                            className={styles.link}
-                        >
-                            {admissionData.ccmn2024.feeStructure.text}
-                        </a>
-                    </p>
-                    <p>
-                        <a
-                            target="_blank"
-                            href={admissionData.ccmn2024.feeRefund.url}
-                            className={styles.link}
-                        >
-                            {admissionData.ccmn2024.feeRefund.text}
-                        </a>
-                    </p>
+                    {admissionData.programs.map((program: any) => (
+                        <Box key={program.id}>
+                            <h3><strong>{program.title}</strong></h3>
+                            <hr />
+                            {program.items.map((item: any, index: number) => (
+                                <p key={index}>
+                                    <a
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        href={validURL(item.url) ? item.url : `${nextConfig?.env?.DOCUMENT}/${item.url}`}
+                                        className={styles.link}
+                                    >
+                                        {item.label}
+                                    </a>
+                                </p>
+                            ))}
+                            <hr />
+                            <br />
+                        </Box>
+                    ))}
                 </Grid>
             </Grid>
         </div>
