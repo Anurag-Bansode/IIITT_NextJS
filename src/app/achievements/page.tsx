@@ -28,8 +28,6 @@ const Achievements = () => {
         if (!response.ok) throw new Error("Failed to fetch achievements data");
 
         const data = await response.json();
-        console.info(data);
-
         const d: Item[] = data.data;
         const latest = d
           .filter((x) => x.isNew)

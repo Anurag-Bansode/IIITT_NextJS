@@ -15,7 +15,8 @@ import MissionVision from "@/components/mission_vision/missionVision";
 import Marquee from "@/components/marquee/marquee";
 import TwitterTimeline from "@/components/PaperCard/twitterTimeline";
 
-import * as carouselData from "../../public/json/carousel/home_carousel.json";
+import carouselData from "../../public/json/carousel/home_carousel.json";
+
 import "./globals.css";
 
 interface Item {
