@@ -4,7 +4,7 @@ import { Typography, Box } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import styles from './Admission_pg.module.css';
 import nextConfig from "../../../next.config";
-import { validURL } from "../achievements/validator";
+import { validURL } from "../../types/validator";
 
 const Admission_pg: React.FC = () => {
     const [admissionData, setAdmissionData] = useState<any>(null);

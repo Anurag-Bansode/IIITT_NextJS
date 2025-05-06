@@ -6,7 +6,7 @@ import Box from "@mui/material/Box";
 import { Typography } from "@mui/material";
 import styles from "../notices/notices.module.css";
 import nextConfig from "../../../next.config";
-import { validURL } from "../achievements/validator";
+import { validURL } from "../../types/validator";
 interface Item {
   title: string;
   link: string;

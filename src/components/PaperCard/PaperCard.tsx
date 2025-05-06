@@ -4,7 +4,7 @@ import { Button, Card, CardActions, CardContent, Typography } from "@mui/materia
 import Link from "next/link";
 import React from "react";
 import "./PaperCard.css";
-import { validURL } from "@/app/achievements/validator";
+import { validURL } from "@/types/validator";
 import nextConfig from "../../../next.config";
 
 interface Item {
@@ -30,7 +30,10 @@ const OutlinedCard: React.FC<PaperCardProps> = ({ title, items, linkToOlder }) =
   return (
     <Card className="outline-root" id="simplecard">
       <CardContent>
-        <div className="newshead">{title}</div>
+
+      <div className={`${title === "Achievements" ? "centered-newshead" : "newshead"}`}>
+  {title}
+</div>
         <ul className={title}>
           {items &&
             items.map((item,index) => (
@@ -40,7 +43,6 @@ const OutlinedCard: React.FC<PaperCardProps> = ({ title, items, linkToOlder }) =
                             ? item.link
                             : `${nextConfig.env?.DOCUMENT}/${item.link}`
                         }>{item.title}</Link>
-                <br />
                 {item.date && <Typography
                   variant="caption"
                   color="textSecondary"
