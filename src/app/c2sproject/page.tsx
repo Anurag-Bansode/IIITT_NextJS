@@ -53,7 +53,7 @@ const C2SProject = () => {
   return (
     <div
       style={{
-        backgroundImage: `url(${base}}/c2s/bgimg2.jpg)`,
+        backgroundImage: `url(/images/bgimg2.jpg)`,
         backgroundRepeat: "no-repeat",
         backgroundAttachment: "fixed",
         backgroundSize: "100% 100%",
