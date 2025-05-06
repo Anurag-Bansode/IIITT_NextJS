@@ -50,32 +50,18 @@
     ],
     "announcements": [
       {
-        "title": "Workshop on Data Science",
+        "title": "Will be updated shortly",
         "date": "28/04/2025"
-      },
-      {
-        "title": "Guest Lecture on AI Ethics",
-        "date": "10/05/2025"
-      },
-      {
-        "title": "Internship Opportunity @ TCS – Apply by May 5",
-        "date": "05/05/2025"
       }
     ],
     "latest_news": [
       {
-        "title": "CSE team won 1st prize at HackTech 2025"
-      },
-      {
-        "title": "4 new research papers published in IEEE journals"
-      },
-      {
-        "title": "MoU signed with Infosys for student training"
+        "title": "Will be updated shortly"
       }
     ],
     "contact": {
       "department": "Department of Science and Humanities",
-     "college": "Indian Institute of Information Technology",
+      "college": "Indian Institute of Information Technology",
       "location": "Tiruchirappalli, TamilNadu - 620012"
     }
   }

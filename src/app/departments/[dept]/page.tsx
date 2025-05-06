@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { Typography, Box } from "@mui/material";
 import Grid from "@mui/material/Grid2";
+import { useParams } from "next/navigation";
 import styles from "../department.module.css";
 
 interface Department {
@@ -38,26 +39,28 @@ interface Department {
   };
 }
 
-const Sh: React.FC = () => {
-  const [shData, setShData] = useState<Department | null>(null);
+const Cse: React.FC = () => {
+  const params = useParams();
+  const dept = params?.dept as string;
+  const [cseData, setCseData] = useState<Department | null>(null);
 
   useEffect(() => {
-    document.title = "sh";
+    document.title = "CSE";
     return () => {
       document.title = "IIIT Trichy";
     };
   }, []);
 
   useEffect(() => {
-    fetch("/json/departments/sh.json")
+    fetch(`/json/departments/${dept}.json`)
       .then((response) => {
         if (!response.ok) {
-          throw new Error("Failed to fetch sh data");
+          throw new Error("Failed to fetch CSE data");
         }
         return response.json();
       })
       .then((data) => {
-        setShData(data.data);
+        setCseData(data.data);
       })
       .catch((error) => {
         console.error("Error fetching department data:", error);
@@ -69,7 +72,6 @@ const Sh: React.FC = () => {
       <Grid container className={styles.departmentContainer}>
         <Grid size={1} />
         <Grid size={10}>
-          {/* Heading */}
           <Typography
             variant="h2"
             component="h2"
@@ -89,11 +91,11 @@ const Sh: React.FC = () => {
                 letterSpacing: "1px",
               }}
             >
-              {shData ? shData.department : "Loading..."}
+              {cseData ? cseData.department : "Loading..."}
             </Box>
           </Typography>
 
-          {shData && (
+          {cseData && (
             <>
               {/* About */}
               <div className={styles.departmentCard}>
@@ -107,7 +109,7 @@ const Sh: React.FC = () => {
                   </Box>
                 </Typography>
                 <Box component="p" className={styles.departmentDesc}>
-                  {shData.about}
+                  {cseData.about}
                 </Box>
               </div>
 
@@ -127,11 +129,11 @@ const Sh: React.FC = () => {
                   className={styles.departmentDesc}
                   sx={{ fontStyle: "italic" }}
                 >
-                  "{shData.message_from_hod.message}"
+                  "{cseData.message_from_hod.message}"
                 </Box>
                 <Typography variant="subtitle2" color="text.secondary">
-                  – {shData.message_from_hod.name},{" "}
-                  {shData.message_from_hod.designation}
+                  – {cseData.message_from_hod.name},{" "}
+                  {cseData.message_from_hod.designation}
                 </Typography>
               </div>
 
@@ -146,7 +148,7 @@ const Sh: React.FC = () => {
                     Faculty Members
                   </Box>
                 </Typography>
-                {shData.faculty_members.map((faculty, index) => (
+                {cseData.faculty_members.map((faculty, index) => (
                   <Box key={index} mb={1}>
                     <Typography>{faculty.name}</Typography>
                     <Typography variant="caption" color="text.secondary">
@@ -169,28 +171,25 @@ const Sh: React.FC = () => {
               </div>
 
               {/* Research Scholars */}
-              {shData.research_scholars &&
-                shData.research_scholars.length > 0 && (
-                  <div className={styles.departmentCard}>
-                    <Typography
-                      variant="h5"
-                      className={styles.departmentThemeText}
-                      gutterBottom
-                    >
-                      <Box component="span" fontWeight="fontWeightBold">
-                        Research Scholars
-                      </Box>
+              <div className={styles.departmentCard}>
+                <Typography
+                  variant="h5"
+                  className={styles.departmentThemeText}
+                  gutterBottom
+                >
+                  <Box component="span" fontWeight="fontWeightBold">
+                    Research Scholars
+                  </Box>
+                </Typography>
+                {cseData.research_scholars.map((scholar, index) => (
+                  <Box key={index} mb={1}>
+                    <Typography>{scholar.name}</Typography>
+                    <Typography variant="caption" color="text.secondary">
+                      Research Topic: {scholar.topic}
                     </Typography>
-                    {shData.research_scholars.map((scholar, index) => (
-                      <Box key={index} mb={1}>
-                        <Typography>{scholar.name}</Typography>
-                        <Typography variant="caption" color="text.secondary">
-                          Research Topic: {scholar.topic}
-                        </Typography>
-                      </Box>
-                    ))}
-                  </div>
-                )}
+                  </Box>
+                ))}
+              </div>
 
               {/* Announcements */}
               <div className={styles.departmentCard}>
@@ -203,10 +202,10 @@ const Sh: React.FC = () => {
                     Announcements
                   </Box>
                 </Typography>
-                {shData.announcements.map((a, i) => (
+                {cseData.announcements.map((a, i) => (
                   <Box key={i} mb={1.5}>
                     <Typography variant="subtitle1" fontWeight="bold">
-                      📢 {a.title}
+                      {a.title}
                     </Typography>
                     <Typography variant="caption" color="text.secondary">
                       {a.date}
@@ -226,9 +225,9 @@ const Sh: React.FC = () => {
                     Research Areas
                   </Box>
                 </Typography>
-                {shData.research_areas.map((area, i) => (
+                {cseData.research_areas.map((area, i) => (
                   <Box key={i} mb={1.5}>
-                    <Typography>🔬 {area}</Typography>
+                    <Typography> {area}</Typography>
                   </Box>
                 ))}
               </div>
@@ -244,40 +243,56 @@ const Sh: React.FC = () => {
                     Latest News
                   </Box>
                 </Typography>
-                {shData.latest_news.map((news, i) => (
+                {cseData.latest_news.map((news, i) => (
                   <Box key={i} mb={1.5}>
-                    <Typography>📰 {news.title}</Typography>
+                    <Typography> {news.title}</Typography>
                   </Box>
                 ))}
               </div>
 
               {/* Contact */}
               <div className={styles.departmentCard}>
-                <Typography
-                  variant="h5"
-                  className={styles.departmentThemeText}
-                  gutterBottom
-                >
-                  <Box component="span" fontWeight="fontWeightBold">
-                    Contact Us
-                  </Box>
-                </Typography>
-                <Typography>
-                  <strong>Department:</strong> {shData.contact.department}
-                </Typography>
-                <Typography>
-                  <strong>College:</strong> {shData.contact.college}
-                </Typography>
-                <Typography>
-                  <strong>Location:</strong> {shData.contact.location}
-                </Typography>
-                <Typography>
-                  <strong>Email:</strong> {shData.contact.email}
-                </Typography>
-                <Typography>
-                  <strong>Phone:</strong> {shData.contact.phone}
-                </Typography>
+                {cseData.contact && (
+                  <>
+                    <Typography
+                      variant="h5"
+                      className={styles.departmentThemeText}
+                      gutterBottom
+                    >
+                      <Box component="span" fontWeight="fontWeightBold">
+                        Contact Us
+                      </Box>
+                    </Typography>
+
+                    {cseData.contact.department && (
+                      <Typography>
+                        <strong>Department:</strong> {cseData.contact.department}
+                      </Typography>
+                    )}
+                    {cseData.contact.college && (
+                      <Typography>
+                        <strong>College:</strong> {cseData.contact.college}
+                      </Typography>
+                    )}
+                    {cseData.contact.location && (
+                      <Typography>
+                        <strong>Location:</strong> {cseData.contact.location}
+                      </Typography>
+                    )}
+                    {cseData.contact.email && (
+                      <Typography>
+                        <strong>Email:</strong> {cseData.contact.email}
+                      </Typography>
+                    )}
+                    {cseData.contact.phone && (
+                      <Typography>
+                        <strong>Phone:</strong> {cseData.contact.phone}
+                      </Typography>
+                    )}
+                  </>
+                )}
               </div>
+
             </>
           )}
         </Grid>
@@ -287,4 +302,4 @@ const Sh: React.FC = () => {
   );
 };
 
-export default Sh;
+export default Cse;
