@@ -29,6 +29,7 @@ const nextConfig: NextConfig = {
   },
   productionBrowserSourceMaps: false,
 compress: true,
+output:"standalone"
 };
 
 
