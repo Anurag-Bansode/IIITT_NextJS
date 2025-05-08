@@ -85,7 +85,24 @@ const Home: React.FC = () => {
   }, []);
 
   const sortData = (items?: Item[]) =>
-    items?.sort((a, b) => new Date(b.date || "").getTime() - new Date(a.date || "").getTime()) ?? [];
+    items
+      ?.map(item => {
+        if (item.isNew !== undefined) return item;
+
+        const postedDate = new Date(item.date || "");
+        const today = new Date();
+        const diffDays = (today.getTime() - postedDate.getTime()) / (1000 * 3600 * 24);
+
+        return {
+          ...item,
+          isNew: diffDays <= 15,
+        };
+      })
+      .sort(
+        (a, b) =>
+          new Date(b.date || "").getTime() - new Date(a.date || "").getTime()
+      ) ?? [];
+
 
   const handleTabChange = (_: React.SyntheticEvent, newValue: number) => {
     setActiveTab(newValue);

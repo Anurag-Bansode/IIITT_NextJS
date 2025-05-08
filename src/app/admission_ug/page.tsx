@@ -67,18 +67,18 @@ const AdmissionUG = () => {
             <a
             className={styles.link}
               target="_blank"
-              href={`${nextConfig?.env?.DOCUMENT}/admission/BTech_Fee_structure_2024.pdf`}
+              href={`${nextConfig?.env?.DOCUMENT}/admission/1. B.Tech Fee structure 2025.pdf`}
             >
-              Fee Structure 2024
+              Fee Structure 2025
             </a>
           </li>
           <li>
             <a
             className={styles.link}
               target="_blank"
-              href={`${nextConfig?.env?.DOCUMENT}/admission/BTech_RefundFee_structure_2024.pdf`}
+              href={`${nextConfig?.env?.DOCUMENT}/admission/2. Fee Refund Structure 2025-2026.pdf`}
             >
-              Refund Fee Structure 2024
+              Refund Fee Structure 2025
             </a>
           </li>
         </ul>

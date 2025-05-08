@@ -216,6 +216,22 @@
       "VidhwanLink": "https://vidwan.inflibnet.ac.in/profile/194479"
     }
   ],
+  "Science & Humanities": [
+    {
+      "id": {
+        "dept": "PHY",
+        "deptID": "1"
+      },
+      "name": "Dr. Kamakshi K",
+      "designation": "Assistant Professor , Head of the Department",
+      "researchArea": "Photonics and Optoelectronic Devices",
+      "emailID": "kamakshi@iiitt.ac.in",
+      "src": "/faculty/Kamakshi1.jpeg",
+      "Incharge": "Academic and Research",
+      "Institute": "Ph.D. (IIT Roorkee) Post-doc. (University of Minho Portugal)",
+      "VidhwanLink": "https://vidwan.inflibnet.ac.in/profile/194482"
+    }
+  ],
   "Mathematics": [
     {
       "id": {
@@ -232,22 +248,7 @@
       "VidhwanLink": "https://iiitt.irins.org/profile/194477"
     }
   ],
-  "Physics": [
-    {
-      "id": {
-        "dept": "PHY",
-        "deptID": "1"
-      },
-      "name": "Dr. Kamakshi K",
-      "designation": "Assistant Professor , Head of the Department",
-      "researchArea": "Photonics and Optoelectronic Devices",
-      "emailID": "kamakshi@iiitt.ac.in",
-      "src": "/faculty/Kamakshi1.jpeg",
-      "Incharge": "Academic and Research",
-      "Institute": "Ph.D. (IIT Roorkee) Post-doc. (University of Minho Portugal)",
-      "VidhwanLink": "https://vidwan.inflibnet.ac.in/profile/194482"
-    }
-  ],
+
   "English": [
     {
       "id": {
