@@ -1,6 +1,12 @@
 {
     "data": [
         {
+            "title": "AICTE QIP-PG certificate Programme for Non-CSE Faculty Members (Machine Learning and Cyber Physical Systems)",
+            "description": "AICTE QIP-PG certificate Programme for Non-CSE Faculty Members (Machine Learning and Cyber Physical Systems)",
+            "link": "events/AICTE_PG_CSE_ML and CPS final flyer_2025.pdf",
+            "isNew": true
+        },
+        {
             "title": "Invitation of Institute Day Celebration 2025",
             "description": "Invitation of Institute Day Celebration 2025",
             "link": "events/Invitation of Institution Day 2025.pdf",
@@ -22,7 +28,7 @@
             "title": "AICTE QIP sponsored PG certificate course on “3D Printing and Additive Manufacturing” (16-28th December 2024) ",
             "description": "AICTE QIP sponsored PG certificate course on “3D Printing and Additive Manufacturing” (16-28th December 2024) ",
             "link": "events/AICTE_QIP_PhaseII_brochure.pdf",
-            "isNew": true
+            "isNew": false
         },
         {
             "title": "Industrial Lecture on VLSI",

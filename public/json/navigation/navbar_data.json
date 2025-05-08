@@ -69,7 +69,6 @@
         {
           "text": "Departments",
           "link": "/departments"
-
         },
         {
           "text": "Curriculum",
@@ -194,10 +193,18 @@
       "link": "/scholarship"
     },
     {
-      "text": "C2S Project",
+      "text": "Projects",
       "icon": "code",
-      "name": "C2S Project",
-      "link": "/c2sproject"
+      "submenu": [
+        {
+          "text": "C2S Project",
+          "link": "/c2sproject"
+        },
+        {
+          "text": "CMP Lab",
+          "link": "/cmp"
+        }
+      ]
     },
     {
       "text": "placements",
