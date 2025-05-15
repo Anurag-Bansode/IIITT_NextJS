@@ -1,20 +1,21 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import styles from "./ug.module.css";
+import { numberToWords } from "@/types/numbertoWords";
+import { validURL } from "@/types/validator";
 import {
-  Typography,
   Box,
+  List, ListItem,
+  ListItemText,
   Table,
   TableBody,
   TableCell,
   TableContainer,
   TableHead,
   TableRow,
-  Paper,
+  Typography
 } from "@mui/material";
-import { validURL } from "@/types/validator";
+import React, { useEffect, useState } from "react";
 import nextConfig from "../../../next.config";
-import { List, ListItem, ListItemIcon, ListItemText } from "@mui/material";
+import styles from "./ug.module.css";
 const AdmissionUG: React.FC = () => {
   const [admissionData, setAdmissionData] = useState<any>(null);
 
@@ -386,8 +387,5 @@ const AdmissionUG: React.FC = () => {
 
 export default AdmissionUG;
 
-const numberToWords = (num: number): string => {
-  const words = ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten"];
-  return words[num] || num.toString();
-};
+
 

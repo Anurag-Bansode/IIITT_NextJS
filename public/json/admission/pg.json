@@ -1,5 +1,9 @@
 {
-    "programs": [
+  "programs": [
+    "M. Tech. Computer Science and Engineering (2 years, Master of Technology)",
+    "M.Tech. VLSI Systems (2 Years, Master of Technology)"
+  ],
+  "programdetails": [
       {
         "id": "ccmt2025",
         "title": "CCMT 2025",
