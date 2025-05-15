@@ -25,6 +25,17 @@ const Admission_pg: React.FC = () => {
             <Grid container className={styles.container} style={{ marginTop: "2rem" }}>
                 <Grid size={1} />
                 <Grid size={10}>
+                    <Box mb={2} display="flex" justifyContent="center">
+                        <Typography
+                            variant="h4"
+                            sx={{ color: "#2e8b57", pl: { xs: 2, sm: 6 }, pr: { xs: 2, sm: 6 } }}
+                            className={styles.themeText}
+                        >
+
+
+                            <strong>P.G Admission</strong>
+                        </Typography>
+                    </Box>
                     <Typography
                         variant="h3"
                         component="h3"
@@ -37,7 +48,7 @@ const Admission_pg: React.FC = () => {
                     {admissionData.programs.map((program: any) => (
                         <Box key={program.id} >
                             <h3><strong>{program.title}</strong></h3>
-<hr></hr>
+                            <hr></hr>
                             {program.items.map((item: any, index: number) => (
                                 <p key={index}>
                                     <a
