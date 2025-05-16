@@ -38,7 +38,7 @@ const AdmissionUG: React.FC = () => {
           sx={{ color: "#2e8b57", pl: { xs: 2, sm: 6 }, pr: { xs: 2, sm: 6 } }}
           className={styles.themeText}
         >
-          <strong>B Tech Admission</strong>
+          <strong>B.Tech Admission 2025</strong>
         </Typography>
       </Box>
       <Box mb={2}>

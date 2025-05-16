@@ -143,7 +143,7 @@ const Home: React.FC = () => {
               ) : (
                 <PaperCard
                   title="News"
-                  items={data.news.slice(0, 5)}
+                  items={data.news.slice(0, 6)}
                   linkToOlder="/news"
                 />
               )}
@@ -167,7 +167,7 @@ const Home: React.FC = () => {
               ) : (
                 <PaperCard
                   title="Notices"
-                  items={data.notice.slice(0, 5)}
+                  items={data.notice.slice(0, 6)}
                   linkToOlder="/notices"
                 />
               )}
@@ -181,7 +181,7 @@ const Home: React.FC = () => {
             ) : (
               <PaperCard
                 title="Achievements"
-                items={data.achievements.slice(0, 5)}
+                items={data.achievements.slice(0, 6)}
                 linkToOlder="/achievements"
               />
             )}
