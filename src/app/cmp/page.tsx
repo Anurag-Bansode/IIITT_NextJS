@@ -9,36 +9,18 @@ import {
 } from "@mui/material";
 import { Construction } from "@mui/icons-material";
 import { useEffect } from "react";
+import LabPage from "@/components/LabComponent/LabComponent";
 
 const cmp = () => {
   useEffect(() => {
-    document.title = "C2S Project";
+    document.title = "CMP LAB";
     return () => {
       document.title = "IIIT Trichy";
     };
   }, []);
 
   return (
-    <Box
-      display="flex"
-      justifyContent="center"
-      alignItems="center"
-      minHeight="80vh"
-      sx={{
-
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        position: "relative",
-        p: 2,
-      }}
-    >
-          <Construction color="warning" sx={{ fontSize: 60, mb: 2 }} />
-          <Typography variant="h4" gutterBottom>
-            Page Under Development
-          </Typography>
-
-
-    </Box>
+    <LabPage labName="cmpl"/>
   );
 };
 

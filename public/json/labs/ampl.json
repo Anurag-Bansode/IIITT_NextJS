@@ -1,7 +1,7 @@
 {
     "data": {
       "name": "Advanced Manufacturing & Processing Lab",
-      "about": "This lab focuses on the development of next-gen manufacturing techniques.",
+      "about": "",
       "equipment": ["3D PRINTER (METAL FUSED FILAMENT FABRICATION SETUP)","BOX FURNACE (MAX TEMP. 1600 DEG C)","MELTING FURNACE","OPTICAL MICROSCOPE","DRILLING MACHINE","METAL CUTTING MACHINE"],
       "faculty_incharge": {
         "name": "Dr. VELMURUGAN C",
@@ -17,12 +17,12 @@
         {
           "name": "Mr. ARAVINDH RAJ B.R.",
           "designation": "PhD Scholar",
-          "src": ""
+          "src": "https://lh5.googleusercontent.com/MFr1PeojfLed0_svu4PU7G83pVEDfUT6UWx4vVaNmukeXOnAG6Se7TKtEXnyy1jU24zYjYEODYKSwONgeeRshL6s7ob3cyaDu388bsVJPVKJvNm01A4BKui_Ka2kFrmGgw=w1280"
         },
         {
           "name": "Mr. VIJAYA KUMAR P",
           "designation": "PhD Scholar",
-          "src": ""
+          "src": "https://lh5.googleusercontent.com/g0MumddpuoZq9AZxSoQd9cadsI4IfitZMfB6WqNHbO7wH27yPx_HdJY91yd2q4gNq-VoD_ji6F9U47RDfU8QY7J8sMuiSowyH7EYhqruhfbpifXLBU7NpwkGOEgpHYHRtQ=w1280"
         },
         {
           "name": "Mr. FRANKLIN",
@@ -32,10 +32,7 @@
       ],
       "research_areas": ["Additive Manufacturing","Smart Materials & Shape Memory Alloys","Energy Storage Materials & Devices"],
       "projects": [
-        {
-          "title": "Nano-structured Surface Coatings",
-          "description": "Improving wear resistance using laser-based nano coatings."
-        }
+
       ],
       "publications":{
         "2025": [

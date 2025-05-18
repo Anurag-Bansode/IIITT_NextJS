@@ -19,7 +19,7 @@ interface LabData {
   faculty_incharge: {
     name: string;
     designation: string;
-    src:string;
+    src: string;
   };
   phdStudents: {
     name: string;
@@ -95,36 +95,36 @@ const LabPage: React.FC<LabPageProps> = ({ labName }) => {
           {labData ? (
             <>
               <InfoSection title="About">
-                <Typography>{labData.about}</Typography>
+                {labData.about ? (
+                  <Typography>{labData.about}</Typography>
+                ) : (
+                  <EmptyNotice />
+                )}
               </InfoSection>
-
 
               <InfoSection title="Faculty In-Charge">
-                    <PersonCard
-                      name={labData.faculty_incharge.name}
-                      designation={labData.faculty_incharge.designation}
-                      src={labData.faculty_incharge.src}
-                      src_type="phd"
-                    />
-
+                <PersonCard
+                  name={labData.faculty_incharge.name}
+                  designation={labData.faculty_incharge.designation}
+                  src={labData.faculty_incharge.src}
+                  src_type="phd"
+                />
               </InfoSection>
-
 
               <InfoSection title="PhD Students">
-              <div className={styles.gridContainer}>
+                <div className={styles.gridContainer}>
                   {labData.phdStudents.map((member, index) => (
                     <div className={styles.gridItem} key={index}>
-                    <PersonCard
-                      key={index}
-                      name={member.name}
-                      src={member.src}
-                      src_type="phd"
-                    />
+                      <PersonCard
+                        key={index}
+                        name={member.name}
+                        src={member.src}
+                        src_type="phd"
+                      />
                     </div>
                   ))}
-              </div>
+                </div>
               </InfoSection>
-
 
               <InfoSection title="Available Equipment">
                 {labData.equipment.length ? (
