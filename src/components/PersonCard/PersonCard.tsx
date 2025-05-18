@@ -3,9 +3,10 @@ import Image from "next/image";
 import Link from "next/link";
 import MailIcon from "@mui/icons-material/Mail";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
-import OpenInNewIcon from "@mui/icons-material/OpenInNew"; // Icon for external link
-import styles from "./PersonCard.module.css"; // Import CSS Module
+import OpenInNewIcon from "@mui/icons-material/OpenInNew";
+import styles from "./PersonCard.module.css";
 import nextConfig from "../../../next.config";
+import LanguageIcon from "@mui/icons-material/Language";
 import SchoolIcon from "@mui/icons-material/School";
 import { validURL } from "@/types/validator";
 
@@ -23,6 +24,7 @@ interface PersonCardProps {
   VidhwanLink?: string;
   Institute?: string;
   Room?: string;
+  PersonalPage?:string;
 }
 
 const PersonCard: React.FC<PersonCardProps> = ({
@@ -38,6 +40,7 @@ const PersonCard: React.FC<PersonCardProps> = ({
   VidhwanLink,
   Institute,
   Room,
+  PersonalPage,
 }) => {
   return (
     <div className={styles.card}>
@@ -125,6 +128,19 @@ const PersonCard: React.FC<PersonCardProps> = ({
           </div>
         )}
       </div>
+      {PersonalPage && PersonalPage.trim() && (
+      <div className={styles.infoDiv}>
+        <LanguageIcon className={styles.infoIcon} />
+        <a
+          href={PersonalPage}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.info}
+        >
+          More
+        </a>
+      </div>
+    )}
     </div>
   );
 };

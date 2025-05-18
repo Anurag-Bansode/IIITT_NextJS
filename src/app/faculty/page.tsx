@@ -21,6 +21,7 @@ interface FacultyMember {
   Incharge?: string;
   VidhwanLink?: string;
   Institute?: string;
+  PersonalPage?:string;
 }
 
 const Faculty = () => {
@@ -78,6 +79,7 @@ const Faculty = () => {
                         Incharge={member.Incharge}
                         VidhwanLink={member.VidhwanLink}
                         Institute={member.Institute}
+                        PersonalPage={member.PersonalPage}
                       />
                     </div>
                   ))}
