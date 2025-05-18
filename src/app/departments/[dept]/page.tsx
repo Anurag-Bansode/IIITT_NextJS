@@ -47,7 +47,7 @@ const Cse: React.FC = () => {
   const [cseData, setCseData] = useState<Department | null>(null);
 
   useEffect(() => {
-    document.title = "CSE";
+    document.title = `${dept}`;
     return () => {
       document.title = "IIIT Trichy";
     };
@@ -56,7 +56,7 @@ const Cse: React.FC = () => {
   useEffect(() => {
     fetch(`/json/departments/${dept}.json`)
       .then((response) => {
-        if (!response.ok) throw new Error("Failed to fetch CSE data");
+        if (!response.ok) throw new Error(`Failed to fetch ${dept} data`);
         return response.json();
       })
       .then((data) => setCseData(data.data))

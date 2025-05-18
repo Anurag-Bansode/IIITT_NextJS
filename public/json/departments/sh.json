@@ -5,7 +5,7 @@
     "message_from_hod": {
       "name": "Dr. Kamakshi K",
       "designation": "Assistant Professor , Head of the Department",
-      "message": "Welcome to the Department of Electronics and Communication Engineering. Our department strives to empower students with the knowledge, skills, and confidence to excel in a dynamic and fast-evolving tech world. We promote research and industry partnerships to ensure our students are future-ready."
+      "message": "Welcome to the Department of Science and Humanities. Our department strives to empower students with the knowledge, skills, and confidence to excel in a dynamic and fast-evolving tech world. We promote research and industry partnerships to ensure our students are future-ready."
     },
     "faculty_members": [
       {
@@ -28,14 +28,17 @@
       "English Language Teaching"
     ],
     "research_scholars": [
-
+      {
+        "name": "Angitha S",
+        "topic": ""
+      },
+      {
+        "name": "Bhakyalatha M",
+        "topic": ""
+      }
     ],
-    "announcements": [
-
-    ],
-    "latest_news": [
-
-    ],
+    "announcements": [],
+    "latest_news": [],
     "contact": {
       "department": "Department of Science and Humanities",
       "college": "Indian Institute of Information Technology",

@@ -19,18 +19,28 @@
       "Smart Materials",
       "Shape Memory Alloys",
       "Energy Storage Materials and Device",
-      "Battery- materials and performance.",
-      "Outsourcing Agency"
+      "Battery- materials and performance."
     ],
     "research_scholars": [
-
+      {
+        "name": "Mr AKILAN I",
+        "topic": ""
+      },
+      {
+        "name": "Mr. ARAVINDH RAJ B.R.",
+        "topic":""
+      },
+      {
+        "name": "Mr. VIJAYA KUMAR P",
+        "topic": ""
+      },
+      {
+        "name": "Mr. FRANKLIN",
+        "topic": ""
+      }
     ],
-    "announcements": [
-
-    ],
-    "latest_news": [
-
-    ],
+    "announcements": [],
+    "latest_news": [],
     "contact": {
       "department": "Department of Mechanical Engineering",
       "college": "Indian Institute of Information Technology",
