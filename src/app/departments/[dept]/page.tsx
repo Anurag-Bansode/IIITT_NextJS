@@ -195,19 +195,6 @@ const Cse: React.FC = () => {
 
               </InfoSection>
 
-              {/* Research Areas */}
-              <InfoSection title="Research Areas">
-                {Array.isArray(cseData.research_areas) &&
-                  cseData.research_areas.length > 0 ? (
-                  cseData.research_areas.map((area, i) => (
-                    <Box key={i} mb={1.5}>
-                      <Typography>{area}</Typography>
-                    </Box>
-                  ))
-                ) : (
-                  <EmptyNotice />
-                )}
-              </InfoSection>
 
               {/* Latest News */}
               <InfoSection title="Latest News">

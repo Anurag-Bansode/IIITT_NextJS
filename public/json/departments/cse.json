@@ -37,7 +37,7 @@
         "designation": "Assistant Professor"
       }
     ],
-    "faculty_profiles_link": "View Full Faculty Profiles",
+    "faculty_profiles_link": "/faculty",
     "research_areas": [
       "Artificial Intelligence and Machine Learning",
       "Cybersecurity and Cryptography",

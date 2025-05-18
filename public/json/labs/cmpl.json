@@ -1,0 +1,29 @@
+{
+    "data": {
+
+        "name": "Experimental Condensed Matter Physics Lab",
+        "about": "Welcome to our Experimental Condensed Matter Physics Lab website, where we strive to understand the fundamental properties of matter and explore the fascinating phenomena that occur at the nanoscale. Our research focuses on studying the physical properties of condensed matter, including the behavior of electrons, phonons, and photons, at the quantum level. At our lab, we employ various experimental techniques and tools, such as thin film technology, spectroscopy, and microscopy, to investigate the properties of materials and understand their underlying physics. We work with a variety of materials, including metals, semiconductors, insulators, and magnetic materials, to investigate their electronic, magnetic, and optical properties. Our research is motivated by the desire to address some of the most pressing challenges facing modern society. For example, we study the properties of materials that could be used to develop faster and more efficient electronic devices, or to develop materials for sustainable energy generation and storage. Our research is also relevant for the development of new medical technologies, such as drug delivery systems and biosensors. At our lab, we place a strong emphasis on collaboration and teamwork. We work closely with colleagues from other disciplines, such as chemistry, materials science, and engineering, to tackle complex research questions and develop innovative solutions. We also collaborate with researchers from other institutions, both nationally and internationally, to broaden our research perspectives and bring new insights to our work. In addition to our research activities, we are committed to training the next generation of experimental physicists. We offer opportunities for undergraduate and graduate students to gain hands-on experience in our lab, working alongside our researchers to conduct experiments and analyze data. We also provide training and mentorship to postdoctoral researchers, who contribute their expertise and ideas to our research projects. Our lab is supported by a range of funding sources, including grants from the SERB and the DST. We are grateful for this support, which enables us to carry out our research and contribute to the advancement of our field. Thank you for visiting our Experimental Condensed Matter Physics Lab website. We hope you will find the information here informative and engaging, and we invite you to learn more about our research, our team, and our contributions to the field of experimental physics.",
+       "equipment": ["3D Printer", "CNC Milling Machine", "Laser Cutter"],
+      "faculty_incharge": {
+        "name": "Dr. Anil Kumar",
+        "designation": "Associate Professor"
+      },
+      "research_areas": ["Additive Manufacturing","Smart Materials & Shape Memory Alloys","Energy Storage Materials & Devices"],
+      "projects": [
+        {
+          "title": "Nano-structured Surface Coatings",
+          "description": "Improving wear resistance using laser-based nano coatings."
+        }
+      ],
+      "publications": [
+        "Doe et al. (2022). 'AI in Manufacturing'. Int. Journal of Robotics.",
+        "Kumar et al. (2023). 'Hybrid Machining Techniques'."
+      ],
+      "contact": {
+        "location": "Block A, IIIT Trichy",
+        "email": "anil.kumar@iiitt.ac.in",
+        "phone": "+91-9876543210"
+      }
+    }
+  }
+  

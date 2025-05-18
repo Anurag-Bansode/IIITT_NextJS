@@ -7,20 +7,22 @@ import OpenInNewIcon from "@mui/icons-material/OpenInNew"; // Icon for external 
 import styles from "./PersonCard.module.css"; // Import CSS Module
 import nextConfig from "../../../next.config";
 import SchoolIcon from "@mui/icons-material/School";
+import { validURL } from "@/types/validator";
+
 
 interface PersonCardProps {
   name: string;
-  emailID: string;
+  emailID?: string;
   src: string;
-  src_type: "faculty" | "student" | "staff"|"Warden";
-  designation: string;
+  src_type: "faculty" | "student" | "staff" | "Warden" | "phd";
+  designation?: string;
   researchArea?: string;
   phone?: string;
   dept?: string;
   Incharge?: string;
   VidhwanLink?: string;
   Institute?: string;
-  Room?:string;
+  Room?: string;
 }
 
 const PersonCard: React.FC<PersonCardProps> = ({
@@ -49,25 +51,26 @@ const PersonCard: React.FC<PersonCardProps> = ({
 
         <div className={styles.circleImg}>
           <Image
-            src={`${nextConfig.env?.IMAGE}${src}`}
+            src={validURL(src) ? src : `${nextConfig.env?.IMAGE}${src}`}
             alt={name}
             width={115}
             height={115}
             className={styles.profileImage}
             priority
           />
+
         </div>
       </div>
 
       <div className={styles.bottom}>
-      {Room && Room.trim() &&src_type==="Warden" && (
+        {Room && Room.trim() && src_type === "Warden" && (
           <p className={styles.researchArea}>
-           <strong>Room No: </strong>{Room}
+            <strong>Room No: </strong>{Room}
           </p>
         )}
-      {dept && dept.trim() &&src_type==="Warden" && (
+        {dept && dept.trim() && src_type === "Warden" && (
           <p className={styles.researchArea}>
-           {dept}
+            {dept}
           </p>
         )}
 
