@@ -7,7 +7,7 @@ interface ClubCardProps {
     motto: string;
     facultyIncharge: string;
     coordinator: { name: string }[];
-    logo:string;
+    logo?:string;
   };
 }
 
